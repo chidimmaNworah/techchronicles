@@ -4,4 +4,4 @@ export const getError = (error) => {
     : error.message;
 };
 
-export const API_URL = 'https://puffizzybackend.herokuapp.com';
+export const API_URL = 'https://nailsrepublicserver.herokuapp.com';

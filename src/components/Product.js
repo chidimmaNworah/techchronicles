@@ -31,16 +31,16 @@ function Product(props) {
   };
 
   return (
-    <Card>
+    <div className="product-box">
       <Link to={`/product/${product.slug}`}>
         <img src={product.image} alt={product.name} className="card-img-top" />
       </Link>
       <Card.Body>
         <Link to={`/product/${product.slug}`}>
-          <h6>{product.name}</h6>
+          <h6 className="product-component-name">{product.name}</h6>
         </Link>
         <Rating rating={product.rating} numReviews={product.numReviews} />
-        <Card.Text>${product.price}</Card.Text>
+        <Card.Text>₦{product.price}</Card.Text>
         {product.countInStock === 0 ? (
           <Button variant="light" disabled>
             Out of stock
@@ -49,7 +49,7 @@ function Product(props) {
           <Button onClick={() => addToCartHandler(product)}>Add to Cart</Button>
         )}
       </Card.Body>
-    </Card>
+    </div>
   );
 }
 

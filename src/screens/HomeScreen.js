@@ -1,144 +1,106 @@
-import { useEffect, useReducer } from 'react';
-import axios from 'axios';
-import logger from 'use-reducer-logger';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Product from '../components/Product';
+import React from 'react';
+import 'swiper/css';
+import 'swiper/css/pagination';
 import { Helmet } from 'react-helmet-async';
-import LoadingBox from '../components/LoadingBox';
-import MessageBox from '../components/MessageBox';
-import { useLocation } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
-import { getError, API_URL } from '../utils';
-import CarouselSlide from '../components/CarouselSlide.js';
-
-axios.defaults.withCredentials = true;
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case 'SEARCH_PAGE_REQUEST':
-      return { ...state, loadingSearchPage: true };
-    case 'SEARCH_PAGE_SUCCESS':
-      return {
-        ...state,
-        searchedProducts: action.payload.products,
-        page: action.payload.page,
-        pages: action.payload.pages,
-        countProducts: action.payload.countProducts,
-        loadingSearchPage: false,
-      };
-    case 'SEARCH_PAGE_FAIL':
-      return {
-        ...state,
-        loadingSearchPage: false,
-        searchPageError: action.payload,
-      };
-
-    default:
-      return state;
-  }
-};
+import { Button, Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import {
+  BestSelling,
+  CarouselSlide,
+  CategorySlide,
+  MaylikeProducts,
+  NewProducts,
+  TrendingProducts,
+} from '../components';
 
 function HomeScreen() {
-  const { search } = useLocation();
-  const sp = new URLSearchParams(search);
-  const query = sp.get('query') || '';
-  const page = sp.get('page') || 1;
-
-  const [
-    { loadingSearchPage, searchPageError, pages, searchedProducts },
-    dispatch,
-  ] = useReducer(logger(reducer), {
-    loadingSearchPage: true,
-    searchPageError: '',
-  });
-  // const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const { data } = await axios.get(
-          `${API_URL}/api/products/changepage?page=${page}&query=${query}`
-        );
-        dispatch({ type: 'SEARCH_PAGE_SUCCESS', payload: data });
-      } catch (err) {
-        dispatch({
-          type: 'SEARCH_PAGE_FAIL',
-          payload: getError(err),
-        });
-      }
-    };
-    fetchData();
-  }, [page, searchPageError, query]);
-
-  const getFilterUrl = (filter, skipPathname) => {
-    const filterPage = filter.page || page;
-    const filterQuery = filter.query || query;
-    return `${
-      skipPathname ? '' : '/changepage?'
-    }&query=${filterQuery}&page=${filterPage}`;
-  };
-
   return (
     <>
       <Helmet>
-        <title>Puffizzy Smoke Accessories Online Store</title>
+        <title>Nails Republic Online Store</title>
       </Helmet>
-      <h2>
-        <i className="fas fa-magic"></i> Top Products
-      </h2>
-      <CarouselSlide />
-      <h2>
-        <i className="fab fa-gitter"> </i> Featured Products
-      </h2>
-
-      <div className="products">
-        {loadingSearchPage ? (
-          <LoadingBox />
-        ) : searchPageError ? (
-          <MessageBox variant="danger">{searchPageError}</MessageBox>
-        ) : (
-          <>
-            {searchedProducts?.length === 0 && (
-              <MessageBox>No Product Found</MessageBox>
-            )}
-
-            <Row>
-              {searchedProducts?.map((product) => (
-                <Col
-                  key={product.slug}
-                  sm={6}
-                  md={4}
-                  lg={3}
-                  className="mb-3 featured-cards"
-                >
-                  <Product product={product}></Product>
-                </Col>
-              ))}
-              <div className="mt-4">
-                {[...Array(pages).keys()].map((x) => (
-                  <LinkContainer
-                    key={x + 1}
-                    className="mx-1"
-                    to={{
-                      pathname: '/changepage',
-                      search: getFilterUrl({ page: x + 1 }, true),
-                    }}
-                  >
-                    <Button
-                      className={Number(page) === x + 1 ? 'text-bold' : ''}
-                      variant="light"
-                    >
-                      {x + 1}
-                    </Button>
-                  </LinkContainer>
-                ))}
-              </div>
-            </Row>
-          </>
-        )}
+      <div className="header-container">
+        <CarouselSlide />
       </div>
+
+      <Container>
+        <Link to="/allproducts">
+          <div className="text-center">
+            <h2 className="homescreen-heading"> Top Categories</h2>
+          </div>
+        </Link>
+        <div>
+          <CategorySlide />
+        </div>
+
+        <NewProducts />
+      </Container>
+
+      <div className="deal-of-the-day">
+        <Container>
+          <h1>Deal Of The Day</h1>
+          <h4>Save Up to 40% Off!</h4>
+          <p>
+            Save up to 40% on all Nails Republic Accessories. Shop all
+            Categories of our nailart products for ass low as ₦400. Buy products
+            worth ₦15,000.00 and save up to 80% of service and delivery fees. No
+            more hassle of nail fashion, we are here for you!!!
+          </p>
+          <Link to="/discounts">
+            <Button className="other-button">Shop Now</Button>
+          </Link>
+        </Container>
+      </div>
+
+      <Container>
+        <TrendingProducts />
+
+        <div className="placements">
+          <div className="placement1">
+            <div>
+              <h4 className="placement-text">
+                Save up to 23% on Nail Accessories
+              </h4>
+              <Link to="/discounts">
+                <Button className="">Shop Now</Button>
+              </Link>
+            </div>
+          </div>
+          <div className="placement2">
+            <div className="placement2-inner">
+              <h4 className="placement-text">New season Nail art sales</h4>
+              <Link to="/nailarts">
+                <Button className="">Shop Now</Button>
+              </Link>
+            </div>
+            <div className="placement2-inner2">
+              <div className="div-parts">
+                <h5 className="placement-text">
+                  The best Nail Accessories Combo Online
+                </h5>
+                <Link to="/combos">
+                  <Button className="">Shop Now</Button>
+                </Link>
+                <div className="combo-img"></div>
+              </div>
+              <div className="div-parts">
+                <h5 className="placement-text">
+                  Glow up your nails with the perfect treatment
+                </h5>
+                <Link
+                  to={{ pathname: '/search', search: `category='treatment'` }}
+                >
+                  <Button className="">Shop Now</Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <BestSelling />
+      </Container>
+
+      <MaylikeProducts />
     </>
   );
 }

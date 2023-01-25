@@ -10,7 +10,7 @@ import {
   Button,
 } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useReducer, useState } from 'react';
 import { Store } from './Store.js';
 import {
   HomeScreen,
@@ -34,12 +34,61 @@ import {
   SignupScreen,
   ContactScreen,
   AboutScreen,
+  AllProducts,
+  DiscountProductScreen,
+  DiscountListScreen,
+  DiscountEditScreen,
+  NailartScreen,
+  DiscountScreen,
+  NailartProductScreen,
+  NailartListScreen,
+  NailartEditScreen,
+  ToolsProductScreen,
+  ToolsScreen,
+  ToolsListScreen,
+  ToolsEditScreen,
+  ComboProductScreen,
+  ComboScreen,
+  ComboListScreen,
+  ComboEditScreen,
 } from './screens';
 import { SearchBox, ProtectedRoute, AdminRoute } from './components';
 import { getError, API_URL } from './utils.js';
 import axios from 'axios';
 
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'CREATE_SUCCESS':
+      return { ...state, loading: false };
+    case 'CREATE_FAIL':
+      return { ...state, loadingCreateReview: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+
 function App() {
+  const [dispatch] = useReducer(reducer, {
+    loading: true,
+    error: '',
+  });
+
+  const [email, setEmail] = useState('');
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    try {
+      const { data } = await axios.post(`${API_URL}/api/users/message`, {
+        email,
+      });
+      dispatch({ type: 'CREATE_SUCCESS', payload: data });
+      toast.success('You have been successfully added!');
+    } catch (err) {
+      toast.error(getError(err));
+      dispatch({ type: 'CREATE_FAIL' });
+    }
+  };
+
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { fullBox, cart, userInfo } = state;
 
@@ -81,16 +130,12 @@ function App() {
       >
         <ToastContainer position="bottom-center" limit={1} />
         <header>
-          <Navbar bg="light" variant="light" expand="lg">
+          <Navbar className="nails-nav" expand="lg">
             <Container>
-              <Button
-                variant="dark"
-                onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
-              >
-                <i className="fas fa-bars"></i>
-              </Button>
               <LinkContainer to="/">
-                <Navbar.Brand>PUFFIZZY</Navbar.Brand>
+                <Navbar.Brand>
+                  <img src="/web_logo_name.png" alt="logo name" width={110} />
+                </Navbar.Brand>
               </LinkContainer>
               <Navbar.Toggle
                 aria-controls="basic-navbar-nav"
@@ -102,10 +147,16 @@ function App() {
                 <SearchBox />
                 <Nav className="me-auto w-100 justify-content-end">
                   <Link to="/search" className="nav-link">
-                    Filter
+                    All Categories
                   </Link>
-                  <Link to="/cart" className="nav-link">
-                    Cart
+                  <Link to="/allproducts" className="nav-link">
+                    Products
+                  </Link>
+                  <Link to="/cart" className="nav-link ">
+                    <span className="cart-icon">
+                      <i className="fas fa-weight-hanging"></i>
+                    </span>
+
                     {cart.cartItems.length > 0 && (
                       <Badge pill bg="danger">
                         {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
@@ -142,6 +193,18 @@ function App() {
                       <LinkContainer to="/admin/products">
                         <NavDropdown.Item>Products</NavDropdown.Item>
                       </LinkContainer>
+                      <LinkContainer to="/admin/discounts">
+                        <NavDropdown.Item>Discounts</NavDropdown.Item>
+                      </LinkContainer>
+                      <LinkContainer to="/admin/nailarts">
+                        <NavDropdown.Item>Nail Arts</NavDropdown.Item>
+                      </LinkContainer>
+                      <LinkContainer to="/admin/tools">
+                        <NavDropdown.Item>Nail Tools</NavDropdown.Item>
+                      </LinkContainer>
+                      <LinkContainer to="/admin/combos">
+                        <NavDropdown.Item>Combo</NavDropdown.Item>
+                      </LinkContainer>
                       <LinkContainer to="/admin/orders">
                         <NavDropdown.Item>Orders</NavDropdown.Item>
                       </LinkContainer>
@@ -156,15 +219,6 @@ function App() {
               </Navbar.Collapse>
             </Container>
           </Navbar>
-          <div className="second-nav bg-dark">
-            <div className="container">
-              <h3 className="text-white">
-                THE BEST ONLINE{' '}
-                <span className="second-nav-text-span">SMOKE ACCESSORIES</span>{' '}
-                STORE
-              </h3>
-            </div>
-          </div>
         </header>
         <div
           className={
@@ -190,7 +244,7 @@ function App() {
           </Nav>
         </div>
         <main>
-          <Container className="mt-3">
+          <div className="">
             <Routes>
               <Route path="/product/:slug" element={<ProductScreen />} />
               <Route path="/cart" element={<CartScreen />} />
@@ -290,35 +344,232 @@ function App() {
                   </AdminRoute>
                 }
               />
+
+              {/* nailArts */}
+              <Route path="/nailarts" element={<NailartProductScreen />} />
+              <Route path="/nailart/:slug" element={<NailartScreen />} />
+              <Route
+                path="/nailarts/changepage"
+                element={<NailartProductScreen />}
+              />
+              <Route
+                path="/admin/nailarts"
+                element={
+                  <AdminRoute>
+                    <NailartListScreen />
+                  </AdminRoute>
+                }
+              />
+              <Route
+                path="/admin/nailart/:id"
+                element={
+                  <AdminRoute>
+                    <NailartEditScreen />
+                  </AdminRoute>
+                }
+              />
+
+              {/* designs and tools */}
+              <Route path="/tools" element={<ToolsProductScreen />} />
+              <Route path="/tool/:slug" element={<ToolsScreen />} />
+              <Route
+                path="/tools/changepage"
+                element={<ToolsProductScreen />}
+              />
+              <Route
+                path="/admin/tools"
+                element={
+                  <AdminRoute>
+                    <ToolsListScreen />
+                  </AdminRoute>
+                }
+              />
+              <Route
+                path="/admin/tool/:id"
+                element={
+                  <AdminRoute>
+                    <ToolsEditScreen />
+                  </AdminRoute>
+                }
+              />
+
+              {/* Combos */}
+              <Route path="/combos" element={<ComboProductScreen />} />
+              <Route path="/combo/:slug" element={<ComboScreen />} />
+              <Route
+                path="/combos/changepage"
+                element={<ComboProductScreen />}
+              />
+              <Route
+                path="/admin/combos"
+                element={
+                  <AdminRoute>
+                    <ComboListScreen />
+                  </AdminRoute>
+                }
+              />
+              <Route
+                path="/admin/combo/:id"
+                element={
+                  <AdminRoute>
+                    <ComboEditScreen />
+                  </AdminRoute>
+                }
+              />
+
+              {/* discounts */}
+              <Route path="/discount/:slug" element={<DiscountScreen />} />
+              <Route
+                path="/discounts/changepage"
+                element={<DiscountProductScreen />}
+              />
+              <Route path="/discounts" element={<DiscountProductScreen />} />
+              <Route
+                path="/admin/discounts"
+                element={
+                  <AdminRoute>
+                    <DiscountListScreen />
+                  </AdminRoute>
+                }
+              />
+              <Route
+                path="/admin/discount/:id"
+                element={
+                  <AdminRoute>
+                    <DiscountEditScreen />
+                  </AdminRoute>
+                }
+              />
+
+              <Route path="/allproducts/changepage" element={<AllProducts />} />
+              <Route path="/allproducts" element={<AllProducts />} />
               <Route path="/changepage" element={<HomeScreen />} />
               <Route path="/" element={<HomeScreen />} />
             </Routes>
-          </Container>
+          </div>
         </main>
         <footer>
           <div className="footer-container">
-            <img src="/puffizzy_logo_name.png" alt="logo" width={50} />
-            <p className="icons">
-              <a href="/">
-                <i className="fab fa-facebook"></i>
-              </a>
-              <a href="/">
-                <i className="fab fa-tiktok"></i>
-              </a>
-              <a
-                href="https://www.instagram.com/puffizzy_/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <i className="fab fa-instagram"></i>
-              </a>
-            </p>
-            <p className="links">
-              <Link to="/about">About</Link>
-              <Link to="/contact">Help Center</Link>
-              <Link to="/contact">Contact Us</Link>
-            </p>
-            <p>2022 Puffizzy Smoke Accessories All rights reserved</p>
+            <Container className="footer-support">
+              <div className="footer-support1">
+                <i className="fas fa-money-check" />
+                <div>
+                  <h5> MONEY BACK GUARANTEE</h5>
+                  <p>Up to 100% money back guarantee</p>
+                </div>
+              </div>
+              <div className="footer-support1">
+                <i className="fas fa-user-shield" />
+                <div>
+                  <h5>24/7 CUSTOMER SUPPORT</h5>
+                  <p>Our service is always availble to you</p>
+                </div>
+              </div>
+              <div className="footer-support1">
+                <i className="fas fa-shipping-fast" />
+                <div>
+                  <h5>FAST AND LOW COST DELIVERY</h5>
+                  <p>We can find you whenever you are ready!</p>
+                </div>
+              </div>
+            </Container>
+
+            <div className="newsletter">
+              <h5>JOIN OUR NEWSLETTER</h5>
+              <p>
+                {' '}
+                Be the first to get the latest news, promotions, and much more
+              </p>
+              <form id="newsletter-form" onSubmit={submitHandler}>
+                <input
+                  type="email"
+                  name="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Your email address"
+                  className="contact-main-2"
+                />
+                <Button type="submit">JOIN NOW</Button>
+              </form>
+            </div>
+            <Container>
+              <div className="footer-support2">
+                <div className="footer-support3">
+                  <div className="footer-logo1">
+                    <Link to="/">
+                      <img src="/web_logo_name.png" alt="logo" width={100} />
+                    </Link>
+                  </div>
+
+                  <p>The best online nail Accessories store in Nigeria</p>
+                </div>
+                <div className="footer-support3">
+                  <h5>CONTACT INFO</h5>
+                  <h6>Address: </h6>
+                  <p>Central Business District, Abuja, Nigeria 900211</p>
+                  <h6>Email: </h6>
+                  <p>info@nailsrepublic.com</p>
+                  <h6>Phone: </h6>
+                  <p>+234 906 310 6069</p>
+                </div>
+                <div className="footer-support3">
+                  <h5>QUICK LINKS</h5>
+                  <Link to="/about">
+                    <h6>About</h6>
+                  </Link>
+                  <Link to="/contact">
+                    <h6>Contact Us</h6>
+                  </Link>
+                  <Link to="/">
+                    <h6>Privacy Policy</h6>
+                  </Link>
+                  <Link to="/">
+                    <h6>Terms & Condition</h6>
+                  </Link>
+                  <Link to="/">
+                    <h6>Return Policy</h6>
+                  </Link>
+                </div>
+                <div className="footer-support3">
+                  <h5>MY ACCOUNT</h5>
+                  <Link to="/signin">
+                    <h6>Sign in</h6>
+                  </Link>
+                  <Link to="/profile">
+                    <h6>Profile</h6>
+                  </Link>
+                  <Link to="/orderhistory">
+                    <h6>Order History</h6>
+                  </Link>
+                </div>
+              </div>
+
+              <div className="below-footer">
+                <div>© 2022 - NAILS REPUBLIC™</div>
+
+                <div className="icons">
+                  <a href="/">
+                    <i className="fab fa-facebook"></i>
+                  </a>
+                  <a href="/">
+                    <i className="fab fa-tiktok"></i>
+                  </a>
+                  <a
+                    href="https://www.instagram.com/puffizzy_/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <i className="fab fa-instagram"></i>
+                  </a>
+                </div>
+
+                <div className="d-flex gap-4 display-6">
+                  <i className="fab fa-cc-paypal" />
+                  <i className="fab fa-cc-mastercard" />
+                  <i className="fab fa-cc-visa" />
+                  <i className="fab fa-cc-stripe" />
+                </div>
+              </div>
+            </Container>
           </div>
         </footer>
       </div>

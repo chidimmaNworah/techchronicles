@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import { Helmet } from 'react-helmet-async';
+import { MaylikeProducts } from '../components';
 
 export default function about() {
   return (
@@ -8,66 +9,26 @@ export default function about() {
       <Helmet>
         <title>About Us</title>
       </Helmet>
-      <p className="text-gray-700 text-lg mb-8">
-        We started PUFFIZZY.com with a singular mission, to supply quality,
-        classic, latest and healthy smoking accessories to aid good smoking
-        habits around the world.
-        <br />
-        <br />
-        In order to saving time and money for those who wish to become local
-        distributors to end users, not only do we distinguish ouselves in the
-        wholesale market with great products and lowest prices, we also have a
-        reliable production and packaging chain of various smoking accessories
-        which takes between 5 - 15 days only.
-        <br />
-        <br />
-        Having the best interest of consumers at heart. We have taken the time
-        to put together a very structured procedure such as, ensuring quality of
-        products, fast delivery time, ready to respond customer service
-        officers, money back guarantee routine and so much more to ensure the
-        happiness of our clients.
-        <br />
-        <br />
-        Our products can be found not only online, but in various retail shops.
-        PUFFIZZY.com has proudly partnered and collaborated with structured
-        co-operate entities to create exclusive collections with nationally
-        recognized retailers, department stores and even end users.
-      </p>
-      <div>
-        <h2 className="text-4xl font-bold text-gray-700 mb-4 text-center">
-          SHOP HAPPILY!!!
-        </h2>
-        <p className="text-xl font-semibold text-gray-700 mb-4 text-center">
-          We hope you love here at PUFFIZZY.com as much as we enjoy building it
-          to make it better for everyone
-        </p>
+      <div className="about ">
+        <div className="about1">
+          <h6>MANICURES AND PEDICURES</h6>
+          <h4>See Our Arts in action</h4>
+          <p className="about-text">
+            To understand the care we put into each piece, you have to see it in
+            details.
+            <br />
+            We have a painstaking attention to detail, quality and construction
+            because we see our pieces as a testament to the significance of this
+            time. It's the anti "old nails" - it's the uniform for those who
+            share our belief that the details and neatness of the nail is the
+            most is the most important.
+          </p>
+        </div>
+        <div className="about2">
+          <img src="/images/4.PNG" alt="about" />
+        </div>
       </div>
-      <div className="d-flex gap-4 justify-content-center gap-8">
-        <p>
-          <span className="flex">
-            <i className="fas fa-check-double" />
-            Customer First
-          </span>
-        </p>
-        <p>
-          <span className="flex">
-            <i className="fas fa-check-double" />
-            Money Back Guarantee
-          </span>
-        </p>
-        <p>
-          <span className="flex">
-            <i className="fas fa-check-double" />
-            Open 24/7
-          </span>
-        </p>
-        <p>
-          <span className="flex">
-            <i className="fas fa-check-double" />
-            Real people customer service
-          </span>
-        </p>
-      </div>
+      <MaylikeProducts />
     </Container>
   );
 }

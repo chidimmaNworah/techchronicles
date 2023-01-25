@@ -1,135 +1,82 @@
-import React, { useContext, useEffect, useReducer } from 'react';
-import { Store } from '../Store';
-import LoadingBox from './LoadingBox';
-import MessageBox from './MessageBox';
+import React from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
-import { Badge, Button, Col, ListGroup, Row } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
-import logger from 'use-reducer-logger';
-import { API_URL } from '../utils';
-axios.defaults.withCredentials = true;
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case 'FETCH_REQUEST':
-      return { ...state, loading: true };
-    case 'FETCH_SUCCESS':
-      return {
-        ...state,
-        products: action.payload,
-        loading: false,
-      };
-    case 'FETCH_FAIL':
-      return { ...state, loading: false, error: action.payload };
-    default:
-      return state;
-  }
-};
 
 export default function CarouselSlide() {
-  const [{ loading, error, products }, dispatch] = useReducer(logger(reducer), {
-    products: [],
-    loading: true,
-    error: '',
-  });
-  // const [products, setProducts] = useState([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      dispatch({ type: 'FETCH_REQUEST' });
-      try {
-        const { data } = await axios.get(`${API_URL}/api/products`);
-        dispatch({ type: 'FETCH_SUCCESS', payload: data });
-      } catch (err) {
-        dispatch({ type: 'FETCH_FAIL', payload: err.message });
-      }
-      // setProducts(result.data);
-    };
-    fetchData();
-  }, []);
-
-  const { state, dispatch: ctxDispatch } = useContext(Store);
-  const {
-    cart: { cartItems },
-  } = state;
-
-  const addToCartHandler = async (item) => {
-    const existItem = cartItems.find((x) => x._id === products._id);
-    const quantity = existItem ? existItem.quantity + 1 : 1;
-    const { data } = await axios.get(`${API_URL}/api/products/${item._id}`);
-    if (data.countInStock < quantity) {
-      window.alert('Sorry. Product is out of stock');
-      return;
-    }
-    ctxDispatch({
-      type: 'CART_ADD_ITEM',
-      payload: { ...item, quantity },
-    });
+  const data = {
+    products: [
+      {
+        name: 'Nail Arts',
+        category: 'Classy Nail designs',
+        image: '/images/1.PNG',
+        description:
+          'Ready to deliver beautiful ready to use nail art designs right to your door step. Shop with ease and enjoy all our amazing offers in return!',
+        buttonLink: '/nailart',
+      },
+      {
+        name: ' ballerina nails',
+        category: 'Tools for Nail art',
+        image: '/images/2.PNG',
+        description:
+          'The very best online nail Accessories store for business owners and individuals to shop long lasting, quality and affordable tools for manicure and peducure. Shop Luxury!',
+        buttonLink: '/tools',
+      },
+      {
+        name: 'Butterfly long ballerina nails',
+        category: 'Top Pick Combos',
+        image: '/images/3.PNG',
+        description:
+          'Shop different products as combos with up to 30% off. Our combos are top picks and are carefully combined based on customer demands. Our combo selection is proof of how much we value our customer needs and expenses.',
+        buttonLink: '/combos',
+      },
+    ],
   };
 
   return (
     <div>
-      <div className="my-4">
-        {loading ? (
-          <LoadingBox />
-        ) : error ? (
-          <MessageBox variant="danger">{error}</MessageBox>
-        ) : (
-          <Carousel showArrows autoPlay showThumbs={false}>
-            {products?.map((product) => (
-              <div className="outer">
-                <div className="the-slides outer-slide">
-                  <h3 className="text-white">SHOP NOW</h3>
-                  <h3 className="text-white">AND</h3>
-                  <h3 className="text-white">STAND A CHANCE!!!</h3>
-                  <p className="first-slide-name outer-slide">
-                    {product.description}
-                  </p>
-                  {product.countInStock === 0 ? (
-                    <Button variant="light" disabled>
-                      Out of stock
-                    </Button>
-                  ) : (
-                    <Button onClick={() => addToCartHandler(product)}>
-                      Shop Now
-                    </Button>
-                  )}
+      <div className="container">
+        <Carousel showArrows autoPlay showThumbs={false}>
+          {data.products?.map((product) => (
+            <div className="carousel-inner text-white" key={product.name}>
+              <div className="header-container-left">
+                <h2 className="text-white">{product.category}</h2>
+                {/* <h4 className="text-white">{product.name}</h4> */}
+                <div className="carousel-desc">
+                  <p>{product.description}</p>
                 </div>
-
-                <div className="inner-slide">
-                  <Link
-                    to={`/product/${product.slug}`}
-                    className="text-decoration-none"
-                  >
-                    <img src={product.image} alt={product.name} />
-                    <p className="slide_name">{product.name} </p>
-                  </Link>
-                </div>
-                <ListGroup variant="flush" className="outer-slide outer-items">
-                  <ListGroup.Item>
-                    <Row>
-                      <Col>Price:</Col>
-                      <Col>${product.price}</Col>
-                    </Row>
-                  </ListGroup.Item>
-                  <ListGroup.Item>
-                    <Row>
-                      <Col>Status:</Col>
-                      <Col>
-                        {product.countInStock > 0 ? (
-                          <Badge bg="success">In Stock</Badge>
-                        ) : (
-                          <Badge bg="danger">Unavailable</Badge>
-                        )}
-                      </Col>
-                    </Row>
-                  </ListGroup.Item>
-                </ListGroup>
+                <Link to={product.buttonLink}>
+                  <Button className="first-slide-name outer-slide">
+                    Shop Now
+                  </Button>
+                </Link>
               </div>
-            ))}
-          </Carousel>
-        )}
+              <div className="carousel-img-wrap">
+                <img src={product.image} alt="product" />
+              </div>
+            </div>
+          ))}
+          {/* <div className="">
+            
+            <div className="bg-header"></div>
+            <div className="header-container-left">
+              <h1>
+                NAILS <br />
+                REPUBLIC
+              </h1>
+              <h5>CLASSY ACCESSORIES</h5>
+              <p>
+                The very best online nail Accessories store, ready to deliver
+                quality and pleasant nail products right to your door step. Shop
+                with ease and enjoy all our amazing offers in return!
+              </p>
+              <Link to="/allproducts">
+                <Button className="shadow-sm">Shop Now</Button>
+              </Link>
+            </div>
+          </div> */}
+        </Carousel>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 export { default as AdminRoute } from './AdminRoute';
 export { default as CarouselSlide } from './CarouselSlide';
+export { default as CategorySlide } from './CategorySlide';
 export { default as CheckoutSteps } from './CheckoutSteps';
 export { default as LoadingBox } from './LoadingBox';
 export { default as MessageBox } from './MessageBox';
@@ -7,3 +8,11 @@ export { default as Product } from './Product';
 export { default as ProtectedRoute } from './ProtectedRoute';
 export { default as Rating } from './Rating';
 export { default as SearchBox } from './SearchBox';
+export { default as Discount } from './Discount';
+export { default as Nailart } from './Nailart';
+export { default as NewProducts } from './NewProducts';
+export { default as TrendingProducts } from './TrendingProducts';
+export { default as MaylikeProducts } from './MaylikeProducts';
+export { default as Tools } from './Tools';
+export { default as Combo } from './Combo';
+export { default as BestSelling } from './BestSelling';

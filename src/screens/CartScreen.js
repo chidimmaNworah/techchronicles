@@ -88,7 +88,7 @@ export default function CartScreen() {
                       </Button>
                     </Col>
                     <Col md={2}>
-                      <span>${item.price}</span>{' '}
+                      <span>₦{item.price}</span>{' '}
                     </Col>
                     <Col md={1}>
                       <Button
@@ -111,7 +111,7 @@ export default function CartScreen() {
                 <ListGroup.Item>
                   <h3>
                     Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '}
-                    items) : $
+                    items) : ₦
                     {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}
                   </h3>
                 </ListGroup.Item>

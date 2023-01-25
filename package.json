@@ -2,6 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:5111",
   "dependencies": {
     "@paypal/react-paypal-js": "^7.8.2",
     "@react-google-maps/api": "^2.17.1",
@@ -20,6 +21,7 @@
     "react-router-dom": "^6.6.2",
     "react-scripts": "5.0.1",
     "react-toastify": "^9.1.1",
+    "swiper": "^8.4.6",
     "use-reducer-logger": "^1.0.2",
     "web-vitals": "^3.1.0"
   },

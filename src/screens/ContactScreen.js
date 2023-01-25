@@ -52,7 +52,7 @@ export default function ContactScreen() {
   return (
     <div className="contact">
       <Helmet>
-        <title>Contact Us - Puffizzy</title>
+        <title>Contact Us - Nail Republic Ng</title>
       </Helmet>
       <div className="contact-main">
         <div id="contact_info" className="contact-info">
@@ -74,9 +74,9 @@ export default function ContactScreen() {
             <p>
               <a
                 className="text-white text-xs no-underline"
-                href="mailto:service@puffizzy.com"
+                href="mailto:info@nailsrepublic.com"
               >
-                service@puffizzy.com
+                info@nailsrepublic.com
               </a>
             </p>
           </div>
@@ -90,7 +90,7 @@ export default function ContactScreen() {
                 className="text-white text-xs no-underline"
                 href="tel:+234 907 036 1277"
               >
-                +234 907 036 1277
+                +234 906 310 6069
               </a>
             </p>
           </div>
@@ -101,10 +101,10 @@ export default function ContactScreen() {
             </p>
             <p>
               <a
-                className="text-white text-xs no-underline"
+                className="text-white text-xs no-underline "
                 href="https://maps.google.com/jotvpKsh28aaXBEVA"
               >
-                Central District, F.C.T - Abuja
+                Central Business District, Abuja 900211
               </a>
             </p>
           </div>

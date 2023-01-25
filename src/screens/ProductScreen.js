@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useContext, useEffect, useReducer, useRef, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ListGroup from 'react-bootstrap/ListGroup';
@@ -161,7 +161,7 @@ function ProductScreen() {
                 numReviews={product.numReviews}
               ></Rating>
             </ListGroup.Item>
-            <ListGroup.Item>Price : ${product.price}</ListGroup.Item>
+            <ListGroup.Item>Price : ₦{product.price}</ListGroup.Item>
             <ListGroup.Item>
               <Row xs={4} md={5} className="g-2">
                 {[product.image, ...product.images]?.map((x) => (
@@ -193,7 +193,7 @@ function ProductScreen() {
                 <ListGroup.Item>
                   <Row>
                     <Col>Price:</Col>
-                    <Col>${product.price}</Col>
+                    <Col>₦{product.price}</Col>
                   </Row>
                 </ListGroup.Item>
                 <ListGroup.Item>
@@ -212,7 +212,7 @@ function ProductScreen() {
                   <ListGroup.Item>
                     <div className="d-flex">
                       <Button onClick={BuyNowHandler} className="buyNowButton">
-                        Buy Now
+                        Add to Cart
                       </Button>
                     </div>
                   </ListGroup.Item>
