@@ -105,7 +105,7 @@ export default function ComboProductScreen() {
         {categories.map((category) => (
           <div className="categ" key={category}>
             <Link to={{ pathname: '/search', search: `category=${category}` }}>
-              <p>{category}</p>
+              {category}
             </Link>
           </div>
         ))}
