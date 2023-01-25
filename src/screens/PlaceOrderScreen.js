@@ -42,10 +42,9 @@ export default function PlaceOrderScreen() {
     cart.cartItems.reduce((a, c) => a + c.quantity * c.price, 0)
   );
 
-  // cart.shippingPrice =
-  //   cart.shippingAddress.country === 'Nigeria' ? round2(3) : round2(10);
+  cart.shippingPrice = cart.itemsPrice < 3000 ? round2(600) : round2(1600);
 
-  cart.shippingPrice = cart.itemsPrice > 20000 ? round2(0) : round2(1600);
+  // cart.shippingPrice = cart.itemsPrice > 20000 ? round2(0) : round2(1600);
   cart.taxPrice = round2(0.15 * cart.itemsPrice);
   cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
 
