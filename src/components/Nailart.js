@@ -40,7 +40,7 @@ function Nailart(props) {
           <h6 className="product-component-name">{nailart.name}</h6>
         </Link>
 
-        <Rating rating={nailart.rating} numReviews={nailart.numReviews} />
+        {/* <Rating rating={nailart.rating} numReviews={nailart.numReviews} /> */}
         <Card.Text>${nailart.price}</Card.Text>
         {nailart.countInStock === 0 ? (
           <Button variant="light" disabled>

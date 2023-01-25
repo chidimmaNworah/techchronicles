@@ -40,7 +40,7 @@ function Combo(props) {
           <h6 className="product-component-name">{combo.name}</h6>
         </Link>
 
-        <Rating rating={combo.rating} numReviews={combo.numReviews} />
+        {/* <Rating rating={combo.rating} numReviews={combo.numReviews} /> */}
         <Card.Text>₦{combo.price}</Card.Text>
         {combo.countInStock === 0 ? (
           <Button variant="light" disabled>

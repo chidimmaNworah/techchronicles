@@ -39,7 +39,7 @@ function Product(props) {
         <Link to={`/product/${product.slug}`}>
           <h6 className="product-component-name">{product.name}</h6>
         </Link>
-        <Rating rating={product.rating} numReviews={product.numReviews} />
+        {/* <Rating rating={product.rating} numReviews={product.numReviews} /> */}
         <Card.Text>₦{product.price}</Card.Text>
         {product.countInStock === 0 ? (
           <Button variant="light" disabled>
