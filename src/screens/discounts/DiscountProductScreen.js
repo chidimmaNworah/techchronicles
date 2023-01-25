@@ -100,15 +100,17 @@ export default function DiscountProductScreen() {
       <Helmet>
         <title>All Discount Products - nailsrepublic</title>
       </Helmet>
-      <div className="fixed-container"></div>
       <Container>
-        {categories.map((category) => (
-          <div className="categ" key={category}>
-            <Link to={{ pathname: '/search', search: `category=${category}` }}>
+        <div className="categ">
+          {categories.map((category) => (
+            <Link
+              to={{ pathname: '/search', search: `category=${category}` }}
+              key={category}
+            >
               {category}
             </Link>
-          </div>
-        ))}
+          ))}
+        </div>
         <Link to="/discounts">
           <h2 className="">
             <i className="fab fa-gitter"> </i> Shop All Featured Products

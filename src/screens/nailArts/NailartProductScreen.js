@@ -102,13 +102,16 @@ export default function NailartProductScreen() {
       </Helmet>
       <div className="fixed-container"></div>
       <Container>
-        {categories.map((category) => (
-          <div className="categ" key={category}>
-            <Link to={{ pathname: '/search', search: `category=${category}` }}>
+        <div className="categ">
+          {categories.map((category) => (
+            <Link
+              to={{ pathname: '/search', search: `category=${category}` }}
+              key={category}
+            >
               {category}
             </Link>
-          </div>
-        ))}
+          ))}
+        </div>
         <Link to="/nailarts">
           <h2 className="">
             <i className="fab fa-gitter"> </i> Shop Hot Nailart Designs
