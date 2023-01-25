@@ -41,7 +41,7 @@ export default function BestSelling() {
     const fetchData = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
       try {
-        const { data } = await axios.get(`${API_URL}/api/combos`);
+        const { data } = await axios.get(`${API_URL}/api/tools`);
         dispatch({ type: 'FETCH_SUCCESS', payload: data });
       } catch (err) {
         dispatch({ type: 'FETCH_FAIL', payload: err.message });
@@ -53,7 +53,7 @@ export default function BestSelling() {
 
   return (
     <div className="combos">
-      <Link to="/combos">
+      <Link to="/tools">
         <div className="text-center">
           <h2 className="homescreen-heading"> Best Selling</h2>
         </div>
