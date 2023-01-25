@@ -25,7 +25,10 @@ export default function about() {
           </p>
         </div>
         <div className="about2">
-          <img src="/images/4.PNG" alt="about" />
+          <img
+            src="https://res.cloudinary.com/kimmoramicky/image/upload/v1674654838/nailsrepublic/4_afror2.png"
+            alt="about"
+          />
         </div>
       </div>
       <MaylikeProducts />

@@ -8,19 +8,22 @@ export default function CategorySlide() {
       {
         _id: 1,
         name: 'Nail Art',
-        image: '/images/nailart.jpg',
+        image:
+          'https://res.cloudinary.com/kimmoramicky/image/upload/v1674654836/nailsrepublic/nailart_ldamyn.jpg',
         buttonLink: '/nailarts',
       },
       {
         _id: 2,
         name: 'Designs & Tools',
-        image: '/images/tools.jpg',
+        image:
+          'https://res.cloudinary.com/kimmoramicky/image/upload/v1674654836/nailsrepublic/tools_pmyth8.jpg',
         buttonLink: '/tools',
       },
       {
         _id: 3,
         name: 'Combo',
-        image: '/images/combo_1.jpg',
+        image:
+          'https://res.cloudinary.com/kimmoramicky/image/upload/v1674654835/nailsrepublic/combo_1_dkcnjb.jpg',
         buttonLink: '/combos',
       },
     ],

@@ -10,7 +10,8 @@ export default function CarouselSlide() {
       {
         name: 'Nail Arts',
         category: 'Classy Nail designs',
-        image: '/images/1.PNG',
+        image:
+          'https://res.cloudinary.com/kimmoramicky/image/upload/v1674654852/nailsrepublic/1_iej37e.png',
         description:
           'Ready to deliver beautiful ready to use nail art designs right to your door step. Shop with ease and enjoy all our amazing offers in return!',
         buttonLink: '/nailart',
@@ -18,7 +19,8 @@ export default function CarouselSlide() {
       {
         name: ' ballerina nails',
         category: 'Tools for Nail art',
-        image: '/images/2.PNG',
+        image:
+          'https://res.cloudinary.com/kimmoramicky/image/upload/v1674654845/nailsrepublic/2_nczcdg.png',
         description:
           'The very best online nail Accessories store for business owners and individuals to shop long lasting, quality and affordable tools for manicure and peducure. Shop Luxury!',
         buttonLink: '/tools',
@@ -26,7 +28,8 @@ export default function CarouselSlide() {
       {
         name: 'Butterfly long ballerina nails',
         category: 'Top Pick Combos',
-        image: '/images/3.PNG',
+        image:
+          'https://res.cloudinary.com/kimmoramicky/image/upload/v1674654969/nailsrepublic/3_hv8jea.png',
         description:
           'Shop different products as combos with up to 30% off. Our combos are top picks and are carefully combined based on customer demands. Our combo selection is proof of how much we value our customer needs and expenses.',
         buttonLink: '/combos',
