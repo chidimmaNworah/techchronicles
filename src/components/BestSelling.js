@@ -74,19 +74,19 @@ export default function BestSelling() {
               breakpoints={{
                 340: {
                   width: 340,
-                  slidesPerView: 3,
+                  slidesPerView: 2,
                 },
                 // when window width is >= 768px
                 768: {
                   width: 768,
-                  slidesPerView: 4,
+                  slidesPerView: 3,
                 },
                 968: {
                   width: 968,
-                  slidesPerView: 5,
+                  slidesPerView: 4,
                 },
               }}
-              spaceBetween={15}
+              spaceBetween={10}
               className="mySwiper"
             >
               {products?.slice(0, 12).map((product) => (
