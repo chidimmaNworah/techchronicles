@@ -88,7 +88,7 @@ export default function BestSelling() {
             >
               {products?.slice(0, 12).map((product) => (
                 <SwiperSlide className="featured-cards" key={product._id}>
-                  <Tools product={product}></Tools>
+                  <Tools tool={product}></Tools>
                 </SwiperSlide>
               ))}
             </Swiper>
