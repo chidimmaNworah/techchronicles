@@ -83,10 +83,6 @@ export default function TrendingProducts() {
                 },
               }}
               spaceBetween={10}
-              pagination={{
-                clickable: true,
-              }}
-              modules={[Pagination]}
               className="mySwiper"
             >
               {products?.slice(0, 12).map((product) => (
