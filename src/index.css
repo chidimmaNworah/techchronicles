@@ -32,10 +32,11 @@ a {
 .categ {
   display: flex;
   flex-direction: row;
-  gap: 16px;
+  gap: 10px;
   justify-content: space-between;
   margin-top: 6px;
   margin-bottom: 6px;
+  flex-wrap: wrap;
 }
 
 .categ a {
@@ -398,7 +399,8 @@ button.thumbnail {
   padding: 3rem 0;
 }
 
-.about1 h4 {
+.about1 h4,
+.categ-main h4 {
   font-size: 2.5rem;
   margin-bottom: 2rem;
 }

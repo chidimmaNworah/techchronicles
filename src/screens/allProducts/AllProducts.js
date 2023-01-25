@@ -102,16 +102,6 @@ export default function AllProducts() {
         <title>All Products - nailsrepublic</title>
       </Helmet>
       <Container>
-        <div className="categ">
-          {categories.map((category) => (
-            <Link
-              to={{ pathname: '/search', search: `category=${category}` }}
-              key={category}
-            >
-              {category}
-            </Link>
-          ))}
-        </div>
         <Link to="/allproducts">
           <h2 className="">
             <i className="fab fa-gitter"> </i> Shop All Featured Products
@@ -162,6 +152,20 @@ export default function AllProducts() {
               </Row>
             </>
           )}
+        </div>
+
+        <div>
+          <h4 className="categ-main">Categories</h4>
+          <div className="categ">
+            {categories.map((category) => (
+              <Link
+                to={{ pathname: '/search', search: `category=${category}` }}
+                key={category}
+              >
+                {category}
+              </Link>
+            ))}
+          </div>
         </div>
 
         <MaylikeProducts />

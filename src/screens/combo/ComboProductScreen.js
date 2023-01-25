@@ -101,16 +101,6 @@ export default function ComboProductScreen() {
         <title>All Combo Products - nailsrepublic</title>
       </Helmet>
       <Container>
-        <div className="categ">
-          {categories.map((category) => (
-            <Link
-              to={{ pathname: '/search', search: `category=${category}` }}
-              key={category}
-            >
-              {category}
-            </Link>
-          ))}
-        </div>
         <Link to="/combos">
           <h2 className="">
             <i className="fab fa-gitter"> </i> Shop Hot Combo Products
@@ -161,6 +151,20 @@ export default function ComboProductScreen() {
               </Row>
             </>
           )}
+        </div>
+
+        <div>
+          <h4 className="categ-main">Categories</h4>
+          <div className="categ">
+            {categories.map((category) => (
+              <Link
+                to={{ pathname: '/search', search: `category=${category}` }}
+                key={category}
+              >
+                {category}
+              </Link>
+            ))}
+          </div>
         </div>
 
         <MaylikeProducts />

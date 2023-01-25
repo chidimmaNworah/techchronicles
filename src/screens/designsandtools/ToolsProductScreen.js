@@ -102,16 +102,6 @@ export default function ToolsProductScreen() {
       </Helmet>
       <div className="fixed-container"></div>
       <Container>
-        <div className="categ">
-          {categories.map((category) => (
-            <Link
-              to={{ pathname: '/search', search: `category=${category}` }}
-              key={category}
-            >
-              {category}
-            </Link>
-          ))}
-        </div>
         <Link to="/tools">
           <h2 className="">
             <i className="fab fa-gitter"> </i> Exquisite Nail Tool
@@ -162,6 +152,20 @@ export default function ToolsProductScreen() {
               </Row>
             </>
           )}
+        </div>
+
+        <div>
+          <h4 className="categ-main">Categories</h4>
+          <div className="categ">
+            {categories.map((category) => (
+              <Link
+                to={{ pathname: '/search', search: `category=${category}` }}
+                key={category}
+              >
+                {category}
+              </Link>
+            ))}
+          </div>
         </div>
 
         <MaylikeProducts />
