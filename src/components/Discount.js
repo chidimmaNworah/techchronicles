@@ -41,10 +41,13 @@ function Discount(props) {
       </Link>
       <Card.Body>
         <Link to={`/discount/${discount.slug}`}>
-          <h6>{discount.name}</h6>
+          <h6 className="product-component-name">{discount.name}</h6>
         </Link>
+
         <Rating rating={discount.rating} numReviews={discount.numReviews} />
+        <Card.Text>{discount.discount}% Off</Card.Text>
         <Card.Text>₦{discount.price}</Card.Text>
+
         {discount.countInStock === 0 ? (
           <Button variant="light" disabled>
             Out of stock

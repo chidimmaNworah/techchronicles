@@ -37,8 +37,9 @@ function Combo(props) {
       </Link>
       <Card.Body>
         <Link to={`/combo/${combo.slug}`}>
-          <h6>{combo.name}</h6>
+          <h6 className="product-component-name">{combo.name}</h6>
         </Link>
+
         <Rating rating={combo.rating} numReviews={combo.numReviews} />
         <Card.Text>₦{combo.price}</Card.Text>
         {combo.countInStock === 0 ? (

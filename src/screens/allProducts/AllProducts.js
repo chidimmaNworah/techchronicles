@@ -103,7 +103,7 @@ export default function AllProducts() {
       </Helmet>
       <Container>
         <Link to="/allproducts">
-          <h2 className="">
+          <h2 className="mt-4">
             <i className="fab fa-gitter"> </i> Shop All Featured Products
           </h2>
         </Link>
@@ -155,7 +155,7 @@ export default function AllProducts() {
         </div>
 
         <div>
-          <h4 className="categ-main">Categories</h4>
+          <h4 className="categ-main mt-4">Categories</h4>
           <div className="categ">
             {categories.map((category) => (
               <Link

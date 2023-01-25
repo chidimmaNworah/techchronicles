@@ -37,7 +37,7 @@ function Tools(props) {
       </Link>
       <Card.Body>
         <Link to={`/tool/${tool.slug}`}>
-          <h6>{tool.name}</h6>
+          <h6 className="product-component-name">{tool.name}</h6>
         </Link>
         <Rating rating={tool.rating} numReviews={tool.numReviews} />
         <Card.Text>${tool.price}</Card.Text>

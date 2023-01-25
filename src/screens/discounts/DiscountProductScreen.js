@@ -102,8 +102,8 @@ export default function DiscountProductScreen() {
       </Helmet>
       <Container>
         <Link to="/discounts">
-          <h2 className="">
-            <i className="fab fa-gitter"> </i> Shop All Featured Products
+          <h2 className="mt-4">
+            <i className="fab fa-gitter"> </i> Save up to 40%
           </h2>
         </Link>
         <div className="products">
@@ -154,7 +154,7 @@ export default function DiscountProductScreen() {
         </div>
 
         <div>
-          <h4 className="categ-main">Categories</h4>
+          <h4 className="categ-main mt-4">Categories</h4>
           <div className="categ">
             {categories.map((category) => (
               <Link

@@ -103,7 +103,7 @@ export default function ToolsProductScreen() {
       <div className="fixed-container"></div>
       <Container>
         <Link to="/tools">
-          <h2 className="">
+          <h2 className="mt-5">
             <i className="fab fa-gitter"> </i> Exquisite Nail Tool
           </h2>
         </Link>
@@ -155,7 +155,7 @@ export default function ToolsProductScreen() {
         </div>
 
         <div>
-          <h4 className="categ-main">Categories</h4>
+          <h4 className="categ-main mt-4">Categories</h4>
           <div className="categ">
             {categories.map((category) => (
               <Link

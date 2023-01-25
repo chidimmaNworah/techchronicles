@@ -102,8 +102,8 @@ export default function ComboProductScreen() {
       </Helmet>
       <Container>
         <Link to="/combos">
-          <h2 className="">
-            <i className="fab fa-gitter"> </i> Shop Hot Combo Products
+          <h2 className="mt-4">
+            <i className="fab fa-gitter"> </i> Top Picks Combo
           </h2>
         </Link>
         <div className="products">
@@ -154,7 +154,7 @@ export default function ComboProductScreen() {
         </div>
 
         <div>
-          <h4 className="categ-main">Categories</h4>
+          <h4 className="categ-main mt-4">Categories</h4>
           <div className="categ">
             {categories.map((category) => (
               <Link

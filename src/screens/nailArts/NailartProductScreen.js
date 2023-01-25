@@ -103,8 +103,8 @@ export default function NailartProductScreen() {
       <div className="fixed-container"></div>
       <Container>
         <Link to="/nailarts">
-          <h2 className="">
-            <i className="fab fa-gitter"> </i> Shop Hot Nailart Designs
+          <h2 className="mt-4">
+            <i className="fab fa-gitter"> </i>Hot Nailart Designs
           </h2>
         </Link>
         <div className="products">
@@ -155,7 +155,7 @@ export default function NailartProductScreen() {
         </div>
 
         <div>
-          <h4 className="categ-main">Categories</h4>
+          <h4 className="categ-main mt-4">Categories</h4>
           <div className="categ">
             {categories.map((category) => (
               <Link
