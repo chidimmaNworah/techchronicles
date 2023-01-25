@@ -103,20 +103,15 @@ export default function ToolsProductScreen() {
       <div className="fixed-container"></div>
       <Container>
         {categories.map((category) => (
-          <div
-            className="d-flex flex-wrap justify-content-between py-4"
-            key={category}
-          >
-            <LinkContainer
-              to={{ pathname: '/search', search: `category=${category}` }}
-            >
-              <Nav.Link>{category}</Nav.Link>
-            </LinkContainer>
+          <div className="d-flex justify-content-around py-4" key={category}>
+            <Link to={{ pathname: '/search', search: `category=${category}` }}>
+              <p>{category}</p>
+            </Link>
           </div>
         ))}
         <Link to="/tools">
           <h2 className="">
-            <i className="fab fa-gitter"> </i> Shop Hot Nail Art Tool
+            <i className="fab fa-gitter"> </i> Exquisite Nail Tool
           </h2>
         </Link>
         <div className="products">
