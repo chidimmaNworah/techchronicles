@@ -103,7 +103,7 @@ export default function DiscountProductScreen() {
       <div className="fixed-container"></div>
       <Container>
         {categories.map((category) => (
-          <div className="d-flex justify-content-around py-4" key={category}>
+          <div className="categ" key={category}>
             <Link to={{ pathname: '/search', search: `category=${category}` }}>
               <p>{category}</p>
             </Link>

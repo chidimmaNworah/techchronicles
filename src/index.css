@@ -29,6 +29,20 @@ a {
   background: #cc96ff;
 }
 
+.categ {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  justify-content: space-between;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.categ a {
+  color: #2c0280;
+  text-decoration: none;
+}
+
 /* .fixed-container {
   width: 100vw;
   height: 100vh;
