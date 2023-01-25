@@ -55,6 +55,7 @@ import {
 import { SearchBox, ProtectedRoute, AdminRoute } from './components';
 import { getError, API_URL } from './utils.js';
 import axios from 'axios';
+axios.defaults.withCredentials = true;
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -450,7 +451,7 @@ function App() {
         </main>
         <footer>
           <div className="footer-container">
-            <Container className="footer-support">
+            <div className="footer-support">
               <div className="footer-support1">
                 <i className="fas fa-money-check" />
                 <div>
@@ -472,7 +473,7 @@ function App() {
                   <p>We can find you whenever you are ready!</p>
                 </div>
               </div>
-            </Container>
+            </div>
 
             <div className="newsletter">
               <h5>JOIN OUR NEWSLETTER</h5>
@@ -491,85 +492,83 @@ function App() {
                 <Button type="submit">JOIN NOW</Button>
               </form>
             </div>
-            <Container>
-              <div className="footer-support2">
-                <div className="footer-support3">
-                  <div className="footer-logo1">
-                    <Link to="/">
-                      <img src="/web_logo_name.png" alt="logo" width={100} />
-                    </Link>
-                  </div>
+            <div className="footer-support2">
+              <div className="footer-support3">
+                <div className="footer-logo1">
+                  <Link to="/">
+                    <img src="/web_logo_name.png" alt="logo" width={100} />
+                  </Link>
+                </div>
 
-                  <p>The best online nail Accessories store in Nigeria</p>
-                </div>
-                <div className="footer-support3">
-                  <h5>CONTACT INFO</h5>
-                  <h6>Address: </h6>
-                  <p>Central Business District, Abuja, Nigeria 900211</p>
-                  <h6>Email: </h6>
-                  <p>info@nailsrepublic.com</p>
-                  <h6>Phone: </h6>
-                  <p>+234 906 310 6069</p>
-                </div>
-                <div className="footer-support3">
-                  <h5>QUICK LINKS</h5>
-                  <Link to="/about">
-                    <h6>About</h6>
-                  </Link>
-                  <Link to="/contact">
-                    <h6>Contact Us</h6>
-                  </Link>
-                  <Link to="/">
-                    <h6>Privacy Policy</h6>
-                  </Link>
-                  <Link to="/">
-                    <h6>Terms & Condition</h6>
-                  </Link>
-                  <Link to="/">
-                    <h6>Return Policy</h6>
-                  </Link>
-                </div>
-                <div className="footer-support3">
-                  <h5>MY ACCOUNT</h5>
-                  <Link to="/signin">
-                    <h6>Sign in</h6>
-                  </Link>
-                  <Link to="/profile">
-                    <h6>Profile</h6>
-                  </Link>
-                  <Link to="/orderhistory">
-                    <h6>Order History</h6>
-                  </Link>
-                </div>
+                <p>The best online nail Accessories store in Nigeria</p>
+              </div>
+              <div className="footer-support3">
+                <h5>CONTACT INFO</h5>
+                <h6>Address: </h6>
+                <p>Central Business District, Abuja, Nigeria 900211</p>
+                <h6>Email: </h6>
+                <p>info@nailsrepublic.com</p>
+                <h6>Phone: </h6>
+                <p>+234 906 310 6069</p>
+              </div>
+              <div className="footer-support3">
+                <h5>QUICK LINKS</h5>
+                <Link to="/about">
+                  <h6>About</h6>
+                </Link>
+                <Link to="/contact">
+                  <h6>Contact Us</h6>
+                </Link>
+                <Link to="/">
+                  <h6>Privacy Policy</h6>
+                </Link>
+                <Link to="/">
+                  <h6>Terms & Condition</h6>
+                </Link>
+                <Link to="/">
+                  <h6>Return Policy</h6>
+                </Link>
+              </div>
+              <div className="footer-support3">
+                <h5>MY ACCOUNT</h5>
+                <Link to="/signin">
+                  <h6>Sign in</h6>
+                </Link>
+                <Link to="/profile">
+                  <h6>Profile</h6>
+                </Link>
+                <Link to="/orderhistory">
+                  <h6>Order History</h6>
+                </Link>
+              </div>
+            </div>
+
+            <div className="below-footer">
+              <div>© 2022 - NAILS REPUBLIC™</div>
+
+              <div className="icons">
+                <a href="/">
+                  <i className="fab fa-facebook"></i>
+                </a>
+                <a href="/">
+                  <i className="fab fa-tiktok"></i>
+                </a>
+                <a
+                  href="https://www.instagram.com/puffizzy_/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <i className="fab fa-instagram"></i>
+                </a>
               </div>
 
-              <div className="below-footer">
-                <div>© 2022 - NAILS REPUBLIC™</div>
-
-                <div className="icons">
-                  <a href="/">
-                    <i className="fab fa-facebook"></i>
-                  </a>
-                  <a href="/">
-                    <i className="fab fa-tiktok"></i>
-                  </a>
-                  <a
-                    href="https://www.instagram.com/puffizzy_/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <i className="fab fa-instagram"></i>
-                  </a>
-                </div>
-
-                <div className="d-flex gap-4 display-6">
-                  <i className="fab fa-cc-paypal" />
-                  <i className="fab fa-cc-mastercard" />
-                  <i className="fab fa-cc-visa" />
-                  <i className="fab fa-cc-stripe" />
-                </div>
+              <div className="d-flex icons">
+                <i className="fab fa-cc-paypal" />
+                <i className="fab fa-cc-mastercard" />
+                <i className="fab fa-cc-visa" />
+                <i className="fab fa-cc-stripe" />
               </div>
-            </Container>
+            </div>
           </div>
         </footer>
       </div>

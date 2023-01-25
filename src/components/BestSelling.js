@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 import LoadingBox from './LoadingBox';
 import MessageBox from './MessageBox';
 import Product from './Product';
+import Tools from './Tools';
 
 axios.defaults.withCredentials = true;
 
@@ -87,7 +88,7 @@ export default function BestSelling() {
             >
               {products?.slice(0, 12).map((product) => (
                 <SwiperSlide className="featured-cards" key={product._id}>
-                  <Product product={product}></Product>
+                  <Tools product={product}></Tools>
                 </SwiperSlide>
               ))}
             </Swiper>
