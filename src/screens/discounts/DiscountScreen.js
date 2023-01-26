@@ -17,6 +17,7 @@ import { Link } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import { toast } from 'react-toastify';
+import MaylikeProducts from '../../components/MaylikeProducts';
 axios.defaults.withCredentials = true;
 
 const reducer = (state, action) => {
@@ -276,6 +277,7 @@ function DiscountScreen() {
           )}
         </div>
       </div>
+      <MaylikeProducts />
     </div>
   );
 }
