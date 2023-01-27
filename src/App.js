@@ -55,6 +55,8 @@ import {
 import { SearchBox, ProtectedRoute, AdminRoute } from './components';
 import { getError, API_URL } from './utils.js';
 import axios from 'axios';
+import ScrollToTop from './components/ScrollToTop.js';
+import NavigationDots from './components/NavigationDots.js';
 axios.defaults.withCredentials = true;
 
 const reducer = (state, action) => {
@@ -130,7 +132,9 @@ function App() {
         }
       >
         <ToastContainer position="bottom-center" limit={1} />
+
         <header>
+          <ScrollToTop />
           <Navbar className="nails-nav" expand="lg">
             <Container>
               <LinkContainer to="/">
@@ -247,6 +251,7 @@ function App() {
         <main>
           <div className="">
             <Routes>
+              {/* <ScrollRestoration /> */}
               <Route path="/product/:slug" element={<ProductScreen />} />
               <Route path="/cart" element={<CartScreen />} />
               <Route path="/search" element={<SearchScreen />} />
@@ -450,6 +455,7 @@ function App() {
           </div>
         </main>
         <footer>
+          <NavigationDots className="dotter" />
           <div className="footer-container">
             <div className="footer-support">
               <div className="footer-support1">

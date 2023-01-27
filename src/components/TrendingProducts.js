@@ -3,7 +3,6 @@ import axios from 'axios';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Pagination } from 'swiper';
 import logger from 'use-reducer-logger';
 import { API_URL } from '../utils';
 import { Link } from 'react-router-dom';

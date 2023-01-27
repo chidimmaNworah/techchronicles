@@ -8,7 +8,7 @@ import axios from 'axios';
 import { Store } from '../Store';
 import { toast } from 'react-toastify';
 import { getError, API_URL } from '../utils';
-axios.defaults.withCredentials = true;
+// axios.defaults.withCredentials = true;
 
 export default function SignupScreen() {
   const navigate = useNavigate();
@@ -31,7 +31,7 @@ export default function SignupScreen() {
       return;
     }
     try {
-      const { data } = await axios.post(`${API_URL}/api/users/signup`, {
+      const { data } = await axios.post(`/api/users/signup`, {
         name,
         email,
         password,

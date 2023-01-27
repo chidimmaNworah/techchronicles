@@ -906,7 +906,47 @@ i {
   padding: 0.2rem;
 }
 
+.app__navigation {
+  width: 10px;
+  height: 10px;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  /* width: 100vw; */
+
+  background-color: transparent;
+  z-index: 1111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.app__navigation-dot {
+  color: white;
+  margin: 0.5rem;
+  position: absolute;
+  right: 0;
+  margin-top: -5rem;
+  padding: 0.2rem 0.7rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  background-color: #2c0280;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.app__navigation-dot:hover {
+  background-color: #cbcbcb;
+  color: #2c0280;
+}
+
 @media screen and (max-width: 800px) {
+  .app__navigation-dot {
+    width: 2rem;
+    height: 2rem;
+  }
   .about {
     display: flex;
     flex-wrap: wrap;
