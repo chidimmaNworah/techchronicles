@@ -51,12 +51,16 @@ import {
   ComboScreen,
   ComboListScreen,
   ComboEditScreen,
+  VerifyEmailScreen,
+  ChangePassScreen,
+  ForgotPassScreen,
 } from './screens';
 import { SearchBox, ProtectedRoute, AdminRoute } from './components';
 import { getError, API_URL } from './utils.js';
 import axios from 'axios';
 import ScrollToTop from './components/ScrollToTop.js';
 import NavigationDots from './components/NavigationDots.js';
+import TagManager from 'react-gtm-module';
 axios.defaults.withCredentials = true;
 
 const reducer = (state, action) => {
@@ -71,6 +75,15 @@ const reducer = (state, action) => {
 };
 
 function App() {
+  useEffect(() => {
+    const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
+
+    const tagManagerArgs = {
+      gtmId,
+    };
+    TagManager.initialize(tagManagerArgs);
+  }, []);
+
   const [dispatch] = useReducer(reducer, {
     loading: true,
     error: '',
@@ -135,9 +148,9 @@ function App() {
 
         <header>
           <ScrollToTop />
-          <Navbar className="nails-nav" expand="lg">
+          <Navbar collapseOnSelect className="nails-nav" expand="lg">
             <Container>
-              <LinkContainer to="/">
+              <LinkContainer eventkey="8" as={Link} to="/">
                 <Navbar.Brand>
                   <img src="/web_logo_name.png" alt="logo name" width={110} />
                 </Navbar.Brand>
@@ -146,18 +159,42 @@ function App() {
                 aria-controls="basic-navbar-nav"
                 bg="dark"
                 variant="dark"
-                className="fas fa-user-tie text-black"
+                className="fas fa-user-tie"
+                toogle="collapse"
               />
               <Navbar.Collapse id="basic-navbar-nav">
                 <SearchBox />
                 <Nav className="me-auto w-100 justify-content-end">
-                  <Link to="/search" className="nav-link">
+                  <Nav.Link
+                    eventkey="1"
+                    as={Link}
+                    to="/search"
+                    className="nav-link"
+                  >
                     All Categories
-                  </Link>
-                  <Link to="/allproducts" className="nav-link">
+                  </Nav.Link>
+                  <Nav.Link
+                    eventkey="7"
+                    as={Link}
+                    to="/https://calendly.com/nailsrepublic/book-a-nail-appointment"
+                    className="nav-link"
+                  >
                     Products
-                  </Link>
-                  <Link to="/cart" className="nav-link ">
+                  </Nav.Link>
+                  <Nav.Link
+                    eventkey="2"
+                    as={Link}
+                    to="/allproducts"
+                    className="nav-link"
+                  >
+                    Book Appointment
+                  </Nav.Link>
+                  <Nav.Link
+                    eventkey="3"
+                    as={Link}
+                    to="/cart"
+                    className="nav-link "
+                  >
                     <span className="cart-icon">
                       <i className="fas fa-weight-hanging"></i>
                     </span>
@@ -167,28 +204,39 @@ function App() {
                         {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
                       </Badge>
                     )}
-                  </Link>
+                  </Nav.Link>
                   {userInfo ? (
                     <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
                       <LinkContainer to="/profile">
-                        <NavDropdown.Item>User Profile</NavDropdown.Item>
+                        <NavDropdown.Item eventkey="4" as={Link}>
+                          User Profile
+                        </NavDropdown.Item>
                       </LinkContainer>
                       <LinkContainer to="/orderhistory">
-                        <NavDropdown.Item>Order History</NavDropdown.Item>
+                        <NavDropdown.Item eventkey="5" as={Link}>
+                          Order History
+                        </NavDropdown.Item>
                       </LinkContainer>
                       <NavDropdown.Divider />
-                      <Link
+                      <Nav.Link
+                        eventkey="6"
+                        as={Link}
                         className="dropdown-item"
                         to="#signout"
                         onClick={signoutHandler}
                       >
                         Sign Out
-                      </Link>
+                      </Nav.Link>
                     </NavDropdown>
                   ) : (
-                    <Link className="nav-link" to="/signin">
+                    <Nav.Link
+                      eventkey="7"
+                      as={Link}
+                      className="nav-link"
+                      to="/signin"
+                    >
                       Sign In
-                    </Link>
+                    </Nav.Link>
                   )}
                   {userInfo && userInfo.isAdmin ? (
                     <NavDropdown title="Admin" id="admin-nav-dropdown">
@@ -258,6 +306,15 @@ function App() {
               <Route path="/signin" element={<SigninScreen />} />
               <Route path="/signup" element={<SignupScreen />} />
               <Route
+                path="/:id/password-reset/:token"
+                element={<ChangePassScreen />}
+              />
+              <Route path="/forgot-password" element={<ForgotPassScreen />} />
+              <Route
+                path="/:id/verify/:token"
+                element={<VerifyEmailScreen />}
+              />
+              <Route
                 path="/profile"
                 element={
                   <ProtectedRoute>
@@ -274,6 +331,7 @@ function App() {
                 }
               />
               <Route path="/placeorder" element={<PlaceOrderScreen />} />
+
               <Route
                 path="/order/:id"
                 element={

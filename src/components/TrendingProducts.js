@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import LoadingBox from './LoadingBox';
 import MessageBox from './MessageBox';
 import Product from './Product';
+import { Button } from 'react-bootstrap';
 
 axios.defaults.withCredentials = true;
 
@@ -54,7 +55,7 @@ export default function TrendingProducts() {
     <>
       <Link to="/nailarts">
         <div className="text-center">
-          <h2 className="homescreen-heading"> Trending Products</h2>
+          <Button className="homescreen-heading"> Trending Products</Button>
         </div>
       </Link>
 

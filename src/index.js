@@ -9,6 +9,7 @@ import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 import { StoreProvider } from './Store';
 
 const root = createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
     <StoreProvider>

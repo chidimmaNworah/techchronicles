@@ -9,6 +9,7 @@ import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { API_URL } from '../utils';
 import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 axios.defaults.withCredentials = true;
 
@@ -52,7 +53,7 @@ export default function NewProducts() {
     <>
       <Link to="/allproducts">
         <div className="text-center">
-          <h2 className="homescreen-heading"> New Products</h2>
+          <Button className="homescreen-heading"> New Products</Button>
         </div>
       </Link>
 

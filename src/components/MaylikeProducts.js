@@ -67,9 +67,9 @@ export default function MaylikeProducts() {
                           width={200}
                           height={180}
                         />
-                        <p className="product-name">{item.name}</p>
-                        <p className="product-price">₦{item.price}</p>
                       </div>
+                      {/* <p className="product-name">{item.name}</p> */}
+                      <p className="product-price">₦{item.price}</p>
                     </Link>
                   </div>
                 ))}

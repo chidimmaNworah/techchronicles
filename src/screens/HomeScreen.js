@@ -26,7 +26,7 @@ function HomeScreen() {
       <Container>
         <Link to="/allproducts">
           <div className="text-center">
-            <h2 className="homescreen-heading"> Top Categories</h2>
+            <Button className="homescreen-heading"> Top Categories</Button>
           </div>
         </Link>
         <div>

@@ -176,6 +176,10 @@ a {
   transform: scale(1.1, 1.1);
 }
 
+/* .product-detail {
+  width: 100%;
+} */
+
 .card-img-top {
   border-radius: 8px;
   background-color: #ebebeb;
@@ -192,6 +196,8 @@ a {
 
 .product-name {
   font-weight: 400;
+  font-size: 0.7rem;
+  width: 16rem;
 }
 
 .product-price {
@@ -260,6 +266,11 @@ a {
 
 .rating span {
   color: #cc96ff;
+}
+
+.rating span i {
+  font-size: 1rem;
+  padding: 1px;
 }
 
 .product {

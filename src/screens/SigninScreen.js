@@ -18,6 +18,8 @@ export default function SigninScreen() {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [passwordShown, setPasswordShown] = useState(false);
+  const [msg, setMsg] = useState('');
 
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { userInfo } = state;
@@ -29,6 +31,7 @@ export default function SigninScreen() {
         email,
         password,
       });
+      setMsg(data.message);
       ctxDispatch({ type: 'USER_SIGNIN', payload: data });
       localStorage.setItem('userInfo', JSON.stringify(data));
       navigate(redirect || '/');
@@ -42,6 +45,13 @@ export default function SigninScreen() {
       navigate(redirect);
     }
   }, [navigate, redirect, userInfo]);
+
+  // Password toggle handler
+  const togglePassword = () => {
+    // When the handler is invoked
+    // inverse the boolean state of passwordShown
+    setPasswordShown(!passwordShown);
+  };
   return (
     <Container className="small-container">
       <Helmet>
@@ -57,20 +67,30 @@ export default function SigninScreen() {
             required
           />
         </Form.Group>
+
         <Form.Group
           className="mb-3"
           onChange={(e) => setPassword(e.target.value)}
           controlId="password"
         >
           <Form.Label>Password</Form.Label>
-          <Form.Control type="password" required />
+          <div className="d-flex">
+            <Form.Control type={passwordShown ? 'text' : 'password'} required />
+            <i className="fas fa-eye" onClick={togglePassword} />
+          </div>
         </Form.Group>
+        {msg && <div className="mb-3">{msg}</div>}
         <div className="mb-3">
           <Button type="submit">Sign In</Button>
         </div>
         <div className="mb-3">
           New customer?{' '}
           <Link to={`/signup?redirect=${redirect}`}>Create your account</Link>
+        </div>
+        <div className="mb-3">
+          <Link to={`/forgot-password?redirect=${redirect}`}>
+            <Button variant="dark">Forgot Password?</Button>
+          </Link>
         </div>
       </Form>
     </Container>

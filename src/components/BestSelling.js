@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import LoadingBox from './LoadingBox';
 import MessageBox from './MessageBox';
 import Tools from './Tools';
+import { Button } from 'react-bootstrap';
 
 axios.defaults.withCredentials = true;
 
@@ -54,7 +55,7 @@ export default function BestSelling() {
     <div className="combos">
       <Link to="/tools">
         <div className="text-center">
-          <h2 className="homescreen-heading"> Best Selling</h2>
+          <Button className="homescreen-heading"> Best Selling</Button>
         </div>
       </Link>
 
