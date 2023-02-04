@@ -481,7 +481,7 @@ button.thumbnail {
 
 .footer-support2 {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
   flex-wrap: wrap;
   grid-gap: 1rem;
