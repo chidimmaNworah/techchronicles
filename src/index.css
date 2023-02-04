@@ -448,7 +448,7 @@ button.thumbnail {
   display: flex;
   flex-wrap: wrap;
   gap: 4rem;
-  justify-content: center;
+  justify-content: left;
   margin-top: 3.5rem;
   padding-bottom: 3.5rem;
   border-bottom: 2px solid rgb(139, 139, 139);
