@@ -22,8 +22,7 @@ export default function CategorySlide() {
       {
         _id: 3,
         name: 'Combo',
-        image:
-          'https://res.cloudinary.com/kimmoramicky/image/upload/v1674654835/nailsrepublic/combo_1_dkcnjb.jpg',
+        image: '/images/IMG_2042.PNG',
         buttonLink: '/combos',
       },
     ],
