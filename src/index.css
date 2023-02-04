@@ -493,8 +493,8 @@ button.thumbnail {
 .footer-support3 {
   /* display: flex; */
   width: 250px;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center; */
+  /* align-items: center; */
   /* height: 150px; */
 }
 
