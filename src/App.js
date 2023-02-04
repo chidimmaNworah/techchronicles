@@ -173,21 +173,23 @@ function App() {
                   >
                     All Categories
                   </Nav.Link>
-                  <Nav.Link
-                    to="/https://calendly.com/nailsrepublic/book-a-nail-appointment"
-                    className="nav-link"
-                    target="_blank"
-                  >
-                    Products
-                  </Nav.Link>
+
                   <Nav.Link
                     eventkey="2"
                     as={Link}
                     to="/allproducts"
                     className="nav-link"
                   >
-                    Book Appointment
+                    Products
                   </Nav.Link>
+                  <a
+                    href="https://calendly.com/nailsrepublic/book-a-nail-appointment"
+                    className="nav-link"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Book Appointment
+                  </a>
                   <Nav.Link
                     eventkey="3"
                     as={Link}
@@ -617,7 +619,7 @@ function App() {
                   <i className="fab fa-tiktok"></i>
                 </a>
                 <a
-                  href="https://www.instagram.com/puffizzy_/"
+                  href="https://www.instagram.com/nailsrepublic_/"
                   target="_blank"
                   rel="noreferrer"
                 >

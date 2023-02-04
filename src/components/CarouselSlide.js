@@ -28,7 +28,7 @@ export default function CarouselSlide() {
       {
         name: 'Butterfly long ballerina nails',
         category: 'Top Pick Combos',
-        image: '/IMG_2042.PNG',
+        image: '/images/IMG_2042.PNG',
         description:
           'Shop different products as combos with up to 30% off. Our combos are top picks and are carefully combined based on customer demands. Our combo selection is proof of how much we value our customer needs and expenses.',
         buttonLink: '/combos',
