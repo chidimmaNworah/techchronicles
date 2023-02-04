@@ -174,10 +174,9 @@ function App() {
                     All Categories
                   </Nav.Link>
                   <Nav.Link
-                    eventkey="7"
-                    as={Link}
                     to="/https://calendly.com/nailsrepublic/book-a-nail-appointment"
                     className="nav-link"
+                    target="_blank"
                   >
                     Products
                   </Nav.Link>
