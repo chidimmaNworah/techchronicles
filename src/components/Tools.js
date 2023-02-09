@@ -39,7 +39,7 @@ function Tools(props) {
           <h6 className="product-component-name">{tool.name}</h6>
         </Link>
         {/* <Rating rating={tool.rating} numReviews={tool.numReviews} /> */}
-        <Card.Text>${tool.price}</Card.Text>
+        <Card.Text>₦{tool.price}</Card.Text>
         {tool.countInStock === 0 ? (
           <Button variant="light" disabled>
             Out of stock
