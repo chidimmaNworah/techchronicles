@@ -60,7 +60,6 @@ import { getError, API_URL } from './utils.js';
 import axios from 'axios';
 import ScrollToTop from './components/ScrollToTop.js';
 import NavigationDots from './components/NavigationDots.js';
-import TagManager from 'react-gtm-module';
 axios.defaults.withCredentials = true;
 
 const reducer = (state, action) => {
@@ -75,15 +74,6 @@ const reducer = (state, action) => {
 };
 
 function App() {
-  useEffect(() => {
-    const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
-
-    const tagManagerArgs = {
-      gtmId,
-    };
-    TagManager.initialize(tagManagerArgs);
-  }, []);
-
   const [dispatch] = useReducer(reducer, {
     loading: true,
     error: '',

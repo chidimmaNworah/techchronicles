@@ -1,13 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import { Helmet } from 'react-helmet-async';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { getError, API_URL } from '../utils';
+import { Store } from '../Store';
 axios.defaults.withCredentials = true;
 
 export default function VerifyEmailScreen() {
+  const navigate = useNavigate();
+  const { search } = useLocation();
+  const redirectInUrl = new URLSearchParams(search).get('redirect');
+  const redirect = redirectInUrl ? redirectInUrl : '/';
+
+  const { state } = useContext(Store);
+  const { userInfo } = state;
+
   const params = useParams();
   const [validUrl, setValidUrl] = useState(true);
 
@@ -31,6 +40,12 @@ export default function VerifyEmailScreen() {
     };
     verifyEmailUrl();
   });
+
+  useEffect(() => {
+    if (userInfo) {
+      navigate(redirect);
+    }
+  }, [navigate, redirect, userInfo]);
 
   return (
     <Container className="small-container">

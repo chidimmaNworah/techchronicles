@@ -14,7 +14,7 @@ export default function PaymentMethodScreen() {
   } = state;
 
   const [paymentMethodName, setPaymentMethod] = useState(
-    paymentMethod || 'PayPal' || 'Cash'
+    paymentMethod || 'PayPal' || 'Cash' || 'Bank Transfer' || 'Crypto'
   );
 
   useEffect(() => {
@@ -35,7 +35,7 @@ export default function PaymentMethodScreen() {
           <title>Payment Method</title>
         </Helmet>
         <h1 className="my-3">Payment Method</h1>
-        <Form onSubmit={submitHandler}>
+        <Form>
           <div className="mb-3">
             <Form.Check
               type="radio"
@@ -57,7 +57,29 @@ export default function PaymentMethodScreen() {
             />
           </div>
           <div className="mb-3">
-            <Button type="submit">Continue</Button>
+            <Form.Check
+              type="radio"
+              id="BankTransfer"
+              label="Bank Transfer (Contact us directy through our email or any of our social media handles to use this payment option)"
+              value="Bank Transfer"
+              checked={paymentMethodName === 'Bank Transfer'}
+              onChange={(e) => setPaymentMethod(e.target.value)}
+            />
+          </div>
+          <div className="mb-3">
+            <Form.Check
+              type="radio"
+              id="Crypto"
+              label="Crypto (Contact us directy through our email or any of our social media handles to use this payment option)"
+              value="Crypto"
+              checked={paymentMethodName === 'Crypto'}
+              onChange={(e) => setPaymentMethod(e.target.value)}
+            />
+          </div>
+          <div className="mb-3">
+            <Button type="submit" onClick={submitHandler}>
+              Continue
+            </Button>
           </div>
         </Form>
       </div>
