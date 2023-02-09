@@ -52,7 +52,7 @@ export default function ContactScreen() {
   return (
     <div className="contact">
       <Helmet>
-        <title>Contact Us - Nail Republic Ng</title>
+        <title>Contact Us | Nail Republic</title>
       </Helmet>
       <div className="contact-main">
         <div id="contact_info" className="contact-info">

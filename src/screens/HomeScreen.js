@@ -17,7 +17,7 @@ function HomeScreen() {
   return (
     <>
       <Helmet>
-        <title>Nails Republic Online Store</title>
+        <title>Home | Nails Republic Online Store</title>
       </Helmet>
       <div className="header-container">
         <CarouselSlide />

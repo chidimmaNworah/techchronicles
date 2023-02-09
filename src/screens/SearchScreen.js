@@ -38,15 +38,15 @@ const reducer = (state, action) => {
 const prices = [
   {
     name: '₦400 to ₦5000',
-    value: '1-50',
+    value: '400-5000',
   },
   {
     name: '₦5100 to ₦20000',
-    value: '51-200',
+    value: '5100-20000',
   },
   {
     name: '₦21000 to ₦100000',
-    value: '201-1000',
+    value: '21000-100000',
   },
 ];
 
@@ -133,7 +133,7 @@ export default function SearchScreen() {
   return (
     <div>
       <Helmet>
-        <title>Search Puffizzy Products</title>
+        <title>Search Products | Nailsrepublic</title>
       </Helmet>
       <Row>
         <Col md={3}>

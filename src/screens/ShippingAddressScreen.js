@@ -60,7 +60,7 @@ export default function ShippingAddressScreen() {
   return (
     <div>
       <Helmet>
-        <title>Shipping Address</title>
+        <title>Shipping Address | Nails Republic</title>
       </Helmet>
 
       <CheckoutSteps step1 step2></CheckoutSteps>

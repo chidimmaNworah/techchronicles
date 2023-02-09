@@ -32,7 +32,7 @@ export default function PaymentMethodScreen() {
       <CheckoutSteps step1 step2 step3></CheckoutSteps>
       <div className="container small-container">
         <Helmet>
-          <title>Payment Method</title>
+          <title>Payment Method | Nails Republic</title>
         </Helmet>
         <h1 className="my-3">Payment Method</h1>
         <Form>
