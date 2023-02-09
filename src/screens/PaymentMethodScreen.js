@@ -23,6 +23,7 @@ export default function PaymentMethodScreen() {
     }
   }, [shippingAddress, navigate]);
   const submitHandler = (e) => {
+    e.preventDefault();
     ctxDispatch({ type: 'SAVE_PAYMENT_METHOD', payload: paymentMethodName });
     localStorage.setItem('paymentMethod', paymentMethodName);
     navigate('/placeorder');
@@ -35,7 +36,7 @@ export default function PaymentMethodScreen() {
           <title>Payment Method | Nails Republic</title>
         </Helmet>
         <h1 className="my-3">Payment Method</h1>
-        <Form>
+        <Form onSubmit={submitHandler}>
           <div className="mb-3">
             <Form.Check
               type="radio"
@@ -77,9 +78,7 @@ export default function PaymentMethodScreen() {
             />
           </div>
           <div className="mb-3">
-            <Button type="submit" onClick={submitHandler}>
-              Continue
-            </Button>
+            <Button type="submit">Continue</Button>
           </div>
         </Form>
       </div>
