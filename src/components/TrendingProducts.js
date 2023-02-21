@@ -89,7 +89,7 @@ export default function TrendingProducts() {
               spaceBetween={10}
               className="mySwiper"
             >
-              {products?.map((product) => (
+              {products?.slice(0, 12).map((product) => (
                 <SwiperSlide className="featured-cards" key={product._id}>
                   <Product product={product}></Product>
                 </SwiperSlide>
