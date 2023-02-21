@@ -86,7 +86,7 @@ export default function NewProducts() {
               spaceBetween={10}
               className="mySwiper"
             >
-              {products?.slice(0, 12).map((product) => (
+              {products?.map((product) => (
                 <SwiperSlide className="featured-cards" key={product._id}>
                   <Product product={product}></Product>
                 </SwiperSlide>
