@@ -64,6 +64,10 @@ export default function ProductEditScreen() {
   const [countInStock, setCountInStock] = useState('');
   const [brand, setBrand] = useState('');
   const [description, setDescription] = useState('');
+  const [combo, setCombo] = useState('');
+  const [discount, setDiscount] = useState('');
+  const [nailart, setNailart] = useState('');
+  const [tools, setTools] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -81,6 +85,10 @@ export default function ProductEditScreen() {
         setCountInStock(data.countInStock);
         setBrand(data.brand);
         setDescription(data.description);
+        setDiscount(data.discount);
+        setNailart(data.nailart);
+        setCombo(data.combo);
+        setTools(data.tools);
         dispatch({ type: 'FETCH_SUCCESS' });
       } catch (err) {
         dispatch({
@@ -109,6 +117,10 @@ export default function ProductEditScreen() {
           brand,
           countInStock,
           description,
+          combo,
+          tools,
+          nailart,
+          discount,
         },
         {
           headers: { Authorization: `Bearer ${userInfo.token}` },
@@ -259,6 +271,38 @@ export default function ProductEditScreen() {
             <Form.Control
               value={description}
               onChange={(e) => setDescription(e.target.value)}
+              required
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="combo">
+            <Form.Label>Combo</Form.Label>
+            <Form.Control
+              value={combo}
+              onChange={(e) => setCombo(e.target.value)}
+              required
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="discount">
+            <Form.Label>Discount</Form.Label>
+            <Form.Control
+              value={discount}
+              onChange={(e) => setDiscount(e.target.value)}
+              required
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="nailart">
+            <Form.Label>Nailart</Form.Label>
+            <Form.Control
+              value={nailart}
+              onChange={(e) => setNailart(e.target.value)}
+              required
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="tools">
+            <Form.Label>Tools</Form.Label>
+            <Form.Control
+              value={tools}
+              onChange={(e) => setTools(e.target.value)}
               required
             />
           </Form.Group>

@@ -3,7 +3,6 @@ import React, { useContext, useEffect, useReducer } from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Card from 'react-bootstrap/Card';
-import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
 import { Helmet } from 'react-helmet-async';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import LoadingBox from '../components/LoadingBox';
@@ -13,6 +12,7 @@ import { getError, API_URL } from '../utils';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { toast } from 'react-toastify';
 import { Button } from 'react-bootstrap';
+import { PaystackButton } from 'react-paystack';
 axios.defaults.withCredentials = true;
 
 function reducer(state, action) {
@@ -73,46 +73,6 @@ export default function OrderScreen() {
     loadingPay: false,
   });
 
-  const [{ isPending }, paypalDispatch] = usePayPalScriptReducer();
-
-  function createOrder(data, actions) {
-    return actions.order
-      .create({
-        purchase_units: [
-          {
-            amount: { value: order.totalPrice },
-          },
-        ],
-      })
-      .then((orderID) => {
-        return orderID;
-      });
-  }
-
-  function onApprove(data, actions) {
-    return actions.order.capture().then(async function (details) {
-      try {
-        dispatch({ type: 'PAY_REQUEST' });
-        const { data } = await axios.put(
-          `${API_URL}/api/orders/${order._id}/pay`,
-          details,
-          {
-            headers: { authorization: `Bearer ${userInfo.token}` },
-          }
-        );
-        dispatch({ type: 'PAY_SUCCESS', payload: data });
-        toast.success('Order is paid');
-      } catch (err) {
-        dispatch({ type: 'PAY_FAIL', payload: getError(err) });
-        toast.error(getError(err));
-      }
-    });
-  }
-
-  function onError(err) {
-    toast.error(getError(err));
-  }
-
   useEffect(() => {
     const fetchOrder = async () => {
       try {
@@ -141,34 +101,8 @@ export default function OrderScreen() {
       if (successDeliver) {
         dispatch({ type: 'DELIVER_RESET' });
       }
-    } else {
-      const loadPayPalScript = async () => {
-        const { data: clientId } = await axios.get(
-          `${API_URL}/api/keys/paypal`,
-          {
-            headers: { authorization: `Bearer ${userInfo.token}` },
-          }
-        );
-        paypalDispatch({
-          type: 'resetOptions',
-          value: {
-            'client-id': clientId,
-            currency: 'NGN',
-          },
-        });
-        paypalDispatch({ type: 'setLoadingStatus', value: 'pending' });
-      };
-      loadPayPalScript();
     }
-  }, [
-    order,
-    userInfo,
-    orderId,
-    navigate,
-    paypalDispatch,
-    successPay,
-    successDeliver,
-  ]);
+  }, [order, userInfo, orderId, navigate, successPay, successDeliver]);
 
   async function deliverOrderHandler() {
     try {
@@ -187,6 +121,38 @@ export default function OrderScreen() {
       dispatch({ type: 'DELIVER_FAIL' });
     }
   }
+
+  const componentProps = {
+    reference: new Date().getTime().toString(),
+    email: userInfo.email,
+    amount: order.totalPrice * 100, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
+    publicKey: 'pk_test_250cf555c853c1c4f4d8bbad93f8d3dfa7f37b33',
+    text: 'Pay Now',
+    onSuccess: () => {
+      try {
+        dispatch({ type: 'PAY_REQUEST' });
+        const { data } = axios.put(
+          `${API_URL}/api/orders/${order._id}/pay`,
+          order,
+          {
+            headers: { authorization: `Bearer ${userInfo.token}` },
+          }
+        );
+        dispatch({ type: 'PAY_SUCCESS', payload: data });
+        localStorage.removeItem('cartItems');
+
+        window.location.reload(false);
+        toast.success('Order is paid');
+      } catch (err) {
+        dispatch({ type: 'PAY_FAIL', payload: getError(err) });
+        toast.error(getError(err));
+      }
+    },
+
+    // alert('Thanks for doing business with us! Come back soon!!'),
+    onClose: () =>
+      toast.error('We are sorry you have to leave, come back soon!'),
+  };
 
   return loading ? (
     <LoadingBox></LoadingBox>
@@ -305,17 +271,12 @@ export default function OrderScreen() {
                 </ListGroup.Item>
                 {!order.isPaid && (
                   <ListGroup.Item>
-                    {isPending ? (
-                      <LoadingBox />
-                    ) : (
-                      <div>
-                        <PayPalButtons
-                          createOrder={createOrder}
-                          onApprove={onApprove}
-                          onError={onError}
-                        ></PayPalButtons>
-                      </div>
-                    )}
+                    <div>
+                      <PaystackButton
+                        {...componentProps}
+                        className="paystack-button"
+                      />{' '}
+                    </div>
                     {loadingPay && <LoadingBox></LoadingBox>}
                   </ListGroup.Item>
                 )}

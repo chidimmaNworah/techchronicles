@@ -18,7 +18,7 @@ function Discount(props) {
   const addToCartHandler = async (item) => {
     const existItem = cartItems.find((x) => x._id === discount._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
-    const { data } = await axios.get(`${API_URL}/api/discounts/${item._id}`);
+    const { data } = await axios.get(`${API_URL}/api/products/${item._id}`);
     if (data.countInStock < quantity) {
       window.alert('Sorry. Discount is out of stock');
       return;
@@ -31,7 +31,7 @@ function Discount(props) {
 
   return (
     <div className="product-box">
-      <Link to={`/discount/${discount.slug}`}>
+      <Link to={`/product/${discount.slug}`}>
         <img
           src={discount.image}
           alt={discount.name}
@@ -39,7 +39,7 @@ function Discount(props) {
         />
       </Link>
       <Card.Body>
-        <Link to={`/discount/${discount.slug}`}>
+        <Link to={`/product/${discount.slug}`}>
           <h6 className="product-component-name">{discount.name}</h6>
         </Link>
 

@@ -41,7 +41,7 @@ export default function TrendingProducts() {
     const fetchData = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
       try {
-        const { data } = await axios.get(`${API_URL}/api/nailarts`);
+        const { data } = await axios.get(`${API_URL}/api/products/nailart`);
         dispatch({ type: 'FETCH_SUCCESS', payload: data });
       } catch (err) {
         dispatch({ type: 'FETCH_FAIL', payload: err.message });

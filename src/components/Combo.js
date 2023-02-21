@@ -18,7 +18,7 @@ function Combo(props) {
   const addToCartHandler = async (item) => {
     const existItem = cartItems.find((x) => x._id === combo._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
-    const { data } = await axios.get(`${API_URL}/api/combos/${item._id}`);
+    const { data } = await axios.get(`${API_URL}/api/products/${item._id}`);
     if (data.countInStock < quantity) {
       window.alert('Sorry. This is out of stock');
       return;
@@ -31,11 +31,11 @@ function Combo(props) {
 
   return (
     <div className="product-box">
-      <Link to={`/combo/${combo.slug}`}>
+      <Link to={`/product/${combo.slug}`}>
         <img src={combo.image} alt={combo.name} className="card-img-top" />
       </Link>
       <Card.Body>
-        <Link to={`/combo/${combo.slug}`}>
+        <Link to={`/product/${combo.slug}`}>
           <h6 className="product-component-name">{combo.name}</h6>
         </Link>
 

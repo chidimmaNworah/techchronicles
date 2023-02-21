@@ -18,7 +18,7 @@ function Nailart(props) {
   const addToCartHandler = async (item) => {
     const existItem = cartItems.find((x) => x._id === nailart._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
-    const { data } = await axios.get(`${API_URL}/api/nailarts/${item._id}`);
+    const { data } = await axios.get(`${API_URL}/api/products/${item._id}`);
     if (data.countInStock < quantity) {
       window.alert('Sorry. nailart is out of stock');
       return;
@@ -31,11 +31,11 @@ function Nailart(props) {
 
   return (
     <div className="product-box">
-      <Link to={`/nailart/${nailart.slug}`}>
+      <Link to={`/product/${nailart.slug}`}>
         <img src={nailart.image} alt={nailart.name} className="card-img-top" />
       </Link>
       <Card.Body>
-        <Link to={`/nailart/${nailart.slug}`}>
+        <Link to={`/product/${nailart.slug}`}>
           <h6 className="product-component-name">{nailart.name}</h6>
         </Link>
 

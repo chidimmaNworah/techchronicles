@@ -7,10 +7,7 @@ const NavigationDots = () => {
 
   return (
     <div className="app__navigation">
-      <i
-        className="fas fa-long-arrow-alt-up app__navigation-dot"
-        onClick={top}
-      />
+      <i className="fas fa-angle-double-up app__navigation-dot" onClick={top} />
     </div>
   );
 };

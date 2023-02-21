@@ -18,7 +18,7 @@ function Tools(props) {
   const addToCartHandler = async (item) => {
     const existItem = cartItems.find((x) => x._id === tool._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
-    const { data } = await axios.get(`${API_URL}/api/tools/${item._id}`);
+    const { data } = await axios.get(`${API_URL}/api/products/${item._id}`);
     if (data.countInStock < quantity) {
       window.alert('Sorry. This tool is out of stock');
       return;
@@ -31,11 +31,11 @@ function Tools(props) {
 
   return (
     <div className="product-box">
-      <Link to={`/tool/${tool.slug}`}>
+      <Link to={`/product/${tool.slug}`}>
         <img src={tool.image} alt={tool.name} className="card-img-top" />
       </Link>
       <Card.Body>
-        <Link to={`/tool/${tool.slug}`}>
+        <Link to={`/product/${tool.slug}`}>
           <h6 className="product-component-name">{tool.name}</h6>
         </Link>
         {/* <Rating rating={tool.rating} numReviews={tool.numReviews} /> */}

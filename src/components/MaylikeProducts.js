@@ -58,7 +58,7 @@ export default function MaylikeProducts() {
               <div className="maylike-products-container track">
                 {products.map((item) => (
                   <div className="product-detail" key={item._id}>
-                    <Link href={`/product/${item.slug}`}>
+                    <Link to={`/product/${item.slug}`}>
                       <div className="product-card">
                         <img
                           src={item.image}

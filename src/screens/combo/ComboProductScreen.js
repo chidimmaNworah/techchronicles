@@ -1,13 +1,13 @@
 import axios from 'axios';
 import React, { useEffect, useReducer, useState } from 'react';
-import { Button, Col, Container, Nav, Row } from 'react-bootstrap';
+import { Button, Col, Container, Row } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Helmet } from 'react-helmet-async';
 import logger from 'use-reducer-logger';
 import {
-  Combo,
+  Product,
   LoadingBox,
   MaylikeProducts,
   MessageBox,
@@ -24,10 +24,10 @@ const reducer = (state, action) => {
     case 'SEARCH_PAGE_SUCCESS':
       return {
         ...state,
-        searchedCombos: action.payload.combos,
+        searchedCombos: action.payload.products,
         page: action.payload.page,
         pages: action.payload.pages,
-        countCombos: action.payload.countCombos,
+        countCombos: action.payload.countProducts,
         loadingSearchPage: false,
       };
     case 'SEARCH_PAGE_FAIL':
@@ -60,7 +60,7 @@ export default function ComboProductScreen() {
     const fetchData = async () => {
       try {
         const { data } = await axios.get(
-          `${API_URL}/api/combos/changepage?page=${page}&query=${query}`
+          `${API_URL}/api/products/combo/changepage?page=${page}&query=${query}`
         );
         dispatch({ type: 'SEARCH_PAGE_SUCCESS', payload: data });
       } catch (err) {
@@ -77,7 +77,7 @@ export default function ComboProductScreen() {
     const filterPage = filter.page || page;
     const filterQuery = filter.query || query;
     return `${
-      skipPathname ? '' : '/combos/changepage?'
+      skipPathname ? '' : '/combo/changepage?'
     }&query=${filterQuery}&page=${filterPage}`;
   };
 
@@ -86,7 +86,7 @@ export default function ComboProductScreen() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const { data } = await axios.get(`${API_URL}/api/combos/categories`);
+        const { data } = await axios.get(`${API_URL}/api/products/categories`);
         setCategories(data);
       } catch (err) {
         toast.error(getError(err));
@@ -126,7 +126,7 @@ export default function ComboProductScreen() {
                     lg={3}
                     className="mb-3 featured-cards"
                   >
-                    <Combo combo={product}></Combo>
+                    <Product product={product}></Product>
                   </Col>
                 ))}
                 <div className="mt-4">
@@ -135,7 +135,7 @@ export default function ComboProductScreen() {
                       key={x + 1}
                       className="mx-1"
                       to={{
-                        pathname: '/combos/changepage',
+                        pathname: '/combo/changepage',
                         search: getFilterUrl({ page: x + 1 }, true),
                       }}
                     >

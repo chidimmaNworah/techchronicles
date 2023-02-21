@@ -36,21 +36,9 @@ import {
   AboutScreen,
   AllProducts,
   DiscountProductScreen,
-  DiscountListScreen,
-  DiscountEditScreen,
-  NailartScreen,
-  DiscountScreen,
   NailartProductScreen,
-  NailartListScreen,
-  NailartEditScreen,
   ToolsProductScreen,
-  ToolsScreen,
-  ToolsListScreen,
-  ToolsEditScreen,
   ComboProductScreen,
-  ComboScreen,
-  ComboListScreen,
-  ComboEditScreen,
   VerifyEmailScreen,
   ChangePassScreen,
   ForgotPassScreen,
@@ -237,18 +225,6 @@ function App() {
                       <LinkContainer to="/admin/products">
                         <NavDropdown.Item>Products</NavDropdown.Item>
                       </LinkContainer>
-                      <LinkContainer to="/admin/discounts">
-                        <NavDropdown.Item>Discounts</NavDropdown.Item>
-                      </LinkContainer>
-                      <LinkContainer to="/admin/nailarts">
-                        <NavDropdown.Item>Nail Arts</NavDropdown.Item>
-                      </LinkContainer>
-                      <LinkContainer to="/admin/tools">
-                        <NavDropdown.Item>Nail Tools</NavDropdown.Item>
-                      </LinkContainer>
-                      <LinkContainer to="/admin/combos">
-                        <NavDropdown.Item>Combo</NavDropdown.Item>
-                      </LinkContainer>
                       <LinkContainer to="/admin/orders">
                         <NavDropdown.Item>Orders</NavDropdown.Item>
                       </LinkContainer>
@@ -402,99 +378,31 @@ function App() {
 
               {/* nailArts */}
               <Route path="/nailarts" element={<NailartProductScreen />} />
-              <Route path="/nailart/:slug" element={<NailartScreen />} />
               <Route
-                path="/nailarts/changepage"
+                path="/nailart/changepage"
                 element={<NailartProductScreen />}
-              />
-              <Route
-                path="/admin/nailarts"
-                element={
-                  <AdminRoute>
-                    <NailartListScreen />
-                  </AdminRoute>
-                }
-              />
-              <Route
-                path="/admin/nailart/:id"
-                element={
-                  <AdminRoute>
-                    <NailartEditScreen />
-                  </AdminRoute>
-                }
               />
 
               {/* designs and tools */}
               <Route path="/tools" element={<ToolsProductScreen />} />
-              <Route path="/tool/:slug" element={<ToolsScreen />} />
               <Route
                 path="/tools/changepage"
                 element={<ToolsProductScreen />}
               />
-              <Route
-                path="/admin/tools"
-                element={
-                  <AdminRoute>
-                    <ToolsListScreen />
-                  </AdminRoute>
-                }
-              />
-              <Route
-                path="/admin/tool/:id"
-                element={
-                  <AdminRoute>
-                    <ToolsEditScreen />
-                  </AdminRoute>
-                }
-              />
 
               {/* Combos */}
               <Route path="/combos" element={<ComboProductScreen />} />
-              <Route path="/combo/:slug" element={<ComboScreen />} />
               <Route
-                path="/combos/changepage"
+                path="/combo/changepage"
                 element={<ComboProductScreen />}
-              />
-              <Route
-                path="/admin/combos"
-                element={
-                  <AdminRoute>
-                    <ComboListScreen />
-                  </AdminRoute>
-                }
-              />
-              <Route
-                path="/admin/combo/:id"
-                element={
-                  <AdminRoute>
-                    <ComboEditScreen />
-                  </AdminRoute>
-                }
               />
 
               {/* discounts */}
-              <Route path="/discount/:slug" element={<DiscountScreen />} />
               <Route
-                path="/discounts/changepage"
+                path="/discount/changepage"
                 element={<DiscountProductScreen />}
               />
               <Route path="/discounts" element={<DiscountProductScreen />} />
-              <Route
-                path="/admin/discounts"
-                element={
-                  <AdminRoute>
-                    <DiscountListScreen />
-                  </AdminRoute>
-                }
-              />
-              <Route
-                path="/admin/discount/:id"
-                element={
-                  <AdminRoute>
-                    <DiscountEditScreen />
-                  </AdminRoute>
-                }
-              />
 
               <Route path="/allproducts/changepage" element={<AllProducts />} />
               <Route path="/allproducts" element={<AllProducts />} />

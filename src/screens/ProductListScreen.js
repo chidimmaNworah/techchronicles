@@ -171,6 +171,10 @@ export default function ProductListScreen() {
                 <th>PRICE</th>
                 <th>CATEGORY</th>
                 <th>BRAND</th>
+                <th>COMBO</th>
+                <th>NAILARTS</th>
+                <th>DISCOUNT</th>
+                <th>TOOLS</th>
                 <th>ACTIONS</th>
               </tr>
             </thead>
@@ -182,6 +186,10 @@ export default function ProductListScreen() {
                   <td>{product.price}</td>
                   <td>{product.category}</td>
                   <td>{product.brand}</td>
+                  <td>{product.combo}</td>
+                  <td>{product.nailart}</td>
+                  <td>{product.discount}</td>
+                  <td>{product.tools}</td>
                   <td>
                     <Button
                       type="button"

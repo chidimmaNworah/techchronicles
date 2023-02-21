@@ -41,7 +41,7 @@ export default function BestSelling() {
     const fetchData = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
       try {
-        const { data } = await axios.get(`${API_URL}/api/tools`);
+        const { data } = await axios.get(`${API_URL}/api/products/tools`);
         dispatch({ type: 'FETCH_SUCCESS', payload: data });
       } catch (err) {
         dispatch({ type: 'FETCH_FAIL', payload: err.message });

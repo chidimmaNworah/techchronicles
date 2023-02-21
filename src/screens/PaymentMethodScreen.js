@@ -14,7 +14,7 @@ export default function PaymentMethodScreen() {
   } = state;
 
   const [paymentMethodName, setPaymentMethod] = useState(
-    paymentMethod || 'PayPal' || 'Cash' || 'Bank Transfer' || 'Crypto'
+    paymentMethod || 'Card' || 'Cash' || 'Bank Transfer'
   );
 
   useEffect(() => {
@@ -24,6 +24,7 @@ export default function PaymentMethodScreen() {
   }, [shippingAddress, navigate]);
   const submitHandler = (e) => {
     e.preventDefault();
+
     ctxDispatch({ type: 'SAVE_PAYMENT_METHOD', payload: paymentMethodName });
     localStorage.setItem('paymentMethod', paymentMethodName);
     navigate('/placeorder');
@@ -40,20 +41,10 @@ export default function PaymentMethodScreen() {
           <div className="mb-3">
             <Form.Check
               type="radio"
-              id="PayPal"
-              label="PayPal"
-              value="PayPal"
-              checked={paymentMethodName === 'PayPal'}
-              onChange={(e) => setPaymentMethod(e.target.value)}
-            />
-          </div>
-          <div className="mb-3">
-            <Form.Check
-              type="radio"
-              id="Cash"
-              label="Cash"
-              value="Cash"
-              checked={paymentMethodName === 'Cash'}
+              id="Card"
+              label="Pay with Card"
+              value="Card"
+              checked={paymentMethodName === 'Card'}
               onChange={(e) => setPaymentMethod(e.target.value)}
             />
           </div>
@@ -61,7 +52,7 @@ export default function PaymentMethodScreen() {
             <Form.Check
               type="radio"
               id="BankTransfer"
-              label="Bank Transfer (Contact us directy through our email or any of our social media handles to use this payment option)"
+              label="Pay with Transfer"
               value="Bank Transfer"
               checked={paymentMethodName === 'Bank Transfer'}
               onChange={(e) => setPaymentMethod(e.target.value)}
@@ -70,8 +61,19 @@ export default function PaymentMethodScreen() {
           <div className="mb-3">
             <Form.Check
               type="radio"
+              id="Cash"
+              label="Pay with Cash"
+              value="Cash"
+              checked={paymentMethodName === 'Cash'}
+              onChange={(e) => setPaymentMethod(e.target.value)}
+            />
+          </div>
+
+          <div className="mb-3">
+            <Form.Check
+              type="radio"
               id="Crypto"
-              label="Crypto (Contact us directy through our email or any of our social media handles to use this payment option)"
+              label="Pay with Crypto"
               value="Crypto"
               checked={paymentMethodName === 'Crypto'}
               onChange={(e) => setPaymentMethod(e.target.value)}

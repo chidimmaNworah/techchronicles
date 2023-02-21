@@ -1,16 +1,16 @@
 import axios from 'axios';
 import React, { useEffect, useReducer, useState } from 'react';
-import { Button, Col, Container, Nav, Row } from 'react-bootstrap';
+import { Button, Col, Container, Row } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Helmet } from 'react-helmet-async';
 import logger from 'use-reducer-logger';
 import {
-  Tools,
   LoadingBox,
   MessageBox,
   MaylikeProducts,
+  Product,
 } from '../../components';
 import { getError, API_URL } from '../../utils';
 import { useLocation } from 'react-router-dom';
@@ -24,10 +24,10 @@ const reducer = (state, action) => {
     case 'SEARCH_PAGE_SUCCESS':
       return {
         ...state,
-        searchedTools: action.payload.tools,
+        searchedTools: action.payload.products,
         page: action.payload.page,
         pages: action.payload.pages,
-        countTools: action.payload.countTools,
+        countTools: action.payload.countProducts,
         loadingSearchPage: false,
       };
     case 'SEARCH_PAGE_FAIL':
@@ -60,7 +60,7 @@ export default function ToolsProductScreen() {
     const fetchData = async () => {
       try {
         const { data } = await axios.get(
-          `${API_URL}/api/tools/changepage?page=${page}&query=${query}`
+          `${API_URL}/api/products/tools/changepage?page=${page}&query=${query}`
         );
         dispatch({ type: 'SEARCH_PAGE_SUCCESS', payload: data });
       } catch (err) {
@@ -86,7 +86,7 @@ export default function ToolsProductScreen() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const { data } = await axios.get(`${API_URL}/api/tools/categories`);
+        const { data } = await axios.get(`${API_URL}/api/products/categories`);
         setCategories(data);
       } catch (err) {
         toast.error(getError(err));
@@ -127,7 +127,7 @@ export default function ToolsProductScreen() {
                     lg={3}
                     className="mb-3 featured-cards"
                   >
-                    <Tools tool={product}></Tools>
+                    <Product product={product}></Product>
                   </Col>
                 ))}
                 <div className="mt-4">
