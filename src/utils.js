@@ -8,4 +8,4 @@ export const getError = (error) => {
 
 export const API_URL = 'https://techchroniclesbackend.herokuapp.com/';
 
-// ''
+// 'Dont talk to me like that'
