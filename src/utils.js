@@ -6,6 +6,6 @@ export const getError = (error) => {
 
 // export const API_URL = 'http://localhost:5111';
 
-export const API_URL = 'https://nailsrepublicserver.herokuapp.com';
+export const API_URL = 'https://techchroniclesbackend.herokuapp.com/';
 
 // ''

@@ -8,7 +8,7 @@ import axios from 'axios';
 import { Store } from '../Store';
 import { toast } from 'react-toastify';
 import PasswordChecklist from 'react-password-checklist';
-import { getError, API_URL } from '../utils';
+import { API_URL } from '../utils';
 axios.defaults.withCredentials = true;
 
 export default function SignupScreen() {
