@@ -710,7 +710,7 @@ textarea:focus {
 
 .swiper-slide {
   text-align: center;
-  font-size: 18px;
+  font-size: 16px;
 
   /* Center slide text vertically */
   display: -webkit-box;
@@ -1053,6 +1053,11 @@ textarea:focus {
     display: grid;
     grid-template-columns: 1fr;
     /* margin-bottom: 4rem; */
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 12px;
   }
 }
 

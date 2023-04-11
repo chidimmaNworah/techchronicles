@@ -30,7 +30,7 @@ const reducer = (state, action) => {
 };
 
 export default function CarouselSlide() {
-  const [{ loading, error, blogs }, dispatch] = useReducer(logger(reducer), {
+  const [{ blogs }, dispatch] = useReducer(logger(reducer), {
     blogs: [],
     loading: true,
     error: '',
@@ -58,6 +58,7 @@ export default function CarouselSlide() {
           <div className="col-lg-7 px-0">
             <Carousel
               autoPlay
+              controls={false}
               showThumbs={false}
               infiniteLoop={true}
               className="position-relative main-carousel carousel-main"
@@ -66,6 +67,7 @@ export default function CarouselSlide() {
                 <div
                   className="position-relative overflow-hidden"
                   style={{ height: '500px' }}
+                  key={blog.name}
                 >
                   <div
                     className="carousel-main-inner text-white"
@@ -83,20 +85,19 @@ export default function CarouselSlide() {
                             pathname: '/search',
                             search: `category=${blog.category}`,
                           }}
-                          // className="bg-primary text-dark text-center font-weight-medium py-2"
+                          className="bg-primary text-dark text-center font-weight-medium py-2 px-1"
                         >
                           {blog.category}{' '}
                         </Link>{' '}
                         <br />
-                        <a className="text-white" href="/">
-                          {moment(blog.createdAt).format(
-                            'MMMM Do YYYY, h:mm:ss a'
-                          )}
-                        </a>
                       </div>
+                      <a className="text-white mt-1" href="/">
+                        Posted on{' '}
+                        {moment(blog.createdAt).format('MMMM Do YYYY')}
+                      </a>
                       <div className="text-left text-truncate w-100 ">
                         <Link
-                          to={`/blog/${blog.slug}`}
+                          to={`/article/${blog.slug}`}
                           className="h2 m-0 text-white text-left text-uppercase font-weight-bold"
                         >
                           {blog.name}
@@ -111,7 +112,7 @@ export default function CarouselSlide() {
           <div className="col-lg-5 px-0">
             <div className="row mx-0">
               {blogs?.slice(4, 8).map((blog) => (
-                <div className="col-md-6 px-0">
+                <div className="col-md-6 px-0" key={blog.name}>
                   <div
                     className="position-relative overflow-hidden"
                     style={{ height: '250px' }}
@@ -130,13 +131,14 @@ export default function CarouselSlide() {
                             pathname: '/search',
                             search: `category=${blog.category}`,
                           }}
+                          className="bg-primary text-dark text-center font-weight-medium py-2 px-1"
                         >
                           {blog.category}
                         </Link>
                       </div>
                       <div className="text-truncate w-100">
                         <Link
-                          to={`/blog/${blog.slug}`}
+                          to={`/article/${blog.slug}`}
                           className="h6 m-0 text-white text-uppercase font-weight-semi-bold"
                         >
                           {blog.name}
@@ -151,19 +153,19 @@ export default function CarouselSlide() {
         </div>
       </div>
       <div className="container-fluid bg-dark py-3 mb-3">
-        <div className="ml-4">
+        <div className="">
           <div className="row align-items-center bg-dark">
             <div className="col-12">
               <div className="d-flex justify-content-between">
                 <div
-                  className="bg-primary text-dark text-center font-weight-medium py-2"
-                  style={{ width: '170px' }}
+                  className="bg-primary text-dark text-center font-weight-medium py-1"
+                  style={{ width: '70px' }}
                 >
                   Trending
                 </div>
                 <div
-                  className="tranding-carousel position-relative d-inline-flex align-items-center"
-                  style={{ width: 'calc(100% - 170px)', paddingRight: '90px' }}
+                  className=" position-relative d-inline-flex align-items-center"
+                  style={{ width: 'calc(100% - 80px)', paddingRight: '10px' }}
                 >
                   <Swiper
                     loop={true}
@@ -171,14 +173,14 @@ export default function CarouselSlide() {
                       delay: 7500,
                       disableOnInteraction: false,
                     }}
-                    className="mySwiper"
+                    className="mySwiper "
                   >
                     {blogs?.map((blog) => (
-                      <SwiperSlide>
+                      <SwiperSlide className="text-left" key={blog.slug}>
                         <div className="text-truncate">
                           <Link
-                            to={`/blog/${blog.slug}`}
-                            className="text-white text-uppercase"
+                            to={`/article/${blog.slug}`}
+                            className="text-white font-weight-medium"
                           >
                             {blog.name}
                           </Link>

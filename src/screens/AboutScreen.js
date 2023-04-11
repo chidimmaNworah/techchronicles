@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import { Helmet } from 'react-helmet-async';
-import { MaylikeProducts } from '../components';
 
 export default function about() {
   return (
@@ -31,7 +30,6 @@ export default function about() {
           />
         </div>
       </div>
-      <MaylikeProducts />
     </Container>
   );
 }

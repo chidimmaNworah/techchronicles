@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import logger from 'use-reducer-logger';
-import Product from '../components/Product';
+import Product from './NewsLetter';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { API_URL } from '../utils';

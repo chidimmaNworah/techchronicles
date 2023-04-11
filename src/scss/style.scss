@@ -90,10 +90,9 @@ h6,
   background: $primary;
 }
 
-// nav a.active {
-//   color: $dark;
-//   background: $primary;
-// }
+.badge {
+  border-radius: 0px;
+}
 
 @media (max-width: 991.98px) {
   .navbar-dark .navbar-nav .nav-link {
@@ -246,7 +245,25 @@ h6,
 }
 
 @media (max-width: 767.98px) {
+  h4 {
+    font-size: 1rem;
+  }
+
+  a {
+    font-size: 12px;
+  }
+  p {
+    font-size: 12px;
+  }
   .news-lg .border {
     border-top: none !important;
+  }
+
+  .h2 {
+    font-size: 1rem;
+  }
+
+  .h4 {
+    font-size: 0.75rem;
   }
 }

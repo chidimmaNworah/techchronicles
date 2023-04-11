@@ -201,9 +201,6 @@ function ProductScreen() {
                             </small>
                           </h6>
                           <p>{review.comment}</p>
-                          <button className="btn btn-sm btn-outline-secondary">
-                            Reply
-                          </button>
                         </div>
                       </div>
                     </div>

@@ -1,7 +1,7 @@
 import { BrowserRouter, Link, Route, Routes, NavLink } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Nav, NavDropdown } from 'react-bootstrap';
+import { Nav, NavDropdown, Navbar } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useContext, useEffect, useState } from 'react';
 import { Store } from './Store.js';
@@ -22,11 +22,6 @@ import {
   SignupScreen,
   ContactScreen,
   AboutScreen,
-  AllProducts,
-  DiscountProductScreen,
-  NailartProductScreen,
-  ToolsProductScreen,
-  ComboProductScreen,
   VerifyEmailScreen,
   ChangePassScreen,
   ForgotPassScreen,
@@ -56,7 +51,7 @@ function App() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const { data } = await axios.get(`${API_URL}/api/products/categories`);
+        const { data } = await axios.get(`${API_URL}/api/blogs/categories`);
         setCategories(data);
       } catch (err) {
         toast.error(getError(err));
@@ -79,27 +74,26 @@ function App() {
 
         <header>
           <ScrollToTop />
-
-          <div className="container-fluid p-0">
-            <nav className="navbar navbar-expand-lg bg-dark navbar-dark py-2 py-lg-0 px-lg-5">
-              <a href="/" className="navbar-brand d-block">
-                <h1 className="m-0 display-4 text-uppercase primary-color">
-                  Techy
-                  <span className="text-white font-weight-normal">Ship</span>
-                </h1>
-              </a>
-              <button
-                type="button"
-                className="navbar-toggler"
-                data-toggle="collapse"
-                data-target="#navbarCollapse"
-              >
-                <span className="navbar-toggler-icon"></span>
-              </button>
-              <div
-                className="collapse navbar-collapse justify-content-between px-0 px-lg-3"
-                id="navbarCollapse"
-              >
+          <Navbar
+            collapseOnSelect
+            className="navbar bg-dark navbar-dark py-2 py-lg-0 px-lg-5"
+            expand="lg"
+          >
+            <a href="/" className="navbar-brand d-block">
+              <h1 className="m-0 display-6 text-uppercase primary-color">
+                Kimmo
+                <span className="text-white font-weight-normal">Blog</span>
+              </h1>
+            </a>
+            <Navbar.Toggle
+              aria-controls="basic-navbar-nav"
+              bg="dark"
+              variant="dark"
+              className="navbar-toggler"
+              toogle="collapse"
+            />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="me-auto w-100 justify-content-end">
                 <div className="navbar-nav mr-auto py-0">
                   <NavLink
                     to="/"
@@ -178,23 +172,16 @@ function App() {
                     ''
                   )}
                 </div>
-                <div
-                  className="input-group ml-auto d-none d-lg-flex"
-                  style={{ width: '100%', maxWidth: '300px' }}
-                >
-                  <div className="input-group-append">
-                    <SearchBox />
-                  </div>
-                </div>
-              </div>
-            </nav>
-          </div>
+              </Nav>
+              <SearchBox />
+            </Navbar.Collapse>
+          </Navbar>
         </header>
         <main>
           <div className="">
             <Routes>
               {/* <ScrollRestoration /> */}
-              <Route path="/blog/:slug" element={<BlogPostScreen />} />
+              <Route path="/article/:slug" element={<BlogPostScreen />} />
               <Route path="/search" element={<SearchScreen />} />
               <Route path="/signin" element={<SigninScreen />} />
               <Route path="/signup" element={<SignupScreen />} />
@@ -291,15 +278,6 @@ function App() {
                 }
               />
 
-              {/* nailArts */}
-              <Route path="/nailarts" element={<NailartProductScreen />} />
-              <Route
-                path="/nailart/changepage"
-                element={<NailartProductScreen />}
-              />
-
-              <Route path="/allproducts/changepage" element={<AllProducts />} />
-              <Route path="/allnews" element={<AllProducts />} />
               <Route path="/changepage" element={<HomeScreen />} />
               <Route path="/" element={<HomeScreen />} />
             </Routes>
