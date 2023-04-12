@@ -83,7 +83,6 @@ function HomeScreen() {
                     </Link>
                   </div>
                 </div>
-
                 <LatestNews />
 
                 <div className="col-lg-6">

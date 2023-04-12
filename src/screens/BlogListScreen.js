@@ -181,7 +181,6 @@ export default function ProductListScreen() {
                   <td>{product.name}</td>
                   <td>{product.category}</td>
                   <td>{product.smallPost}</td>
-                  <td>{product.post}</td>
                   <td>
                     <Button
                       type="button"

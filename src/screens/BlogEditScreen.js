@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useReducer, useState } from 'react';
-import ReactQuill from 'react-quill';
+import ReactQuill, { Quill } from 'react-quill';
+// import { ImageResize } from 'quill-image-resize-module';
 import 'react-quill/dist/quill.snow.css';
+import ImageResize from 'quill-image-resize-module-react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import axios from 'axios';
@@ -43,6 +45,35 @@ const reducer = (state, action) => {
       return state;
   }
 };
+
+Quill.register('modules/imageResize', ImageResize);
+
+const insertImageFromURL = (quill, imageURL) => {
+  const range = quill.getSelection();
+  const delta = {
+    ops: [
+      {
+        insert: {
+          image: imageURL,
+        },
+      },
+    ],
+  };
+  quill.updateContents(delta);
+  quill.setSelection(range.index + 1, range.length);
+};
+
+// Register the custom function as a Quill module
+Quill.register('modules/imageUpload', function (quill, options) {
+  const toolbar = quill.getModule('toolbar');
+  toolbar.addHandler('image', () => {
+    const imageURL = prompt('Enter the URL of the image:');
+    if (imageURL) {
+      insertImageFromURL(quill, imageURL);
+    }
+  });
+});
+
 const modules = {
   toolbar: [
     [{ font: [] }],
@@ -56,6 +87,15 @@ const modules = {
     ['link', 'image', 'video'],
     ['clean'],
   ],
+  // handlers: {
+  //   image: () => {},
+  // },
+
+  imageUpload: true,
+  imageResize: {
+    parchment: Quill.import('parchment'),
+    modules: ['Resize', 'DisplaySize'],
+  },
 };
 
 const formats = [
