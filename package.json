@@ -2,6 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:5111",
   "dependencies": {
     "@paypal/react-paypal-js": "^7.8.2",
     "@paystack/inline-js": "^2.12.6",

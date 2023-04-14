@@ -103,7 +103,7 @@ function App() {
                     Home
                   </NavLink>
                   <NavLink
-                    to="/allnews"
+                    to="/search"
                     className="nav-item nav-link"
                     style={navLinkStyles}
                   >
@@ -123,9 +123,13 @@ function App() {
                       </Nav.Item>
                     ))}
                   </NavDropdown>
-                  <a href="contact.html" className="nav-item nav-link">
+                  <NavLink
+                    to="/contact"
+                    className="nav-item nav-link"
+                    style={navLinkStyles}
+                  >
                     Contact
-                  </a>
+                  </NavLink>
                   {userInfo ? (
                     <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
                       <LinkContainer to="/profile">

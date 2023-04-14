@@ -88,7 +88,7 @@ export default function CategorySlide() {
           {blogs?.slice(21, 24).map((blog) => (
             <SwiperSlide
               className="position-relative overflow-hidden"
-              style={{ height: '300px' }}
+              style={{ height: '500px' }}
               key={blog._id}
             >
               <img

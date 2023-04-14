@@ -64,7 +64,7 @@ export default function PopularNews() {
               alt="article"
               width={60}
             />
-            <div className="w-100 h-100 px-1 d-flex flex-column justify-content-center border border-left-0">
+            <div className="text-truncate w-100 h-100 px-1 d-flex flex-column justify-content-center border border-left-0">
               <div className="mb-2">
                 <Link
                   className="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
@@ -79,13 +79,14 @@ export default function PopularNews() {
                   <small>{moment(blog.createdAt).format('MMMM Do YYYY')}</small>
                 </a>
               </div>
-
-              <Link
-                className="h6 m-0 text-secondary text-uppercase font-weight-bold"
-                to={`/article/${blog.slug}`}
-              >
-                {blog.name}
-              </Link>
+              <div className="w-100 text-truncate">
+                <Link
+                  className="m-0 text-secondary text-uppercase font-weight-bold"
+                  to={`/article/${blog.slug}`}
+                >
+                  {blog.name}
+                </Link>
+              </div>
             </div>
           </div>
         ))}

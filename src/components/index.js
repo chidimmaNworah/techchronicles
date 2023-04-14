@@ -15,3 +15,4 @@ export { default as Socials } from './Socials';
 export { default as Combo } from './Combo';
 export { default as LatestNews } from './LatestNews';
 export { default as WidgetScreen } from './WidgetScreen';
+export { default as Blog } from './Blog';

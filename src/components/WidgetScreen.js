@@ -31,10 +31,17 @@ export default function WidgetScreen() {
           <h4 className="m-0 text-uppercase font-weight-bold">Advertisement</h4>
         </div>
         <div className="bg-white text-center border border-top-0 p-3">
-          {/* <a href="/">
-            <img className="img-fluid" src="img/news-800x500-2.jpg" alt="" />
-          </a> */}
-          {/* <h3>FOR ADVERTISEMENT</h3> */}
+          <a
+            href="https://www.kimmotechnology.com/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              className="img-fluid"
+              src="https://res.cloudinary.com/kimmoramicky/image/upload/v1681296838/Adverts/tech_small_banner_hhyzat.png"
+              alt="kimmotechnology"
+            />
+          </a>
         </div>
       </div>
 

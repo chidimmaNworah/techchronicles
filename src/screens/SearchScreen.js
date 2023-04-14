@@ -9,8 +9,8 @@ import Col from 'react-bootstrap/Col';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import Button from 'react-bootstrap/Button';
-import Product from '../components/NewsLetter';
 import LinkContainer from 'react-router-bootstrap/LinkContainer';
+import { Blog } from '../components';
 axios.defaults.withCredentials = true;
 
 const reducer = (state, action) => {
@@ -34,52 +34,12 @@ const reducer = (state, action) => {
   }
 };
 
-const prices = [
-  {
-    name: '₦400 to ₦5000',
-    value: '400-5000',
-  },
-  {
-    name: '₦5100 to ₦20000',
-    value: '5100-20000',
-  },
-  {
-    name: '₦21000 to ₦100000',
-    value: '21000-100000',
-  },
-];
-
-export const ratings = [
-  {
-    name: '4stars & up',
-    rating: 4,
-  },
-
-  {
-    name: '3stars & up',
-    rating: 3,
-  },
-
-  {
-    name: '2stars & up',
-    rating: 2,
-  },
-
-  {
-    name: '1stars & up',
-    rating: 1,
-  },
-];
-
 export default function SearchScreen() {
   const navigate = useNavigate();
   const { search } = useLocation();
   const sp = new URLSearchParams(search); // /search?category=Shirts
   const category = sp.get('category') || 'all';
   const query = sp.get('query') || 'all';
-  const price = sp.get('price') || 'all';
-  const rating = sp.get('rating') || 'all';
-  const order = sp.get('order') || 'newest';
   const page = sp.get('page') || 1;
 
   const [{ loading, error, products, pages, countProducts }, dispatch] =
@@ -92,7 +52,7 @@ export default function SearchScreen() {
     const fetchData = async () => {
       try {
         const { data } = await axios.get(
-          `${API_URL}/api/products/search?page=${page}&query=${query}&category=${category}&price=${price}&rating=${rating}&order=${order}`
+          `${API_URL}/api/blogs/search?page=${page}&query=${query}&category=${category}`
         );
         dispatch({ type: 'FETCH_SUCCESS', payload: data });
       } catch (err) {
@@ -103,13 +63,13 @@ export default function SearchScreen() {
       }
     };
     fetchData();
-  }, [category, error, order, page, price, query, rating]);
+  }, [category, error, page, query]);
 
   const [categories, setCategories] = useState([]);
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const { data } = await axios.get(`${API_URL}/api/products/categories`);
+        const { data } = await axios.get(`${API_URL}/api/blogs/categories`);
         setCategories(data);
       } catch (err) {
         toast.error(getError(err));
@@ -122,12 +82,9 @@ export default function SearchScreen() {
     const filterPage = filter.page || page;
     const filterCategory = filter.category || category;
     const filterQuery = filter.query || query;
-    const filterRating = filter.rating || rating;
-    const filterPrice = filter.price || price;
-    const sortOrder = filter.order || order;
     return `${
       skipPathname ? '' : '/search?'
-    }category=${filterCategory}&query=${filterQuery}&price=${filterPrice}&rating=${filterRating}&order=${sortOrder}&page=${filterPage}`;
+    }category=${filterCategory}&query=${filterQuery}&page=${filterPage}`;
   };
   return (
     <div>
@@ -136,7 +93,7 @@ export default function SearchScreen() {
       </Helmet>
       <Row>
         <Col md={3}>
-          <h3>Department</h3>
+          <h3>Categories</h3>
           <div>
             <ul>
               <li>
@@ -159,29 +116,6 @@ export default function SearchScreen() {
               ))}
             </ul>
           </div>
-          <div>
-            <h3>Price</h3>
-            <ul>
-              <li>
-                <Link
-                  className={'all' === price ? 'text-bold' : ''}
-                  to={getFilterUrl({ price: 'all' })}
-                >
-                  Any
-                </Link>
-              </li>
-              {prices?.map((p) => (
-                <li key={p.value}>
-                  <Link
-                    to={getFilterUrl({ price: p.value })}
-                    className={p.value === price ? 'text-bold' : ''}
-                  >
-                    {p.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
         </Col>
         <Col md={9}>
           {loading ? (
@@ -196,12 +130,7 @@ export default function SearchScreen() {
                     {countProducts === 0 ? 'No' : countProducts} Results
                     {query !== 'all' && ' : ' + query}
                     {category !== 'all' && ' : ' + category}
-                    {price !== 'all' && ' : Price ' + price}
-                    {rating !== 'all' && ' : Rating ' + rating + ' & up'}
-                    {query !== 'all' ||
-                    category !== 'all' ||
-                    rating !== 'all' ||
-                    price !== 'all' ? (
+                    {query !== 'all' || category !== 'all' ? (
                       <Button
                         variant="light"
                         onClick={() => navigate('/search')}
@@ -211,20 +140,6 @@ export default function SearchScreen() {
                     ) : null}
                   </div>
                 </Col>
-                <Col className="text-end">
-                  Sort by{' '}
-                  <select
-                    value={order}
-                    onChange={(e) => {
-                      navigate(getFilterUrl({ order: e.target.value }));
-                    }}
-                  >
-                    <option value="newest">Newest Arrivals</option>
-                    <option value="lowest">Price: Low to High</option>
-                    <option value="highest">Price: High to Low</option>
-                    <option value="toprated">Avg. Customer Reviews</option>
-                  </select>
-                </Col>
               </Row>
               {products.length === 0 && (
                 <MessageBox>No Product Found</MessageBox>
@@ -233,7 +148,7 @@ export default function SearchScreen() {
               <Row>
                 {products?.map((product) => (
                   <Col sm={6} lg={4} className="mb-3" key={product._id}>
-                    <Product product={product}></Product>
+                    <Blog blog={product}></Blog>
                   </Col>
                 ))}
               </Row>

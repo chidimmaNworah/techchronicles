@@ -131,28 +131,6 @@ export default function ProductEditScreen() {
   const [category, setCategory] = useState('');
   const [smallPost, setSmallPost] = useState('');
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        dispatch({ type: 'FETCH_REQUEST' });
-        const { data } = await axios.get(`${API_URL}/api/blogs/${productId}`);
-        setName(data.name);
-        setSlug(data.slug);
-        setImage(data.image);
-        setCategory(data.category);
-        setPost(data.post);
-        setSmallPost(data.smallPost);
-        dispatch({ type: 'FETCH_SUCCESS' });
-      } catch (err) {
-        dispatch({
-          type: 'FETCH_FAIL',
-          payload: getError(err),
-        });
-      }
-    };
-    fetchData();
-  }, [productId]);
-
   const submitHandler = async (e) => {
     e.preventDefault();
     console.log(post);
@@ -183,6 +161,28 @@ export default function ProductEditScreen() {
       dispatch({ type: 'UPDATE_FAIL' });
     }
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        dispatch({ type: 'FETCH_REQUEST' });
+        const { data } = await axios.get(`${API_URL}/api/blogs/${productId}`);
+        setName(data.name);
+        setSlug(data.slug);
+        setImage(data.image);
+        setCategory(data.category);
+        setPost(data.post);
+        setSmallPost(data.smallPost);
+        dispatch({ type: 'FETCH_SUCCESS' });
+      } catch (err) {
+        dispatch({
+          type: 'FETCH_FAIL',
+          payload: getError(err),
+        });
+      }
+    };
+    fetchData();
+  }, [productId]);
 
   return (
     <Container className="small-container">

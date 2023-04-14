@@ -53,7 +53,7 @@ export default function CarouselSlide() {
 
   return (
     <div>
-      <div className="container-fluid mb-0">
+      <div className="container-fluid">
         <div className="row">
           <div className="col-lg-7 px-0">
             <Carousel
@@ -76,7 +76,8 @@ export default function CarouselSlide() {
                     <img
                       src={blog.image}
                       alt="blog"
-                      className="img-fluid h-100"
+                      className="img-fluid w-100 h-100"
+                      style={{ objectFit: 'cover' }}
                     />
                     <div className="overlay text-left">
                       <div className="mb-2">
@@ -113,11 +114,7 @@ export default function CarouselSlide() {
             <div className="row mx-0">
               {blogs?.slice(4, 8).map((blog) => (
                 <div className="col-md-6 px-0" key={blog.name}>
-                  <div
-                    className="position-relative overflow-hidden"
-                    style={{ height: '250px' }}
-                    key={blog.name}
-                  >
+                  <div className="side-carouosel" key={blog.name}>
                     <img
                       className="img-fluid w-100 h-100"
                       src={blog.image}
@@ -152,10 +149,10 @@ export default function CarouselSlide() {
           </div>
         </div>
       </div>
-      <div className="container-fluid bg-dark py-3 mb-3">
+      <div className="container-fluid bg-dark py-3 mb-3 trending-slider-height">
         <div className="">
           <div className="row align-items-center bg-dark">
-            <div className="col-12">
+            <div className="col-12 ">
               <div className="d-flex justify-content-between">
                 <div
                   className="bg-primary text-dark text-center font-weight-medium py-1"

@@ -85,6 +85,20 @@ function HomeScreen() {
                 </div>
                 <LatestNews />
 
+                <div class="col-lg-12 mb-3">
+                  <a
+                    href="https://www.kimmotechnology.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img
+                      class="img-fluid w-100"
+                      src="https://res.cloudinary.com/kimmoramicky/image/upload/v1681288627/Adverts/cv_banner_advert_gtyc5b.png"
+                      alt="cv_advert_banner"
+                    />
+                  </a>
+                </div>
+
                 <div className="col-lg-6">
                   {blogs?.slice(13, 14).map((blog) => (
                     <div
@@ -95,28 +109,30 @@ function HomeScreen() {
                         className="img-fluid"
                         src={blog.image}
                         alt={blog.name}
+                        width={145}
                       />
-                      <div className="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
-                        <div className="mb-2">
-                          <a
+                      <div className="text-truncate w-100 h-100 px-1 d-flex flex-column justify-content-center border border-left-0">
+                        <div>
+                          <Link
                             className="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
-                            href="/"
+                            to={{
+                              pathname: '/search',
+                              search: `category=${blog.category}`,
+                            }}
                           >
                             {blog.category}
-                          </a>
-                          <a className="text-body" href="/">
-                            <small>
-                              {moment(blog.createdAt).format('MMMM Do YYYY')}
-                            </small>
-                          </a>
+                          </Link>
+                          <small>
+                            {moment(blog.createdAt).format('MMMM Do YYYY')}
+                          </small>
                         </div>
-                        <div className="truncate">
-                          <a
-                            className="h6 m-0 text-secondary text-uppercase font-weight-bold"
-                            href="/"
+                        <div className="text-truncate w-100">
+                          <Link
+                            className="m-0 text-secondary text-uppercase font-weight-bold"
+                            to={`/article/${blog.slug}`}
                           >
                             {blog.name}
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -141,11 +157,9 @@ function HomeScreen() {
                           >
                             {blog.category}
                           </a>
-                          <a className="text-body" href="/">
-                            <small>
-                              {moment(blog.createdAt).format('MMMM Do YYYY')}
-                            </small>
-                          </a>
+                          <small>
+                            {moment(blog.createdAt).format('MMMM Do YYYY')}
+                          </small>
                         </div>
                         <div className="truncate">
                           <a

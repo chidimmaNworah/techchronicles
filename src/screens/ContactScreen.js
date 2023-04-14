@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import { Helmet } from 'react-helmet-async';
+import { NewsLetter } from '../components';
 axios.defaults.withCredentials = true;
 
 const reducer = (state, action) => {
@@ -54,103 +55,197 @@ export default function ContactScreen() {
       <Helmet>
         <title>Contact Us | Nail Republic</title>
       </Helmet>
-      <div className="contact-main">
-        <div id="contact_info" className="contact-info">
-          <div className="">
-            <h4 className="text-white mb-4">CONTACT INFO</h4>
-          </div>
-          {/* name */}
-          <div className="mt-6 d-flex gap-2 align-items-center">
-            <p className="text-white text-xs">
-              <i className="fas fa-user-tie"></i> Name :
-            </p>
-            <p className="text-white text-xs">Customer Service</p>
-          </div>
-          {/* email */}
-          <div className="d-flex gap-2 align-items-center">
-            <p className="text-white text-xs">
-              <i className="fas fa-envelope-square"></i> Email :
-            </p>
-            <p>
-              <a
-                className="text-white text-xs no-underline"
-                href="mailto:info@nailsrepublic.com"
-              >
-                info@nailsrepublic.com
-              </a>
-            </p>
-          </div>
-          {/* Phone */}
-          <div className="d-flex gap-2 align-items-center">
-            <p className="text-white text-xs">
-              <i className="fas fa-phone-volume"></i> Phone :
-            </p>
-            <p>
-              <a
-                className="text-white text-xs no-underline"
-                href="tel:+234 907 036 1277"
-              >
-                +234 906 310 6069
-              </a>
-            </p>
-          </div>
-          {/* Address */}
-          <div className="d-flex gap-2 align-items-center">
-            <p className="text-white text-xs">
-              <i className="fas fa-map-signs"></i> Address :
-            </p>
-            <p>
-              <a
-                className="text-white text-xs no-underline "
-                href="https://maps.google.com/jotvpKsh28aaXBEVA"
-              >
-                Central Business District, Abuja 900211
-              </a>
-            </p>
-          </div>
-        </div>
-        <div className="contact-info-2">
-          <form id="contact_us" onSubmit={submitHandler}>
-            <div className="">
-              <h4 className="text-green-700">GET IN TOUCH</h4>
+
+      <div className="container-fluid mt-5 pt-3">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-8">
+              <div className="section-title mb-0">
+                <h4 className="m-0 text-uppercase font-weight-bold">
+                  Contact Us For Any Queries
+                </h4>
+              </div>
+              <div className="bg-white border border-top-0 p-4 mb-3">
+                <div className="mb-4">
+                  <h6 className="text-uppercase font-weight-bold">
+                    Contact Info
+                  </h6>
+                  <p className="mb-4">
+                    Welcome to the Kimmotech Blog. The purpose of this blog is
+                    to enable the sharing of technical information, insights,
+                    events, and inspiration among software developers and
+                    various individuals within the Tech community and
+                    externally. <br /> <br /> Have something you want us to know
+                    about? Let us hear your suggestions, comments and concerns
+                    by filling out the form below:
+                  </p>
+                  <div className="mb-3">
+                    <div className="d-flex align-items-center mb-2">
+                      <i className="fa fa-map-marker-alt text-primary mr-2"></i>
+                      <h6 className="font-weight-bold mb-0">Our Office</h6>
+                    </div>
+                    <p className="m-0">
+                      18 Shettima Ngiladar Street, Abuja, Nigeria
+                    </p>
+                  </div>
+                  <div className="mb-3">
+                    <div className="d-flex align-items-center mb-2">
+                      <i className="fa fa-envelope-open text-primary mr-2"></i>
+                      <h6 className="font-weight-bold mb-0">Email Us</h6>
+                    </div>
+                    <p className="m-0">info@example.com</p>
+                  </div>
+                  <div className="mb-3">
+                    <div className="d-flex align-items-center mb-2">
+                      <i className="fa fa-phone-alt text-primary mr-2"></i>
+                      <h6 className="font-weight-bold mb-0">Call Us</h6>
+                    </div>
+                    <p className="m-0">+234 906 310 6069</p>
+                  </div>
+                </div>
+                <h6 className="text-uppercase font-weight-bold mb-3">
+                  Contact Us
+                </h6>
+                <form id="contact_us" onSubmit={submitHandler}>
+                  <div className="form-row">
+                    <div className="col-md-6">
+                      <div className="form-group">
+                        <input
+                          type="name"
+                          name="name"
+                          onChange={(e) => setName(e.target.value)}
+                          placeholder="Your Name"
+                          className="form-control p-4"
+                          required="required"
+                        />
+                      </div>
+                    </div>
+                    <div className="col-md-6">
+                      <div className="form-group">
+                        <input
+                          type="email"
+                          name="email"
+                          onChange={(e) => setEmail(e.target.value)}
+                          placeholder="Your Email"
+                          className="form-control p-4"
+                          required="required"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="form-group">
+                    <input
+                      type="subject"
+                      name="subject"
+                      onChange={(e) => setSubject(e.target.value)}
+                      placeholder="Subject"
+                      className="form-control p-4"
+                      required="required"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <textarea
+                      className="form-control"
+                      type="message"
+                      name="message"
+                      onChange={(e) => setMessage(e.target.value)}
+                      placeholder="Message"
+                      rows="4"
+                      required="required"
+                    />
+                  </div>
+                  <div>
+                    <Button
+                      className="btn btn-primary font-weight-semi-bold px-4"
+                      style={{ height: '50px' }}
+                      type="submit"
+                    >
+                      Send Message
+                    </Button>
+                  </div>
+                </form>
+              </div>
             </div>
-            <input
-              type="name"
-              name="name"
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Enter Your Name"
-              className="contact-main-2"
-              autoFocus
-            />
-            <br />
-            <input
-              type="email"
-              name="email"
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter Your Email"
-              className="contact-main-2"
-            />
-            <br />
-            <input
-              type="subject"
-              name="subject"
-              onChange={(e) => setSubject(e.target.value)}
-              placeholder="Subject"
-              className="contact-main-2"
-            />
-            <br />
-            <textarea
-              type="message"
-              name="message"
-              onChange={(e) => setMessage(e.target.value)}
-              placeholder="Enter your Message here"
-            />
-            <br />
-            <Button type="submit" variant="primary">
-              Send message
-            </Button>
-            <br />
-          </form>
+            <div className="col-lg-4">
+              <div className="mb-3">
+                <div className="section-title mb-0">
+                  <h4 className="m-0 text-uppercase font-weight-bold">
+                    Follow Us
+                  </h4>
+                </div>
+                <div className="bg-white border border-top-0 p-3">
+                  <a
+                    href="https://web.facebook.com/100084215682240/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="d-block w-100 text-white text-decoration-none mb-3"
+                    style={{ background: '#39569E' }}
+                  >
+                    <i
+                      className="fab fa-facebook-f text-center py-4 mr-3"
+                      style={{ width: '65px', background: 'rgba(0, 0, 0, .2)' }}
+                    ></i>
+                    <span className="font-weight-medium">2,785 Fans</span>
+                  </a>
+                  <a
+                    href="https://twitter.com/kimmotechnology"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="d-block w-100 text-white text-decoration-none mb-3"
+                    style={{ background: '#52AAF4' }}
+                  >
+                    <i
+                      className="fab fa-twitter text-center py-4 mr-3"
+                      style={{ width: '65px', background: 'rgba(0, 0, 0, .2)' }}
+                    ></i>
+                    <span className="font-weight-medium">12,345 Followers</span>
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/company/kimmotech"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="d-block w-100 text-white text-decoration-none mb-3"
+                    style={{ background: '#0185AE' }}
+                  >
+                    <i
+                      className="fab fa-linkedin-in text-center py-4 mr-3"
+                      style={{ width: '65px', background: 'rgba(0, 0, 0, .2)' }}
+                    ></i>
+                    <span className="font-weight-medium">5,513 Connects</span>
+                  </a>
+                  <a
+                    href="https://www.instagram.com/kimmotech"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="d-block w-100 text-white text-decoration-none mb-3"
+                    style={{ background: '#C8359D' }}
+                  >
+                    <i
+                      className="fab fa-instagram text-center py-4 mr-3"
+                      style={{ width: '65px', background: 'rgba(0, 0, 0, .2)' }}
+                    ></i>
+                    <span className="font-weight-medium">6,345 Followers</span>
+                  </a>
+                  <a
+                    href="https://www.youtube.com/@kimmotech"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="d-block w-100 text-white text-decoration-none mb-3"
+                    style={{ background: '#DC472E' }}
+                  >
+                    <i
+                      className="fab fa-youtube text-center py-4 mr-3"
+                      style={{ width: '65px', background: 'rgba(0, 0, 0, .2)' }}
+                    ></i>
+                    <span className="font-weight-medium">
+                      1,345 Subscribers
+                    </span>
+                  </a>
+                </div>
+              </div>
+              <NewsLetter />
+            </div>
+          </div>
         </div>
       </div>
     </div>

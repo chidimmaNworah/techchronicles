@@ -145,7 +145,10 @@ function ProductScreen() {
                   <h1 className="mb-3 text-secondary text-uppercase font-weight-bold">
                     {blog.name}
                   </h1>
-                  <div dangerouslySetInnerHTML={{ __html: blog.post }}></div>
+                  <div
+                    className=""
+                    dangerouslySetInnerHTML={{ __html: blog.post }}
+                  ></div>
                 </div>
                 <div className="d-flex justify-content-between bg-white border border-top-0 p-4">
                   <div className="d-flex align-items-center">
