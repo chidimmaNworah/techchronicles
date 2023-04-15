@@ -154,12 +154,12 @@ function ProductScreen() {
                   <div className="d-flex align-items-center">
                     <img
                       className="rounded-circle mr-2"
-                      src="img/user.jpg"
+                      src="https://res.cloudinary.com/kimmoramicky/image/upload/v1681199111/kimmora_qiefbe.png"
                       width="25"
                       height="25"
-                      alt=""
+                      alt="author"
                     />
-                    <span>KimmoTech</span>
+                    <span>Kimmora</span>
                   </div>
                   <div className="d-flex align-items-center">
                     <span className="ml-3">

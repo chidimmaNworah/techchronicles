@@ -65,7 +65,7 @@ export default function PopularNews() {
               width={60}
             />
             <div className="text-truncate w-100 h-100 px-1 d-flex flex-column justify-content-center border border-left-0">
-              <div className="mb-2">
+              <div className="mb-1">
                 <Link
                   className="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
                   to={{
@@ -81,7 +81,7 @@ export default function PopularNews() {
               </div>
               <div className="w-100 text-truncate">
                 <Link
-                  className="m-0 text-secondary text-uppercase font-weight-bold"
+                  className="m-0 text-secondary font-weight-bold"
                   to={`/article/${blog.slug}`}
                 >
                   {blog.name}
