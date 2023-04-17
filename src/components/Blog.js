@@ -17,7 +17,6 @@ function Blog(props) {
           <h6 className="product-component-name">{blog.name}</h6>
         </Link>
         <small>{moment(blog.createdAt).format('MMMM Do YYYY')}</small>
-        <Card.Text className="mt-2">{blog.smallPost}</Card.Text>
 
         <div className="d-flex align-items-center">
           <small className="">

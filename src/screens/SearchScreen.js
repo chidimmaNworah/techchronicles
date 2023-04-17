@@ -118,62 +118,53 @@ export default function SearchScreen() {
           </div>
         </Col>
         <Col md={9}>
-          {loading ? (
-            <LoadingBox></LoadingBox>
-          ) : error ? (
-            <MessageBox variant="danger">{error}</MessageBox>
-          ) : (
-            <>
-              <Row className="justify-content-between mb-3">
-                <Col md={6}>
-                  <div>
-                    {countProducts === 0 ? 'No' : countProducts} Results
-                    {query !== 'all' && ' : ' + query}
-                    {category !== 'all' && ' : ' + category}
-                    {query !== 'all' || category !== 'all' ? (
-                      <Button
-                        variant="light"
-                        onClick={() => navigate('/search')}
-                      >
-                        <i className="fas fa-times-circle"></i>
-                      </Button>
-                    ) : null}
-                  </div>
-                </Col>
-              </Row>
-              {products.length === 0 && (
-                <MessageBox>No Product Found</MessageBox>
-              )}
-
-              <Row>
-                {products?.map((product) => (
-                  <Col sm={6} lg={4} className="mb-3" key={product._id}>
-                    <Blog blog={product}></Blog>
-                  </Col>
-                ))}
-              </Row>
-
-              <div>
-                {[...Array(pages).keys()].map((x) => (
-                  <LinkContainer
-                    key={x + 1}
-                    className="mx-1"
-                    to={{
-                      pathname: '/search',
-                      search: getFilterUrl({ page: x + 1 }, true),
-                    }}
-                  >
-                    <Button
-                      className={Number(page) === x + 1 ? 'text-bold' : ''}
-                      variant="light"
-                    >
-                      {x + 1}
+          <>
+            <Row className="justify-content-between mb-3">
+              <Col md={6}>
+                <div>
+                  {countProducts === 0 ? 'No' : countProducts} Results
+                  {query !== 'all' && ' : ' + query}
+                  {category !== 'all' && ' : ' + category}
+                  {query !== 'all' || category !== 'all' ? (
+                    <Button variant="light" onClick={() => navigate('/search')}>
+                      <i className="fas fa-times-circle"></i>
                     </Button>
-                  </LinkContainer>
-                ))}
-              </div>
-            </>
-          )}
+                  ) : null}
+                </div>
+              </Col>
+            </Row>
+            {products.length === 0 && (
+              <MessageBox>No BlogPost Available</MessageBox>
+            )}
+
+            <Row>
+              {products?.map((product) => (
+                <Col sm={6} lg={4} className="mb-3" key={product._id}>
+                  <Blog blog={product}></Blog>
+                </Col>
+              ))}
+            </Row>
+
+            <div>
+              {[...Array(pages).keys()].map((x) => (
+                <LinkContainer
+                  key={x + 1}
+                  className="mx-1"
+                  to={{
+                    pathname: '/search',
+                    search: getFilterUrl({ page: x + 1 }, true),
+                  }}
+                >
+                  <Button
+                    className={Number(page) === x + 1 ? 'text-bold' : ''}
+                    variant="light"
+                  >
+                    {x + 1}
+                  </Button>
+                </LinkContainer>
+              ))}
+            </div>
+          </>
         </Col>
       </Row>
     </div>
