@@ -141,9 +141,9 @@ export default function SearchScreen() {
                   </div>
                 </Col>
               </Row>
-              {products.length === 0 && (
-                <MessageBox>No BlogPost Available</MessageBox>
-              )}
+              {/* {products?.length === 0 && (
+                <MessageBox>No Product Found</MessageBox>
+              )} */}
 
               <Row>
                 {products?.map((product) => (
