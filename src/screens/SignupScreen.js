@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { Helmet } from 'react-helmet-async';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -78,47 +77,59 @@ export default function SignupScreen() {
         <title>Sign Up</title>
       </Helmet>
       <h1 className="my-3">Sign Up</h1>
-      <Form onSubmit={submitHandler}>
-        <Form.Group className="mb-3" controlId="name">
-          <Form.Label>Name</Form.Label>
-          <Form.Control
+      <form className=" mb-2" onSubmit={submitHandler}>
+        <div className="border-bottom">
+          <input
+            placeholder="Your Name"
+            className="password-input border-0"
             type="name"
+            value={name}
             onChange={(e) => setName(e.target.value)}
             required
           />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="email">
-          <Form.Label>Email</Form.Label>
-          <Form.Control
+        </div>
+        <div className="border-bottom">
+          <input
+            placeholder="Your Email"
+            className="password-input border-0"
             type="email"
+            value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-        </Form.Group>
-
-        <Form.Group
-          className="mb-3"
-          onChange={(e) => setPassword(e.target.value)}
-          controlId="password"
-        >
-          <Form.Label>Password</Form.Label>
-          <div className="d-flex">
-            <Form.Control type={passwordShown ? 'text' : 'password'} required />
-            <i className="fas fa-eye" onClick={togglePassword} />
-          </div>
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="confirmPassword">
-          <Form.Label>Confirm Password</Form.Label>
-          <div className="d-flex">
-            <Form.Control
-              type={confirmPasswordShown ? 'text' : 'password'}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
+        </div>
+        <div className="d-flex justify-content-between align-items-center border-bottom">
+          <input
+            placeholder="Enter Your Password"
+            className="password-input border-0"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            controlId="password"
+            type={passwordShown ? 'text' : 'password'}
+            required
+          />
+          <div>
+            <i
+              className={passwordShown ? 'fas fa-eye-slash' : 'fas fa-eye'}
+              onClick={togglePassword}
             />
-            <i className="fas fa-eye" onClick={toggleconfirmPassword} />
           </div>
-        </Form.Group>
+        </div>
+
+        <div className="d-flex justify-content-between align-items-center border-bottom mb-4">
+          <input
+            placeholder="Confirm Your Password"
+            className="password-input border-0"
+            type={confirmPasswordShown ? 'text' : 'password'}
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+          />
+          <i
+            className={confirmPasswordShown ? 'fas fa-eye-slash' : 'fas fa-eye'}
+            onClick={toggleconfirmPassword}
+          />
+        </div>
         <PasswordChecklist
           rules={['minLength', 'match']}
           minLength={8}
@@ -126,15 +137,16 @@ export default function SignupScreen() {
           valueAgain={confirmPassword}
           onChange={(isValid) => {}}
         />
-        {msg && <div className="mb-3">{msg}</div>}
-        {error && <div className="mb-3">{error}</div>}
-        <div className="mb-3">
+        {msg && <div className="mb-3 mt-3">{msg}</div>}
+        {error && <div className="mb-3 mt-3">{error}</div>}
+        <div className="mb-3 mt-3">
           <Button type="submit">Sign Up</Button>
         </div>
         <div className="mb-3">
-          New customer? <Link to={`/signin?redirect=${redirect}`}>Sign In</Link>
+          Already have an account?{' '}
+          <Link to={`/signin?redirect=${redirect}`}>Sign In</Link>
         </div>
-      </Form>
+      </form>
     </Container>
   );
 }

@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { Helmet } from 'react-helmet-async';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -58,27 +57,35 @@ export default function SigninScreen() {
         <title>Sign In</title>
       </Helmet>
       <h1 className="my-3">Sign In</h1>
-      <Form onSubmit={submitHandler}>
-        <Form.Group className="mb-3" controlId="email">
-          <Form.Label>Email</Form.Label>
-          <Form.Control
+      <form onSubmit={submitHandler}>
+        <div className="border-bottom">
+          <input
+            placeholder="Your Email"
+            className="password-input border-0"
             type="email"
+            value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-        </Form.Group>
+        </div>
 
-        <Form.Group
-          className="mb-3"
-          onChange={(e) => setPassword(e.target.value)}
-          controlId="password"
-        >
-          <Form.Label>Password</Form.Label>
-          <div className="d-flex">
-            <Form.Control type={passwordShown ? 'text' : 'password'} required />
-            <i className="fas fa-eye" onClick={togglePassword} />
+        <div className="d-flex justify-content-between align-items-center border-bottom mb-4">
+          <input
+            placeholder="Enter Your Password"
+            className="password-input border-0"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            controlId="password"
+            type={passwordShown ? 'text' : 'password'}
+            required
+          />
+          <div>
+            <i
+              className={passwordShown ? 'fas fa-eye-slash' : 'fas fa-eye'}
+              onClick={togglePassword}
+            />
           </div>
-        </Form.Group>
+        </div>
         {msg && <div className="mb-3">{msg}</div>}
         <div className="mb-3">
           <Button type="submit">Sign In</Button>
@@ -92,7 +99,7 @@ export default function SigninScreen() {
             <Button variant="dark">Forgot Password?</Button>
           </Link>
         </div>
-      </Form>
+      </form>
     </Container>
   );
 }
