@@ -112,7 +112,7 @@ function ProductScreen() {
   ) : (
     <div>
       <Helmet>
-        <title>Home | Techchronicles News for techies</title>
+        <title>Kimmotech blog article</title>
       </Helmet>
 
       <div className="container-fluid">

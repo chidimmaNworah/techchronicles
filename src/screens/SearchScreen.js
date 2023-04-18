@@ -89,7 +89,7 @@ export default function SearchScreen() {
   return (
     <div>
       <Helmet>
-        <title>Search Products | Nailsrepublic</title>
+        <title>Kimmotech Blog Articles</title>
       </Helmet>
       <Row>
         <Col md={3}>

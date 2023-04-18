@@ -62,9 +62,9 @@ export default function PopularNews() {
               className="img-fluid"
               src={blog.image}
               alt="article"
-              width={60}
+              width={70}
             />
-            <div className="text-truncate w-100 h-100 px-1 d-flex flex-column justify-content-center border border-left-0">
+            <div className="text-truncate w-100 h-100 px-1 d-flex flex-column justify-content-center">
               <div className="mb-1">
                 <Link
                   className="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"

@@ -64,7 +64,7 @@ export default function ProfileScreen() {
   return (
     <div>
       <Helmet>
-        <title>User Profile | Nails Republic</title>
+        <title>User Profile | Kimmotechnology Blog</title>
       </Helmet>
       <Container>
         <h1 className="my-3">User Profile</h1>

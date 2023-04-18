@@ -53,7 +53,7 @@ export default function ContactScreen() {
   return (
     <div className="contact">
       <Helmet>
-        <title>Contact Us | Nail Republic</title>
+        <title>Contact Kimmotech Blog</title>
       </Helmet>
 
       <div className="container-fluid mt-5 pt-3">

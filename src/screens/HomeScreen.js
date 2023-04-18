@@ -52,7 +52,7 @@ function HomeScreen() {
   return (
     <>
       <Helmet>
-        <title>Home | Kimmotech Expert Blog</title>
+        <title>Kimmotechnology - Blog</title>
       </Helmet>
 
       <div className="header-container">

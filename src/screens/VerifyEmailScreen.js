@@ -31,8 +31,9 @@ export default function VerifyEmailScreen() {
           `${API_URL}/api/users/${id}/verify/${token}`
         );
         console.log(url);
-        setMsg(url.message);
+
         setValidUrl(true);
+        setMsg(url.message);
       } catch (error) {
         getError(error);
         setValidUrl(false);
@@ -50,7 +51,7 @@ export default function VerifyEmailScreen() {
   return (
     <Container className="small-container">
       <Helmet>
-        <title>Email Verification | Nails Republic</title>
+        <title>Kimmotechnology Blog Email Verification</title>
       </Helmet>
       {validUrl ? (
         <div className="d-flex justify-content-center flex-column text-center">
