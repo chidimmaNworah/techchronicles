@@ -112,7 +112,7 @@ function ProductScreen() {
   ) : (
     <div>
       <Helmet>
-        <title>Kimmotech blog article</title>
+        <title>Kimmotech blog article ${slug}</title>
       </Helmet>
 
       <div className="container-fluid">
