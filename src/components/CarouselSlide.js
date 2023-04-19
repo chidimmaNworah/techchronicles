@@ -65,8 +65,7 @@ export default function CarouselSlide() {
             >
               {blogs?.slice(0, 3).map((blog) => (
                 <div
-                  className="position-relative overflow-hidden"
-                  style={{ height: '500px' }}
+                  className="position-relative overflow-hidden first-slide-carousel"
                   key={blog.name}
                 >
                   <div

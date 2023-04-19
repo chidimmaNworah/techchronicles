@@ -48,10 +48,13 @@ h6,
   padding: 1rem 0;
 }
 
-// .input-in {
-//   position: absolute;
-//   top: 0;
-// }
+.first-slide-carousel {
+  height: 500px;
+
+  @media (max-width: 470px) {
+    height: 350px;
+  }
+}
 
 .font-weight-normal {
   font-weight: 400 !important;
