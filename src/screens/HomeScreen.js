@@ -186,7 +186,7 @@ function HomeScreen() {
                     <div className="row news-lg mx-0 mb-3">
                       <div className="col-md-6 h-100 px-0">
                         <img
-                          className="img-fluid h-100"
+                          className="img-fluid w-100 h-100"
                           src={blog.image}
                           alt={blog.name}
                           style={{ objectFit: 'cover' }}
