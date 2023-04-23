@@ -73,7 +73,7 @@ export default function LatestNews() {
                   <small>{moment(blog.createdAt).format('MMMM Do YYYY')}</small>
                 </a>
               </div>
-              <div className="truncate">
+              <div className="truncate-overflow-3">
                 <Link
                   className="h4 d-block mb-3 text-secondary text-uppercase font-weight-bold"
                   to={`/article/${blog.slug}`}
@@ -81,7 +81,7 @@ export default function LatestNews() {
                   {blog.name}
                 </Link>
               </div>
-              <div className="truncate">
+              <div className="truncate-overflow">
                 <p className="m-0">{blog.smallPost}</p>
               </div>
             </div>
@@ -135,7 +135,7 @@ export default function LatestNews() {
                   <small>{moment(blog.createdAt).format('MMMM Do YYYY')}</small>
                 </a>
               </div>
-              <div className="truncate">
+              <div className="truncate-overflow-3">
                 <Link
                   className="h4 d-block mb-3 text-secondary text-uppercase font-weight-bold"
                   to={`/article/${blog.slug}`}
@@ -143,7 +143,7 @@ export default function LatestNews() {
                   {blog.name}
                 </Link>
               </div>
-              <div className="truncate">
+              <div className="truncate-overflow">
                 <p className="m-0">{blog.smallPost}</p>
               </div>
             </div>

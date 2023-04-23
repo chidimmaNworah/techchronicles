@@ -114,7 +114,7 @@ export default function CategorySlide() {
                     </small>
                   </a>
                 </div>
-                <div className="truncate">
+                <div className="truncate-overflow">
                   <Link
                     to={`/article/${blog.slug}`}
                     className="h6 m-0 text-white text-uppercase font-weight-semi-bold"

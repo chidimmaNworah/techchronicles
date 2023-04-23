@@ -51,10 +51,10 @@ export default function PopularNews() {
       <div className="section-title mb-0">
         <h4 className="m-0 text-uppercase font-weight-bold">Popular News</h4>
       </div>
-      <div className=" bg-white border border-top-0 p-3">
+      <div className=" bg-white border border-top-0 p-2">
         {blogs?.slice(2, 6).map((blog) => (
           <div
-            className="d-flex align-items-center bg-white mb-3 w-90"
+            className="d-flex align-items-center bg-white mb-1 w-100"
             style={{ height: '110px' }}
             key={blog.name}
           >
@@ -62,9 +62,9 @@ export default function PopularNews() {
               className="img-fluid"
               src={blog.image}
               alt="article"
-              width={70}
+              width={100}
             />
-            <div className="text-truncate w-100 h-100 px-1 d-flex flex-column justify-content-center">
+            <div className="w-100 h-100 pl-2 d-flex flex-column justify-content-center">
               <div className="mb-1">
                 <Link
                   className="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
@@ -79,7 +79,7 @@ export default function PopularNews() {
                   <small>{moment(blog.createdAt).format('MMMM Do YYYY')}</small>
                 </a>
               </div>
-              <div className="w-100 text-truncate">
+              <div className="w-100 truncate-overflow-3">
                 <Link
                   className="m-0 text-secondary font-weight-bold"
                   to={`/article/${blog.slug}`}

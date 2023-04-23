@@ -95,7 +95,7 @@ export default function CarouselSlide() {
                         Posted on{' '}
                         {moment(blog.createdAt).format('MMMM Do YYYY')}
                       </a>
-                      <div className="text-left text-truncate w-100 ">
+                      <div className="text-left truncate-overflow w-100 ">
                         <Link
                           to={`/article/${blog.slug}`}
                           className="h2 m-0 text-white text-left text-uppercase font-weight-bold"
@@ -132,7 +132,7 @@ export default function CarouselSlide() {
                           {blog.category}
                         </Link>
                       </div>
-                      <div className="text-truncate w-100">
+                      <div className="truncate-overflow-3 w-100">
                         <Link
                           to={`/article/${blog.slug}`}
                           className="h6 m-0 text-white text-uppercase font-weight-semi-bold"

@@ -102,85 +102,83 @@ function HomeScreen() {
                 </div>
 
                 {/* Advertisment end */}
-                <div className="col-lg-12 d-flex mb-3">
-                  <div className="col-lg-6">
-                    {blogs?.slice(13, 15).map((blog) => (
-                      <div
-                        className="d-flex align-items-center bg-white mb-3"
-                        style={{ height: '110px' }}
-                      >
-                        <img
-                          className="img-fluid"
-                          src={blog.image}
-                          alt={blog.name}
-                          width={135}
-                        />
-                        <div className="text-truncate w-100 h-100 px-1 d-flex flex-column justify-content-center border border-left-0">
-                          <div className="mb-2">
-                            <Link
-                              className="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
-                              to={{
-                                pathname: '/search',
-                                search: `category=${blog.category}`,
-                              }}
-                            >
-                              {blog.category}
-                            </Link>
-                            <small>
-                              {moment(blog.createdAt).format('MMMM Do YYYY')}
-                            </small>
-                          </div>
-                          <div className="text-truncate w-100">
-                            <Link
-                              className="m-0 text-secondary text-uppercase font-weight-bold"
-                              to={`/article/${blog.slug}`}
-                            >
-                              {blog.name}
-                            </Link>
-                          </div>
+                <div className="col-lg-6">
+                  {blogs?.slice(13, 15).map((blog) => (
+                    <div
+                      className="d-flex align-items-center bg-white mb-3"
+                      style={{ height: '110px' }}
+                    >
+                      <img
+                        className="img-fluid"
+                        src={blog.image}
+                        alt={blog.name}
+                        width={135}
+                      />
+                      <div className=" w-100 h-100 px-2 d-flex flex-column justify-content-center border border-left-0">
+                        <div className="mb-2">
+                          <Link
+                            className="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
+                            to={{
+                              pathname: '/search',
+                              search: `category=${blog.category}`,
+                            }}
+                          >
+                            {blog.category}
+                          </Link>
+                          <small>
+                            {moment(blog.createdAt).format('MMMM Do YYYY')}
+                          </small>
+                        </div>
+                        <div className="truncate-overflow-3 w-100">
+                          <Link
+                            className="m-0 text-secondary text-uppercase font-weight-bold"
+                            to={`/article/${blog.slug}`}
+                          >
+                            {blog.name}
+                          </Link>
                         </div>
                       </div>
-                    ))}
-                  </div>
-                  <div className="col-lg-6">
-                    {blogs?.slice(15, 17).map((blog) => (
-                      <div
-                        className="d-flex align-items-center bg-white mb-3"
-                        style={{ height: '110px' }}
-                      >
-                        <img
-                          className="img-fluid"
-                          src={blog.image}
-                          alt={blog.name}
-                          width={135}
-                        />
-                        <div className="text-truncate w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
-                          <div className="mb-2">
-                            <Link
-                              className="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
-                              to={{
-                                pathname: '/search',
-                                search: `category=${blog.category}`,
-                              }}
-                            >
-                              {blog.category}
-                            </Link>
-                            <small>
-                              {moment(blog.createdAt).format('MMMM Do YYYY')}
-                            </small>
-                          </div>
-                          <div className="text-truncate">
-                            <Link
-                              className="m-0 text-secondary text-uppercase font-weight-bold"
-                              to={`/article/${blog.slug}`}
-                            >
-                              {blog.name}
-                            </Link>
-                          </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="col-lg-6">
+                  {blogs?.slice(15, 17).map((blog) => (
+                    <div
+                      className="d-flex align-items-center bg-white mb-3"
+                      style={{ height: '110px' }}
+                    >
+                      <img
+                        className="img-fluid"
+                        src={blog.image}
+                        alt={blog.name}
+                        width={135}
+                      />
+                      <div className="w-100 h-100 px-2 d-flex flex-column justify-content-center border border-left-0">
+                        <div className="mb-2">
+                          <Link
+                            className="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
+                            to={{
+                              pathname: '/search',
+                              search: `category=${blog.category}`,
+                            }}
+                          >
+                            {blog.category}
+                          </Link>
+                          <small>
+                            {moment(blog.createdAt).format('MMMM Do YYYY')}
+                          </small>
+                        </div>
+                        <div className="truncate-overflow-3">
+                          <Link
+                            className="m-0 text-secondary text-uppercase font-weight-bold"
+                            to={`/article/${blog.slug}`}
+                          >
+                            {blog.name}
+                          </Link>
                         </div>
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                  ))}
                 </div>
 
                 <div className="col-lg-12">
@@ -212,7 +210,7 @@ function HomeScreen() {
                               </small>
                             </a>
                           </div>
-                          <div className="truncate">
+                          <div className="truncate-overflow">
                             <Link
                               className="h4 d-block mb-3 text-secondary text-uppercase font-weight-bold"
                               to={`/article/${blog.slug}`}
@@ -220,7 +218,7 @@ function HomeScreen() {
                               {blog.name}
                             </Link>
                           </div>
-                          <div className="truncate">
+                          <div className="">
                             <p className="m-0">{blog.smallPost}</p>
                           </div>
                         </div>
@@ -250,87 +248,83 @@ function HomeScreen() {
                     </div>
                   ))}
                 </div>
-                <div className="col-lg-12 d-flex mb-3">
-                  <div className="col-lg-6">
-                    {blogs?.slice(19, 21).map((blog) => (
-                      <div
-                        className="d-flex align-items-center bg-white mb-3"
-                        style={{ height: '110px' }}
-                      >
-                        <img
-                          className="img-fluid"
-                          src={blog.image}
-                          alt={blog.name}
-                        />
-                        <div className="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
-                          <div className="mb-2">
-                            <Link
-                              className="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
-                              to={{
-                                pathname: '/search',
-                                search: `category=${blog.category}`,
-                              }}
-                            >
-                              {blog.category}
-                            </Link>
-                            <a className="text-body" href="/">
-                              <small>
-                                <small>
-                                  {moment(blog.createdAt).format(
-                                    'MMMM Do YYYY'
-                                  )}
-                                </small>
-                              </small>
-                            </a>
-                          </div>
-                          <div className="truncate">
-                            <Link
-                              className="m-0 text-secondary text-uppercase font-weight-bold"
-                              to={`/article/${blog.slug}`}
-                            >
-                              {blog.name}
-                            </Link>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="col-lg-6">
-                    {blogs?.slice(22, 24).map((blog) => (
-                      <div
-                        className="d-flex align-items-center bg-white mb-3"
-                        style={{ height: '110px' }}
-                      >
-                        <img src={blog.image} alt={blog.name} />
-                        <div className="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
-                          <div className="mb-2">
-                            <Link
-                              className="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
-                              to={{
-                                pathname: '/search',
-                                search: `category=${blog.category}`,
-                              }}
-                            >
-                              {blog.category}
-                            </Link>
-                            <a className="text-body" href="/">
+                <div className="col-lg-6">
+                  {blogs?.slice(19, 21).map((blog) => (
+                    <div
+                      className="d-flex align-items-center bg-white mb-3"
+                      style={{ height: '110px' }}
+                    >
+                      <img
+                        className="img-fluid"
+                        src={blog.image}
+                        alt={blog.name}
+                      />
+                      <div className="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
+                        <div className="mb-2">
+                          <Link
+                            className="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
+                            to={{
+                              pathname: '/search',
+                              search: `category=${blog.category}`,
+                            }}
+                          >
+                            {blog.category}
+                          </Link>
+                          <a className="text-body" href="/">
+                            <small>
                               <small>
                                 {moment(blog.createdAt).format('MMMM Do YYYY')}
                               </small>
-                            </a>
-                          </div>
-                          <div className="truncate">
-                            <Link
-                              className="m-0 text-secondary text-uppercase font-weight-bold"
-                              to={`/article/${blog.slug}`}
-                            >
-                              {blog.name}
-                            </Link>
-                          </div>
+                            </small>
+                          </a>
+                        </div>
+                        <div className="truncate-overflow-3">
+                          <Link
+                            className="m-0 text-secondary text-uppercase font-weight-bold"
+                            to={`/article/${blog.slug}`}
+                          >
+                            {blog.name}
+                          </Link>
                         </div>
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="col-lg-6">
+                  {blogs?.slice(22, 24).map((blog) => (
+                    <div
+                      className="d-flex align-items-center bg-white mb-3"
+                      style={{ height: '110px' }}
+                    >
+                      <img src={blog.image} alt={blog.name} />
+                      <div className="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
+                        <div className="mb-2">
+                          <Link
+                            className="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
+                            to={{
+                              pathname: '/search',
+                              search: `category=${blog.category}`,
+                            }}
+                          >
+                            {blog.category}
+                          </Link>
+                          <a className="text-body" href="/">
+                            <small>
+                              {moment(blog.createdAt).format('MMMM Do YYYY')}
+                            </small>
+                          </a>
+                        </div>
+                        <div className="truncate-overflow-3">
+                          <Link
+                            className="m-0 text-secondary text-uppercase font-weight-bold"
+                            to={`/article/${blog.slug}`}
+                          >
+                            {blog.name}
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
