@@ -99,9 +99,10 @@ function HomeScreen() {
                       alt="cv_advert_banner"
                     />
                   </a>
+                </div>
 
-                  {/* Advertisment end */}
-
+                {/* Advertisment end */}
+                <div className="col-lg-12 mb-3">
                   <div className="col-lg-6">
                     {blogs?.slice(13, 15).map((blog) => (
                       <div
@@ -115,7 +116,7 @@ function HomeScreen() {
                           width={135}
                         />
                         <div className="text-truncate w-100 h-100 px-1 d-flex flex-column justify-content-center border border-left-0">
-                          <div>
+                          <div className="mb-2">
                             <Link
                               className="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
                               to={{
@@ -181,6 +182,7 @@ function HomeScreen() {
                     ))}
                   </div>
                 </div>
+
                 <div className="col-lg-12">
                   {blogs?.slice(18).map((blog) => (
                     <div className="row news-lg mx-0 mb-3">
