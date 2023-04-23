@@ -102,7 +102,7 @@ function HomeScreen() {
                 </div>
 
                 {/* Advertisment end */}
-                <div className="col-lg-12 mb-3">
+                <div className="col-lg-12 d-flex mb-3">
                   <div className="col-lg-6">
                     {blogs?.slice(13, 15).map((blog) => (
                       <div
