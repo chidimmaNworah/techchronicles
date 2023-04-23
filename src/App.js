@@ -32,6 +32,7 @@ import axios from 'axios';
 import ScrollToTop from './components/ScrollToTop.js';
 import BackToTopButton from './components/BactToTopButton.js';
 import Footer from './components/Footer.js';
+import moment from 'moment';
 axios.defaults.withCredentials = true;
 
 function App() {
@@ -181,6 +182,42 @@ function App() {
             </Navbar.Collapse>
           </Navbar>
         </header>
+        <div>
+          <div className="container-fluid d-none d-lg-block">
+            <div className="row align-items-center bg-dark px-lg-5">
+              <div className="col-lg-9">
+                <nav className="navbar navbar-expand-sm bg-dark p-0">
+                  <ul className="navbar-nav ml-n2">
+                    <li className="nav-item border-right border-secondary">
+                      <a className="nav-link text-body small" href="/">
+                        {/* Monday, January 1, 2045 */}
+                        {moment().format('dddd, MMMM DD, YYYY')}
+                      </a>
+                    </li>
+                    <li className="nav-item border-right border-secondary">
+                      <a
+                        className="nav-link text-body small"
+                        href="/advertise-with-us"
+                      >
+                        Advertise
+                      </a>
+                    </li>
+                    <li className="nav-item border-right border-secondary">
+                      <a className="nav-link text-body small" href="/contact">
+                        Contact
+                      </a>
+                    </li>
+                    <li className="nav-item">
+                      <a className="nav-link text-body small" href="/signin">
+                        Login
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
         <main>
           <div className="">
             <Routes>
