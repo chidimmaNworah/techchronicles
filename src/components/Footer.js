@@ -42,14 +42,14 @@ export default function Footer() {
             Get In Touch
           </h5>
           <p className="font-weight-medium">
-            <i className="fa fa-map-marker-alt mr-2"></i>18 Shettima Ngiladar
-            Street, Abuja, Nigeria
+            <i className="fa fa-map-marker-alt mr-2"></i>256 Chapman Road,
+            Newark, Delaware 19702
           </p>
           <p className="font-weight-medium">
-            <i className="fa fa-phone-alt mr-2"></i>+234 906 310 6069
+            <i className="fa fa-phone-alt mr-2"></i>+1 (832) 690-0563
           </p>
           <p className="font-weight-medium">
-            <i className="fa fa-envelope mr-2"></i>info@techyship.com
+            <i className="fa fa-envelope mr-2"></i>mail@kimmotechnology.com
           </p>
           <h6 className="mt-4 mb-3 text-white text-uppercase font-weight-bold">
             Follow Us
