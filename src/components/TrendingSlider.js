@@ -50,18 +50,18 @@ export default function TrendingSlider() {
       <div className="container">
         <div className="row align-items-center bg-white">
           <div className="col-12">
-            <div className="d-flex justify-content-between">
+            <div className="d-flex justify-content-start">
               <div
-                className="bg-primary text-white text-center font-weight-medium py-2"
-                style={{ width: '170px' }}
+                className="bg-primary text-white text-center font-weight-medium py-1 px-2"
+                style={{ width: '90px' }}
               >
                 Trending
               </div>
               <div
-                className="tranding-carousel position-relative d-inline-flex align-items-center ml-3"
+                className="position-relative d-inline-flex align-items-center ml-1"
                 style={{
-                  width: 'calc(100% - 170px)',
-                  paddingRight: '90px',
+                  width: 'calc(100% - 70px)',
+                  paddingRight: '5px',
                 }}
               >
                 <Swiper
@@ -74,7 +74,7 @@ export default function TrendingSlider() {
                 >
                   {blogs?.map((blog) => (
                     <SwiperSlide key={blog.slug}>
-                      <div className="text-truncate">
+                      <div className="truncate-overflow-3 text-left">
                         <Link
                           to={`/blog/${blog.slug}`}
                           className="text-black text-uppercase"

@@ -331,8 +331,8 @@ function App() {
             style={{ background: '#111111' }}
           >
             <p className="m-0 text-center">
-              &copy; <a href="/">Techyship</a>. All Rights Reserved. Design by{' '}
-              <a href="https://www.kimmotechnology.com">kimmotechnology</a>
+              &copy; <a href="/">Kimmotech Blog</a>. All Rights Reserved. Design
+              by <a href="https://www.kimmotechnology.com">kimmotechnology</a>
             </p>
           </div>
           <BackToTopButton />

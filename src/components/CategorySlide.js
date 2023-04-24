@@ -49,7 +49,7 @@ export default function CategorySlide() {
   }, []);
 
   return (
-    <div className="container-fluid pt-3 mb-3">
+    <div className="pt-3 mb-3">
       <div className="section-title">
         <h4 className="m-0 text-uppercase font-weight-bold">Featured News</h4>
       </div>
@@ -85,10 +85,10 @@ export default function CategorySlide() {
         className="mySwiper"
       >
         <div className="news-carousel carousel-item-4 position-relative">
-          {blogs?.slice(21, 24).map((blog) => (
+          {blogs?.slice(23, 31).map((blog) => (
             <SwiperSlide
               className="position-relative overflow-hidden"
-              style={{ height: '500px' }}
+              style={{ height: '300px' }}
               key={blog._id}
             >
               <img
@@ -97,20 +97,22 @@ export default function CategorySlide() {
                 src={blog.image}
                 style={{ objectFit: 'cover' }}
               />
-              <div className="overlay">
+              <div className="overlay align-items-center">
                 <div className="mb-2">
-                  <Link
-                    to={{
-                      pathname: '/search',
-                      search: `category=${blog.category}`,
-                    }}
-                    className="bg-primary text-dark text-center font-weight-medium py-2 px-1"
-                  >
-                    {blog.category}
-                  </Link>
-                  <a className="text-white" href="/">
-                    <small>
-                      {moment(blog.createdAt).format('MMMM Do YYYY, h:mm:ss a')}
+                  <div>
+                    <Link
+                      to={{
+                        pathname: '/search',
+                        search: `category=${blog.category}`,
+                      }}
+                      className="bg-primary text-dark text-center font-weight-medium py-2 px-1"
+                    >
+                      {blog.category}
+                    </Link>
+                  </div>{' '}
+                  <a className="text-body text-sm" href="/">
+                    <small className="">
+                      {moment(blog.createdAt).format('MMMM Do YYYY')}
                     </small>
                   </a>
                 </div>

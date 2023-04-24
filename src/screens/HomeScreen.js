@@ -307,7 +307,7 @@ function HomeScreen() {
                   ))}
                 </div>
                 <div className="col-lg-6">
-                  {blogs?.slice(22, 24).map((blog) => (
+                  {blogs?.slice(21, 23).map((blog) => (
                     <div
                       className="d-flex align-items-center bg-white mb-3"
                       style={{ height: '110px' }}
