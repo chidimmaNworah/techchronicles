@@ -182,7 +182,7 @@ function HomeScreen() {
                 </div>
 
                 <div className="col-lg-12">
-                  {blogs?.slice(18).map((blog) => (
+                  {blogs?.slice(18, 19).map((blog) => (
                     <div className="row news-lg mx-0 mb-3">
                       <div className="col-md-6 h-100 px-0">
                         <img
@@ -248,6 +248,7 @@ function HomeScreen() {
                     </div>
                   ))}
                 </div>
+
                 <div className="col-lg-6">
                   {blogs?.slice(19, 21).map((blog) => (
                     <div
@@ -258,6 +259,7 @@ function HomeScreen() {
                         className="img-fluid"
                         src={blog.image}
                         alt={blog.name}
+                        width={135}
                       />
                       <div className="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
                         <div className="mb-2">
@@ -296,7 +298,7 @@ function HomeScreen() {
                       className="d-flex align-items-center bg-white mb-3"
                       style={{ height: '110px' }}
                     >
-                      <img src={blog.image} alt={blog.name} />
+                      <img src={blog.image} alt={blog.name} width={135} />
                       <div className="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
                         <div className="mb-2">
                           <Link
