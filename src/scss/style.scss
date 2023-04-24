@@ -42,6 +42,14 @@ h6,
   font-weight: 500 !important;
 }
 
+.responsive-photo {
+  p {
+    img {
+      width: 100%;
+    }
+  }
+}
+
 .truncate-overflow {
   text-overflow: ellipsis;
   overflow: hidden;

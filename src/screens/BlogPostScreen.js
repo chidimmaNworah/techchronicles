@@ -146,7 +146,7 @@ function ProductScreen() {
                     {blog.name}
                   </h1>
                   <div
-                    className=""
+                    className="responsive-photo"
                     dangerouslySetInnerHTML={{ __html: blog.post }}
                   ></div>
                 </div>

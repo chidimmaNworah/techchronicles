@@ -115,23 +115,29 @@ function HomeScreen() {
                         width={135}
                       />
                       <div className=" w-100 h-100 px-2 d-flex flex-column justify-content-center border border-left-0">
-                        <div className="mb-2">
-                          <Link
-                            className="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
-                            to={{
-                              pathname: '/search',
-                              search: `category=${blog.category}`,
-                            }}
-                          >
-                            {blog.category}
-                          </Link>
-                          <small>
-                            {moment(blog.createdAt).format('MMMM Do YYYY')}
-                          </small>
+                        <div className="">
+                          <div className="">
+                            <Link
+                              className="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
+                              to={{
+                                pathname: '/search',
+                                search: `category=${blog.category}`,
+                              }}
+                            >
+                              {blog.category}
+                            </Link>
+                          </div>
+                          <a className="text-body" href="/">
+                            <small>
+                              <small>
+                                {moment(blog.createdAt).format('MMMM Do YYYY')}
+                              </small>
+                            </small>
+                          </a>
                         </div>
                         <div className="truncate-overflow-3 w-100">
                           <Link
-                            className="m-0 text-secondary text-uppercase font-weight-bold"
+                            className="m-0 text-secondary text-uppercase font-weight-bold lh"
                             to={`/article/${blog.slug}`}
                           >
                             {blog.name}
@@ -154,19 +160,25 @@ function HomeScreen() {
                         width={135}
                       />
                       <div className="w-100 h-100 px-2 d-flex flex-column justify-content-center border border-left-0">
-                        <div className="mb-2">
-                          <Link
-                            className="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
-                            to={{
-                              pathname: '/search',
-                              search: `category=${blog.category}`,
-                            }}
-                          >
-                            {blog.category}
-                          </Link>
-                          <small>
-                            {moment(blog.createdAt).format('MMMM Do YYYY')}
-                          </small>
+                        <div className="">
+                          <div className="">
+                            <Link
+                              className="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
+                              to={{
+                                pathname: '/search',
+                                search: `category=${blog.category}`,
+                              }}
+                            >
+                              {blog.category}
+                            </Link>
+                          </div>
+                          <a className="text-body" href="/">
+                            <small>
+                              <small>
+                                {moment(blog.createdAt).format('MMMM Do YYYY')}
+                              </small>
+                            </small>
+                          </a>
                         </div>
                         <div className="truncate-overflow-3">
                           <Link
@@ -210,7 +222,7 @@ function HomeScreen() {
                               </small>
                             </a>
                           </div>
-                          <div className="truncate-overflow-3">
+                          <div className="">
                             <Link
                               className="h4 d-block mb-3 text-secondary text-uppercase font-weight-bold"
                               to={`/article/${blog.slug}`}
@@ -261,17 +273,19 @@ function HomeScreen() {
                         alt={blog.name}
                         width={135}
                       />
-                      <div className="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
-                        <div className="mb-2">
-                          <Link
-                            className="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
-                            to={{
-                              pathname: '/search',
-                              search: `category=${blog.category}`,
-                            }}
-                          >
-                            {blog.category}
-                          </Link>
+                      <div className="w-100 h-100 px-2 d-flex flex-column justify-content-center border border-left-0">
+                        <div className="">
+                          <div className="">
+                            <Link
+                              className="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
+                              to={{
+                                pathname: '/search',
+                                search: `category=${blog.category}`,
+                              }}
+                            >
+                              {blog.category}
+                            </Link>
+                          </div>
                           <a className="text-body" href="/">
                             <small>
                               <small>
@@ -299,17 +313,19 @@ function HomeScreen() {
                       style={{ height: '110px' }}
                     >
                       <img src={blog.image} alt={blog.name} width={135} />
-                      <div className="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
-                        <div className="mb-2">
-                          <Link
-                            className="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
-                            to={{
-                              pathname: '/search',
-                              search: `category=${blog.category}`,
-                            }}
-                          >
-                            {blog.category}
-                          </Link>
+                      <div className="w-100 h-100 px-2 d-flex flex-column justify-content-center border border-left-0">
+                        <div className="">
+                          <div className="">
+                            <Link
+                              className="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2"
+                              to={{
+                                pathname: '/search',
+                                search: `category=${blog.category}`,
+                              }}
+                            >
+                              {blog.category}
+                            </Link>
+                          </div>
                           <a className="text-body" href="/">
                             <small>
                               {moment(blog.createdAt).format('MMMM Do YYYY')}
