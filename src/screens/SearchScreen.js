@@ -42,6 +42,8 @@ export default function SearchScreen() {
   const query = sp.get('query') || 'all';
   const page = sp.get('page') || 1;
 
+  const [categoryToggle, setCategoryToggle] = useState(false);
+
   const [{ loading, error, products, pages, countProducts }, dispatch] =
     useReducer(reducer, {
       loading: true,
@@ -92,31 +94,6 @@ export default function SearchScreen() {
         <title>Kimmotech Blog Articles</title>
       </Helmet>
       <Row>
-        <Col md={3}>
-          <h3>Categories</h3>
-          <div>
-            <ul>
-              <li>
-                <Link
-                  className={'all' === category ? 'text-bold' : ''}
-                  to={getFilterUrl({ category: 'all' })}
-                >
-                  All
-                </Link>
-              </li>
-              {categories?.map((c) => (
-                <li key={c}>
-                  <Link
-                    className={c === category ? 'text-bold' : ''}
-                    to={getFilterUrl({ category: c })}
-                  >
-                    {c}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </Col>
         <Col md={9}>
           {loading ? (
             <LoadingBox></LoadingBox>
@@ -124,8 +101,8 @@ export default function SearchScreen() {
             <MessageBox variant="danger">{error}</MessageBox>
           ) : (
             <>
-              <Row className="justify-content-between mb-3">
-                <Col md={6}>
+              <Row className="justify-content-between mb-1 mt-1">
+                <Col className="ml-1 results-tab">
                   <div>
                     {countProducts === 0 ? 'No' : countProducts} Results
                     {query !== 'all' && ' : ' + query}
@@ -140,10 +117,41 @@ export default function SearchScreen() {
                     ) : null}
                   </div>
                 </Col>
+                <Col>
+                  <div className="app__navbar-menu">
+                    <h3 onClick={() => setCategoryToggle(true)}>
+                      View Categories
+                    </h3>
+                    {categoryToggle && (
+                      <div>
+                        <h3 onClick={() => setCategoryToggle(false)}>
+                          Hide Categories
+                        </h3>
+                        <ul>
+                          <li>
+                            <Link
+                              className={'all' === category ? 'text-bold' : ''}
+                              to={getFilterUrl({ category: 'all' })}
+                            >
+                              All
+                            </Link>
+                          </li>
+                          {categories?.map((c) => (
+                            <li key={c}>
+                              <Link
+                                className={c === category ? 'text-bold' : ''}
+                                to={getFilterUrl({ category: c })}
+                              >
+                                {c}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                </Col>
               </Row>
-              {/* {products?.length === 0 && (
-                <MessageBox>No Product Found</MessageBox>
-              )} */}
 
               <Row>
                 {products?.map((product) => (
