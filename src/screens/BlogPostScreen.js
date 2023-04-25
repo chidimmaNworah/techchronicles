@@ -116,7 +116,8 @@ function ProductScreen() {
         <meta name="twitter:card" content={blog.image} />
         <meta name="twitter:title" content={blog.name} />
         <meta name="twitter:description" content={blog.smallPost} />
-        {/* <meta name="twitter:image" content="URL of the image you want to use" /> */}
+        <meta name="twitter:image" content={blog.image} />
+        <meta name="twitter:site" content="@kimmotechnology" />
         <meta name="twitter:url" content={`/article/${blog.slug}`} />
       </Helmet>
 
