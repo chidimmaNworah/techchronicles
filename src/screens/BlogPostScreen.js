@@ -118,7 +118,7 @@ function ProductScreen() {
         <meta name="twitter:description" content={blog.smallPost} />
         <meta name="twitter:image" content={`/article/${blog.slug}`} />
         <meta name="twitter:site" content="@kimmotechnology" />
-        {/* <meta name="twitter:url" content={`/article/${blog.slug}`} /> */}
+        <meta name="twitter:url" content={blog.image} />
       </Helmet>
 
       <div className="container-fluid">
