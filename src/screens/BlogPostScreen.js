@@ -113,6 +113,11 @@ function ProductScreen() {
     <div>
       <Helmet>
         <title>Kimmotech blog article ${slug}</title>
+        <meta name="twitter:card" content={blog.image} />
+        <meta name="twitter:title" content={blog.name} />
+        <meta name="twitter:description" content={blog.smallPost} />
+        {/* <meta name="twitter:image" content="URL of the image you want to use" /> */}
+        <meta name="twitter:url" content={`/article/${blog.slug}`} />
       </Helmet>
 
       <div className="container-fluid">
