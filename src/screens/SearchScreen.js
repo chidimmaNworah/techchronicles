@@ -94,6 +94,33 @@ export default function SearchScreen() {
         <title>Kimmotech Blog Articles</title>
       </Helmet>
       <Row>
+        <Col className="large__navbar-menu">
+          <div>
+            <h3>Categories</h3>
+            <div>
+              <ul>
+                <li>
+                  <Link
+                    className={'all' === category ? 'text-bold' : ''}
+                    to={getFilterUrl({ category: 'all' })}
+                  >
+                    All
+                  </Link>
+                </li>
+                {categories?.map((c) => (
+                  <li key={c}>
+                    <Link
+                      className={c === category ? 'text-bold' : ''}
+                      to={getFilterUrl({ category: c })}
+                    >
+                      {c}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </Col>
         <Col md={9}>
           {loading ? (
             <LoadingBox></LoadingBox>
@@ -141,6 +168,7 @@ export default function SearchScreen() {
                               <Link
                                 className={c === category ? 'text-bold' : ''}
                                 to={getFilterUrl({ category: c })}
+                                onClick={() => setCategoryToggle(false)}
                               >
                                 {c}
                               </Link>
