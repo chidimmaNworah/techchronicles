@@ -222,7 +222,7 @@ function HomeScreen() {
                               </small>
                             </a>
                           </div>
-                          <div className="">
+                          <div className="truncate-overflow">
                             <Link
                               className="h4 d-block mb-3 text-secondary text-uppercase font-weight-bold"
                               to={`/article/${blog.slug}`}
