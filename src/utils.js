@@ -4,8 +4,8 @@ export const getError = (error) => {
     : error.message;
 };
 
-// export const API_URL = 'http://localhost:5111';
+export const API_URL = 'http://localhost:5111';
 
-export const API_URL = 'https://techchroniclesbackend.herokuapp.com';
+// export const API_URL = 'https://techchroniclesbackend.herokuapp.com';
 
 // 'Dont talk to me like that'
