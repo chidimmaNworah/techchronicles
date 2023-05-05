@@ -148,7 +148,7 @@ export default function ProductListScreen() {
         <Col className="col text-end">
           <div>
             <Button type="button" onClick={createHandler}>
-              Create Product
+              Create Blog Post
             </Button>
           </div>
         </Col>
