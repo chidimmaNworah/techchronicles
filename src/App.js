@@ -25,6 +25,8 @@ import {
   VerifyEmailScreen,
   ChangePassScreen,
   ForgotPassScreen,
+  PrivacyPolicyScreen,
+  SuperAdminScreen,
 } from './screens';
 import { SearchBox, ProtectedRoute, AdminRoute } from './components';
 import { getError, API_URL } from './utils.js';
@@ -166,6 +168,13 @@ function App() {
                       <LinkContainer to="/admin/dashboard">
                         <NavDropdown.Item>Dashboard</NavDropdown.Item>
                       </LinkContainer>
+                      {userInfo.email === 'nailsrepublicofficial@gmail.com' ? (
+                        <LinkContainer to="/admin/super-admin">
+                          <NavDropdown.Item>All Blogs</NavDropdown.Item>
+                        </LinkContainer>
+                      ) : (
+                        ''
+                      )}
                       <LinkContainer to="/admin/blogs">
                         <NavDropdown.Item>Blogs</NavDropdown.Item>
                       </LinkContainer>
@@ -226,6 +235,11 @@ function App() {
               <Route path="/search" element={<SearchScreen />} />
               <Route path="/signin" element={<SigninScreen />} />
               <Route path="/signup" element={<SignupScreen />} />
+              <Route
+                path="/our-privacy-policy"
+                element={<PrivacyPolicyScreen />}
+              />
+              <Route path="/admin/super-admin" element={<SuperAdminScreen />} />
               <Route
                 path="/:id/password-reset/:token"
                 element={<ChangePassScreen />}

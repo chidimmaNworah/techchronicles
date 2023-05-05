@@ -235,16 +235,29 @@ function HomeScreen() {
                           </div>
                         </div>
                         <div className="d-flex justify-content-between bg-white border-top mt-auto p-4">
-                          <div className="d-flex align-items-center">
-                            <img
-                              className="rounded-circle mr-2"
-                              src="https://res.cloudinary.com/kimmoramicky/image/upload/v1681199111/kimmora_qiefbe.png"
-                              width="25"
-                              height="25"
-                              alt="author"
-                            />
-                            <small>Kimmora</small>
-                          </div>
+                          {!blog.user ? (
+                            <div className="d-flex align-items-center">
+                              <img
+                                className="rounded-circle mr-2"
+                                src="https://res.cloudinary.com/kimmoramicky/image/upload/v1681199111/kimmora_qiefbe.png"
+                                width="25"
+                                height="25"
+                                alt="author"
+                              />
+                              <span>Kimmora</span>
+                            </div>
+                          ) : (
+                            <div className="d-flex align-items-center">
+                              <img
+                                className="rounded-circle mr-2"
+                                src={blog.user.images[0]}
+                                width="25"
+                                height="25"
+                                alt="author"
+                              />
+                              <span>{blog.user.name}</span>
+                            </div>
+                          )}
                           <div className="d-flex align-items-center">
                             <small className="ml-3">
                               <i className="far fa-eye mr-2"></i>

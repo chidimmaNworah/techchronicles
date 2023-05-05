@@ -1,11 +1,10 @@
 import axios from 'axios';
 import React, { useContext, useReducer, useState } from 'react';
-import { Button, Container, Form, ListGroup } from 'react-bootstrap';
+import { Button, Container, Form } from 'react-bootstrap';
 import { Helmet } from 'react-helmet-async';
 import { toast } from 'react-toastify';
 import { Store } from '../Store';
 import { getError, API_URL } from '../utils';
-import MessageBox from '../components/MessageBox';
 import LoadingBox from '../components/LoadingBox';
 axios.defaults.withCredentials = true;
 
@@ -43,10 +42,9 @@ export default function ProfileScreen() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const [{ loadingUpdate, error, errorUpload, loadingUpload }, dispatch] =
-    useReducer(reducer, {
-      loadingUpdate: false,
-    });
+  const [{ loadingUpload }, dispatch] = useReducer(reducer, {
+    loadingUpdate: false,
+  });
 
   const submitHandler = async (e) => {
     e.preventDefault();

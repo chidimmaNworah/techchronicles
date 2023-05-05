@@ -17,3 +17,5 @@ export { default as AboutScreen } from './AboutScreen';
 export { default as VerifyEmailScreen } from './VerifyEmailScreen';
 export { default as ForgotPassScreen } from './ForgotPassSreen';
 export { default as ChangePassScreen } from './ChangePassScreen';
+export { default as PrivacyPolicyScreen } from './PrivacyPolicyScreen';
+export { default as SuperAdminScreen } from './SuperAdminScreen';

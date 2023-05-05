@@ -131,6 +131,21 @@ export default function Footer() {
 
         <div className="col-lg-3 col-md-6 mb-5">
           <h5 className="mb-4 text-white text-uppercase font-weight-bold">
+            Quick Links
+          </h5>
+          <p className="font-weight-medium mb-2">
+            <a href="/about">About Us</a>
+          </p>
+          <p className="font-weight-medium mb-2">
+            <a href="/contact">Contact Us</a>
+          </p>
+          <p className="font-weight-medium mb-2">
+            <a href="/our-privacy-policy">Our Privacy Policy</a>
+          </p>
+        </div>
+
+        <div className="col-lg-3 col-md-6 mb-5">
+          <h5 className="mb-4 text-white text-uppercase font-weight-bold">
             Categories
           </h5>
           <div className="m-n1">
@@ -149,21 +164,6 @@ export default function Footer() {
                   {category}
                 </Link>
               ))}
-          </div>
-        </div>
-
-        <div className="col-lg-3 col-md-6 mb-5">
-          <h5 className="mb-4 text-white text-uppercase font-weight-bold">
-            Article Photos
-          </h5>
-          <div className="row">
-            {blogs?.slice(0, 6).map((blogPhoto) => (
-              <div className="col-4 mb-3" key={blogPhoto.name}>
-                <Link to={`/article/${blogPhoto.slug}`}>
-                  <img className="w-100" src={blogPhoto.image} alt="" />
-                </Link>
-              </div>
-            ))}
           </div>
         </div>
       </div>
