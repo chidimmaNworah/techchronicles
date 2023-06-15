@@ -19,3 +19,4 @@ export { default as ForgotPassScreen } from './ForgotPassSreen';
 export { default as ChangePassScreen } from './ChangePassScreen';
 export { default as PrivacyPolicyScreen } from './PrivacyPolicyScreen';
 export { default as SuperAdminScreen } from './SuperAdminScreen';
+export { default as TermsAndConditionsScreen } from './TermsAndConditionsScreen';

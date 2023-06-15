@@ -27,6 +27,7 @@ import {
   ForgotPassScreen,
   PrivacyPolicyScreen,
   SuperAdminScreen,
+  TermsAndConditionsScreen,
 } from './screens';
 import { SearchBox, ProtectedRoute, AdminRoute } from './components';
 import { getError, API_URL } from './utils.js';
@@ -238,6 +239,10 @@ function App() {
               <Route
                 path="/our-privacy-policy"
                 element={<PrivacyPolicyScreen />}
+              />
+              <Route
+                path="/terms-and-conditions"
+                element={<TermsAndConditionsScreen />}
               />
               <Route path="/admin/super-admin" element={<SuperAdminScreen />} />
               <Route

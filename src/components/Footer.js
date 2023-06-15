@@ -140,7 +140,10 @@ export default function Footer() {
             <a href="/contact">Contact Us</a>
           </p>
           <p className="font-weight-medium mb-2">
-            <a href="/our-privacy-policy">Our Privacy Policy</a>
+            <a href="/our-privacy-policy">Privacy Policy</a>
+          </p>
+          <p className="font-weight-medium mb-2">
+            <a href="/terms-and-conditions">Terms and Conditions</a>
           </p>
         </div>
 
