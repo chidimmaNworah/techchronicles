@@ -155,7 +155,7 @@ export default function CarouselSlide() {
               <div className="d-flex justify-content-between">
                 <div
                   className="bg-primary text-dark text-center font-weight-medium py-1"
-                  style={{ width: '70px' }}
+                  style={{ width: '70px', fontSize: '12px' }}
                 >
                   Trending
                 </div>

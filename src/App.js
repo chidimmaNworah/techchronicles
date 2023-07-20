@@ -36,6 +36,7 @@ import ScrollToTop from './components/ScrollToTop.js';
 import BackToTopButton from './components/BactToTopButton.js';
 import Footer from './components/Footer.js';
 import moment from 'moment';
+import SuperAdminEditScreen from './screens/SuperAdminEditScreen.js';
 axios.defaults.withCredentials = true;
 
 function App() {
@@ -111,7 +112,7 @@ function App() {
                     className="nav-item nav-link"
                     style={navLinkStyles}
                   >
-                    News
+                    Articles
                   </NavLink>
                   <NavDropdown title="Category" id="basic-nav-dropdown">
                     {categories.map((category) => (
@@ -127,13 +128,7 @@ function App() {
                       </Nav.Item>
                     ))}
                   </NavDropdown>
-                  <NavLink
-                    to="/contact"
-                    className="nav-item nav-link"
-                    style={navLinkStyles}
-                  >
-                    Contact
-                  </NavLink>
+
                   {userInfo ? (
                     <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
                       <LinkContainer to="/profile">
@@ -186,6 +181,28 @@ function App() {
                   ) : (
                     ''
                   )}
+
+                  <NavLink
+                    to="/contact"
+                    className="nav-item nav-link"
+                    style={navLinkStyles}
+                  >
+                    Contact
+                  </NavLink>
+                  <NavLink
+                    to="/contact"
+                    className="nav-item nav-link"
+                    style={navLinkStyles}
+                  >
+                    Contact
+                  </NavLink>
+                  <NavLink
+                    to="/about"
+                    className="nav-item nav-link"
+                    style={navLinkStyles}
+                  >
+                    About
+                  </NavLink>
                 </div>
               </Nav>
               <SearchBox />
@@ -245,6 +262,10 @@ function App() {
                 element={<TermsAndConditionsScreen />}
               />
               <Route path="/admin/super-admin" element={<SuperAdminScreen />} />
+              <Route
+                path="/admin/super-admin/:id"
+                element={<SuperAdminEditScreen />}
+              />
               <Route
                 path="/:id/password-reset/:token"
                 element={<ChangePassScreen />}

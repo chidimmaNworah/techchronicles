@@ -178,7 +178,9 @@ export default function SuperAdminScreen() {
             <tbody>
               {products?.map((product) => (
                 <tr key={product._id}>
-                  <td>{product._id}</td>
+                  <td>
+                    <a href={`/article/${product.slug}`}>{product._id}</a>
+                  </td>
                   <td>{product.user ? product.user.name : 'Unknown User'}</td>
                   <td>{product.name}</td>
                   <td>{product.category}</td>

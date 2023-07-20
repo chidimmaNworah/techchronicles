@@ -41,14 +41,14 @@ export default function Footer() {
           <h5 className="mb-4 text-white text-uppercase font-weight-bold">
             Get In Touch
           </h5>
-          <p className="font-weight-medium">
+          <p className="font-weight-medium text-white">
             <i className="fa fa-map-marker-alt mr-2"></i>256 Chapman Road,
             Newark, Delaware 19702
           </p>
-          <p className="font-weight-medium">
+          <p className="font-weight-medium text-white">
             <i className="fa fa-phone-alt mr-2"></i>+1 (832) 690-0563
           </p>
-          <p className="font-weight-medium">
+          <p className="font-weight-medium text-white">
             <i className="fa fa-envelope mr-2"></i>mail@kimmotechnology.com
           </p>
           <h6 className="mt-4 mb-3 text-white text-uppercase font-weight-bold">

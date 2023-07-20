@@ -112,7 +112,16 @@ function ProductScreen() {
   ) : (
     <div>
       <Helmet>
-        <title>Kimmotech blog article ${slug}</title>
+        <title>{`KIMMOTECH - ${blog.title}`}</title>
+
+        {/* Open Graph Helmet Meta Tags */}
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={blog.title} />
+        <meta property="og:description" content={blog.smallPost} />
+        <meta property="og:image" content={blog.image} />
+        <meta property="og:url" content={`/article/${blog.slug}`} />
+
+        {/* Twitter Helmet Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={blog.name} />
         <meta name="twitter:description" content={blog.smallPost} />

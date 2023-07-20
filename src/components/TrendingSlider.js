@@ -52,10 +52,10 @@ export default function TrendingSlider() {
           <div className="col-12">
             <div className="d-flex justify-content-start">
               <div
-                className="bg-primary text-white text-center font-weight-medium py-1 px-2"
-                style={{ width: '90px' }}
+                className="bg-primary text-white text-center font-weight-medium py-1 px-2 vertical-center align-center"
+                style={{ width: '90px', fontSize: '10px' }}
               >
-                Trending
+                <p className="">Trending</p>
               </div>
               <div
                 className="position-relative d-inline-flex align-items-center ml-1"

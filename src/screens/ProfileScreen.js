@@ -35,8 +35,8 @@ const reducer = (state, action) => {
 export default function ProfileScreen() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { userInfo } = state;
-  const [name, setName] = useState(userInfo.name);
-  const [email, setEmail] = useState(userInfo.email);
+  const [name, setName] = useState(userInfo.name || '');
+  const [email, setEmail] = useState(userInfo.email || '');
   const [images, setImages] = useState('');
   const [bio, setBio] = useState('');
   const [password, setPassword] = useState('');
@@ -76,6 +76,28 @@ export default function ProfileScreen() {
     setPassword('');
     setConfirmPassword('');
   };
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       dispatch({ type: 'FETCH_REQUEST' });
+  //       const { data } = await axios.get(`${API_URL}/api/blogs/${productId}`);
+  //       setName(data.name);
+  //       setSlug(data.slug);
+  //       setImage(data.image);
+  //       setCategory(data.category);
+  //       setPost(data.post);
+  //       setSmallPost(data.smallPost);
+  //       dispatch({ type: 'FETCH_SUCCESS' });
+  //     } catch (err) {
+  //       dispatch({
+  //         type: 'FETCH_FAIL',
+  //         payload: getError(err),
+  //       });
+  //     }
+  //   };
+  //   fetchData();
+  // }, [productId]);
 
   const uploadFileHandler = async (e, forImages) => {
     const file = e.target.files[0];

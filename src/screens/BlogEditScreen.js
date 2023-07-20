@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useReducer, useState } from 'react';
 import ReactQuill, { Quill } from 'react-quill';
-// import { ImageResize } from 'quill-image-resize-module';
 import 'react-quill/dist/quill.snow.css';
 import ImageResize from 'quill-image-resize-module-react';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -110,6 +109,7 @@ const formats = [
   'indent',
   'link',
   'image',
+  'video',
 ];
 
 export default function ProductEditScreen() {
@@ -241,23 +241,25 @@ export default function ProductEditScreen() {
               required
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="image">
-            <Form.Label>Image File</Form.Label>
-            <Form.Control
-              value={image}
-              onChange={(e) => setImage(e.target.value)}
-              required
-            />
-          </Form.Group>
+          <div>
+            <Form.Group className="mb-3" controlId="image">
+              <Form.Label>Image File</Form.Label>
+              <Form.Control
+                value={image}
+                onChange={(e) => setImage(e.target.value)}
+                required
+              />
+            </Form.Group>
 
-          <Form.Group className="mb-3">
-            <Form.Label>Upload Image</Form.Label>
-            <Form.Control
-              type="file"
-              onChange={(e) => uploadFileHandler(e, true)}
-            />
-            {loadingUpload && <LoadingBox></LoadingBox>}
-          </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Upload Image</Form.Label>
+              <Form.Control
+                type="file"
+                onChange={(e) => uploadFileHandler(e, true)}
+              />
+              {loadingUpload && <LoadingBox></LoadingBox>}
+            </Form.Group>
+          </div>
 
           <Form.Group className="mb-3" controlId="category">
             <Form.Label>Category</Form.Label>
