@@ -52,13 +52,13 @@ export default function TrendingSlider() {
           <div className="col-12">
             <div className="d-flex justify-content-start">
               <div
-                className="bg-primary text-white text-center font-weight-medium py-1 px-2 vertical-center align-center"
-                style={{ width: '90px', fontSize: '10px' }}
+                className="bg-primary text-dark text-center font-weight-medium py-1"
+                style={{ width: '70px', fontSize: '12px' }}
               >
-                <p className="">Trending</p>
+                Trending
               </div>
               <div
-                className="position-relative d-inline-flex align-items-center ml-1"
+                className="position-relative d-inline-flex align-items-center justify-content-start ml-1"
                 style={{
                   width: 'calc(100% - 70px)',
                   paddingRight: '5px',
@@ -73,8 +73,11 @@ export default function TrendingSlider() {
                   className="mySwiper"
                 >
                   {blogs?.map((blog) => (
-                    <SwiperSlide key={blog.slug}>
-                      <div className="truncate-overflow-3 text-left">
+                    <SwiperSlide
+                      key={blog.slug}
+                      className="justify-content-start"
+                    >
+                      <div className="text-truncate text-left">
                         <Link
                           to={`/blog/${blog.slug}`}
                           className="text-black text-uppercase"

@@ -37,6 +37,7 @@ import BackToTopButton from './components/BactToTopButton.js';
 import Footer from './components/Footer.js';
 import moment from 'moment';
 import SuperAdminEditScreen from './screens/SuperAdminEditScreen.js';
+import Advertise from './screens/AdvertiseScreen.js';
 axios.defaults.withCredentials = true;
 
 function App() {
@@ -98,8 +99,8 @@ function App() {
               toogle="collapse"
             />
             <Navbar.Collapse id="basic-navbar-nav">
-              <Nav className="me-auto w-100 justify-content-end">
-                <div className="navbar-nav mr-auto py-0">
+              <Nav className="me-auto w-100 d-flex justify-content-end">
+                <div className="navbar-nav mr-auto py-0 w-100">
                   <NavLink
                     to="/"
                     className="nav-item nav-link"
@@ -181,21 +182,6 @@ function App() {
                   ) : (
                     ''
                   )}
-
-                  <NavLink
-                    to="/contact"
-                    className="nav-item nav-link"
-                    style={navLinkStyles}
-                  >
-                    Contact
-                  </NavLink>
-                  <NavLink
-                    to="/about"
-                    className="nav-item nav-link"
-                    style={navLinkStyles}
-                  >
-                    About
-                  </NavLink>
                 </div>
               </Nav>
               <SearchBox />
@@ -225,6 +211,11 @@ function App() {
                     <li className="nav-item border-right border-secondary">
                       <a className="nav-link text-body small" href="/contact">
                         Contact
+                      </a>
+                    </li>
+                    <li className="nav-item border-right border-secondary">
+                      <a className="nav-link text-body small" href="/about">
+                        About
                       </a>
                     </li>
                     <li className="nav-item">
@@ -295,6 +286,7 @@ function App() {
               />
               <Route path="/contact" element={<ContactScreen />} />
               <Route path="/about" element={<AboutScreen />} />
+              <Route path="/advertise-with-us" element={<Advertise />} />
 
               {/* Admin Routes */}
 
@@ -363,7 +355,7 @@ function App() {
             className="container-fluid py-4 px-sm-3 px-md-5"
             style={{ background: '#111111' }}
           >
-            <p className="m-0 text-center">
+            <p className="m-0 text-center text-white">
               &copy; <a href="/">Kimmotech Blog</a>. All Rights Reserved. Design
               by <a href="https://www.kimmotechnology.com">kimmotechnology</a>
             </p>

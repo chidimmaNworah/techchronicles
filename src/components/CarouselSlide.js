@@ -172,8 +172,11 @@ export default function CarouselSlide() {
                     className="mySwiper "
                   >
                     {blogs?.map((blog) => (
-                      <SwiperSlide className="text-left" key={blog.slug}>
-                        <div className="text-truncate">
+                      <SwiperSlide
+                        className="text-left justify-content-start"
+                        key={blog.slug}
+                      >
+                        <div className="text-truncate text-left">
                           <Link
                             to={`/article/${blog.slug}`}
                             className="text-white font-weight-medium"
