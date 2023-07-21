@@ -98,9 +98,9 @@ function App() {
               className="navbar-toggler"
               toogle="collapse"
             />
-            <Navbar.Collapse id="basic-navbar-nav">
-              <Nav className="me-auto w-100 d-flex justify-content-end">
-                <div className="navbar-nav mr-auto py-0 w-100">
+            <Navbar.Collapse id="basic-navbar-nav w-full d-flex justify-content-end">
+              <Nav className="me-auto w-100">
+                <div className="navbar-nav mr-auto py-0 w-100 d-flex justify-content-end">
                   <NavLink
                     to="/"
                     className="nav-item nav-link"

@@ -98,18 +98,25 @@ const modules = {
 };
 
 const formats = [
+  'font',
   'header',
   'bold',
   'italic',
   'underline',
   'strike',
+  'color',
+  'background',
+  'script',
   'blockquote',
+  'code-block',
   'list',
   'bullet',
   'indent',
+  'align',
   'link',
   'image',
   'video',
+  'clean',
 ];
 
 export default function ProductEditScreen() {
