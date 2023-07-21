@@ -190,13 +190,6 @@ function App() {
                     Contact
                   </NavLink>
                   <NavLink
-                    to="/contact"
-                    className="nav-item nav-link"
-                    style={navLinkStyles}
-                  >
-                    Contact
-                  </NavLink>
-                  <NavLink
                     to="/about"
                     className="nav-item nav-link"
                     style={navLinkStyles}
