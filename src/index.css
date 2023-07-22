@@ -273,6 +273,8 @@ p {
 
 .product-component-name {
   color: #2c0280;
+  font-size: 12px;
+  color: rgb(25, 25, 25);
 }
 
 .rating span {
@@ -282,6 +284,10 @@ p {
 .rating span i {
   font-size: 1rem;
   padding: 1px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 .product {

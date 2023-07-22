@@ -73,6 +73,14 @@ function App() {
     };
   };
 
+  const handleLinkSelect = () => {
+    // Close the navbar programmatically
+    const navToggle = document.getElementById('responsive-navbar-nav');
+    if (navToggle) {
+      navToggle.classList.remove('show');
+    }
+  };
+
   return (
     <BrowserRouter>
       <div>
@@ -92,19 +100,20 @@ function App() {
               </h1>
             </a>
             <Navbar.Toggle
-              aria-controls="basic-navbar-nav"
+              aria-controls="responsive-navbar-nav"
               bg="dark"
               variant="dark"
               className="navbar-toggler"
               toogle="collapse"
             />
-            <Navbar.Collapse id="basic-navbar-nav w-full d-flex justify-content-end">
-              <Nav className="me-auto w-100">
+            <Navbar.Collapse id="responsive-navbar-nav w-full d-flex justify-content-end">
+              <Nav className="me-auto w-100" onSelect={handleLinkSelect}>
                 <div className="navbar-nav mr-auto py-0 w-100 d-flex justify-content-end">
                   <NavLink
                     to="/"
                     className="nav-item nav-link"
                     style={navLinkStyles}
+                    as={Link}
                   >
                     Home
                   </NavLink>
@@ -112,10 +121,16 @@ function App() {
                     to="/search"
                     className="nav-item nav-link"
                     style={navLinkStyles}
+                    as={Link}
                   >
                     Articles
                   </NavLink>
                   <NavDropdown title="Category" id="basic-nav-dropdown">
+                    <Nav.Item className="dropdown-item">
+                      <LinkContainer to="/search">
+                        <NavDropdown.Item>All</NavDropdown.Item>
+                      </LinkContainer>
+                    </Nav.Item>
                     {categories.map((category) => (
                       <Nav.Item key={category} className="dropdown-item">
                         <LinkContainer

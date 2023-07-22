@@ -146,12 +146,18 @@ export default function SearchScreen() {
                 </Col>
                 <Col>
                   <div className="app__navbar-menu">
-                    <h3 onClick={() => setCategoryToggle(true)}>
+                    <h3
+                      onClick={() => setCategoryToggle(true)}
+                      className="cursor-pointer"
+                    >
                       View Categories
                     </h3>
                     {categoryToggle && (
-                      <div>
-                        <h3 onClick={() => setCategoryToggle(false)}>
+                      <div className="">
+                        <h3
+                          onClick={() => setCategoryToggle(false)}
+                          className="cursor-pointer"
+                        >
                           Hide Categories
                         </h3>
                         <ul>

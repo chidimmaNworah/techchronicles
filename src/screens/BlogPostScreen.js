@@ -11,12 +11,13 @@ import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { getError, API_URL } from '../utils';
 import { Link, useParams } from 'react-router-dom';
-import WidgetScreen from '../components/WidgetScreen';
 import TrendingSlider from '../components/TrendingSlider';
 import { toast } from 'react-toastify';
 import { Store } from '../Store';
 import moment from 'moment';
 import { Button } from 'react-bootstrap';
+import Socials from '../components/Socials';
+import NewsLetter from '../components/NewsLetter';
 axios.defaults.withCredentials = true;
 
 const reducer = (state, action) => {
@@ -35,6 +36,8 @@ const reducer = (state, action) => {
       return { ...state, blog: action.payload, loading: false };
     case 'FETCH_FAIL':
       return { ...state, loading: false, error: action.payload };
+    case 'FETCH_RELATED_SUCCESS':
+      return { ...state, loading: false, relatedBlogs: action.payload };
     default:
       return state;
   }
@@ -44,22 +47,36 @@ function ProductScreen() {
   let reviewsRef = useRef();
 
   const [comment, setComment] = useState('');
+  const [categories, setCategories] = useState([]);
 
   // const navigate = useNavigate();
   const params = useParams();
   const { slug } = params;
 
-  const [{ loading, error, blog, loadingCreateReview }, dispatch] = useReducer(
-    reducer,
-    {
-      blog: [],
-      loading: true,
-      error: '',
-    }
-  );
+  const [
+    { loading, error, blog, loadingCreateReview, relatedBlogs },
+    dispatch,
+  ] = useReducer(reducer, {
+    blog: [],
+    loading: true,
+    error: '',
+    relatedBlogs: [],
+  });
 
   const { state } = useContext(Store);
   const { userInfo } = state;
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const { data } = await axios.get(`${API_URL}/api/blogs/categories`);
+        setCategories(data);
+      } catch (err) {
+        toast.error(getError(err));
+      }
+    };
+    fetchCategories();
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -67,6 +84,19 @@ function ProductScreen() {
       try {
         const result = await axios.get(`${API_URL}/api/blogs/slug/${slug}`);
         dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
+
+        if (result.data.category) {
+          const relatedResult = await axios.get(
+            `${API_URL}/api/blogs/related/${result.data.category}/${result.data.slug}`
+          );
+          dispatch({
+            type: 'FETCH_RELATED_SUCCESS',
+            payload: relatedResult.data,
+          });
+          console.log(relatedBlogs);
+        } else {
+          dispatch({ type: 'FETCH_RELATED_SUCCESS', payload: [] });
+        }
       } catch (err) {
         dispatch({ type: 'FETCH_FAIL', payload: getError(err.message) });
       }
@@ -289,7 +319,100 @@ function ProductScreen() {
               </div>
             </div>
 
-            <WidgetScreen />
+            <div className="col-lg-4">
+              <Socials />
+
+              <div className="mb-3">
+                <div className="section-title mb-0">
+                  <h4 className="m-0 text-uppercase font-weight-bold">
+                    Advertisement
+                  </h4>
+                </div>
+                <div className="bg-white text-center border border-top-0 p-3">
+                  <a
+                    href="https://www.kimmotechnology.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img
+                      className="img-fluid"
+                      src="https://res.cloudinary.com/kimmoramicky/image/upload/v1681296838/Adverts/tech_small_banner_hhyzat.png"
+                      alt="kimmotechnology"
+                    />
+                  </a>
+                </div>
+              </div>
+
+              <div className="mb-3">
+                <div className="section-title mb-0">
+                  <h4 className="m-0 text-uppercase font-weight-bold">
+                    Related News
+                  </h4>
+                </div>
+                <div className="bg-white border border-top-0 p-2">
+                  {relatedBlogs?.slice(0, 5).map((relatedBlog) => (
+                    <div
+                      className="d-flex align-items-center bg-white mb-1 w-100"
+                      style={{ height: '110px' }}
+                      key={relatedBlog._id} // Use the unique ID or slug as the key
+                    >
+                      <img
+                        className="img-fluid"
+                        src={relatedBlog.image}
+                        alt="article"
+                        width={100}
+                      />
+                      <div className="w-100 h-100 pl-2 d-flex flex-column justify-content-center">
+                        <div className="mb-1">
+                          <a className="text-body" href="/">
+                            <small>
+                              {moment(relatedBlog.createdAt).format(
+                                'MMMM Do YYYY'
+                              )}
+                            </small>
+                          </a>
+                        </div>
+                        <div className="w-100 truncate-overflow-3">
+                          <Link
+                            className="m-0 text-secondary font-weight-bold"
+                            to={`/article/${relatedBlog.slug}`}
+                          >
+                            {relatedBlog.name}
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <NewsLetter />
+
+              <div className="mb-3">
+                <div className="section-title mb-0">
+                  <h4 className="m-0 text-uppercase font-weight-bold">Tags</h4>
+                </div>
+                <div className="bg-white border border-top-0 p-3">
+                  <div className="d-flex flex-wrap m-n1">
+                    {categories
+                      ?.slice(0, 12)
+                      .reverse()
+                      .map((category) => (
+                        <Link
+                          className="btn btn-sm btn-outline-secondary m-1"
+                          to={{
+                            pathname: '/search',
+                            search: `category=${category}`,
+                          }}
+                          key={category}
+                        >
+                          {category}
+                        </Link>
+                      ))}
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

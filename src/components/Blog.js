@@ -13,6 +13,14 @@ function Blog(props) {
         <img src={blog.image} alt={blog.name} className="card-img-top" />
       </Link>
       <Card.Body>
+        <Link
+          to={{
+            pathname: '/search',
+            search: `category=${blog.category}`,
+          }}
+        >
+          {blog.category}
+        </Link>
         <Link to={`/article/${blog.slug}`}>
           <h6 className="product-component-name">{blog.name}</h6>
         </Link>
