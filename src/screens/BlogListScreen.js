@@ -177,7 +177,9 @@ export default function ProductListScreen() {
             <tbody>
               {products?.map((product) => (
                 <tr key={product._id}>
-                  <td>{product._id}</td>
+                  <td>
+                    <a href={`/article/${product.slug}`}>{product._id}</a>
+                  </td>
                   <td>{product.name}</td>
                   <td>{product.category}</td>
                   <td>{product.smallPost}</td>
