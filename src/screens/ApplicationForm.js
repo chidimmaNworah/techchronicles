@@ -251,7 +251,9 @@ export default function ApplicationForm() {
               required
             >
               <option>Select Position</option>
-              <option value="1">Creative Copy Writer</option>
+              <option value="Creative Copy Writer">Creative Copy Writer</option>
+              <option value="Graphic Designer">Graphic Designer</option>
+              <option value="Digital Marketer">Digital Marketer</option>
             </Form.Select>
           </Form.Group>
           <Form.Group className="mb-3" controlId="addressStreet">
