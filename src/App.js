@@ -38,6 +38,7 @@ import Footer from './components/Footer.js';
 import moment from 'moment';
 import SuperAdminEditScreen from './screens/SuperAdminEditScreen.js';
 import Advertise from './screens/AdvertiseScreen.js';
+import ApplicationForm from './screens/ApplicationForm.js';
 axios.defaults.withCredentials = true;
 
 function App() {
@@ -259,6 +260,10 @@ function App() {
               <Route
                 path="/terms-and-conditions"
                 element={<TermsAndConditionsScreen />}
+              />
+              <Route
+                path="/careers/job-application-portal/copywriter"
+                element={<ApplicationForm />}
               />
               <Route path="/admin/super-admin" element={<SuperAdminScreen />} />
               <Route

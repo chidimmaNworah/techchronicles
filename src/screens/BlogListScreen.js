@@ -110,6 +110,7 @@ export default function ProductListScreen() {
             headers: { Authorization: `Bearer ${userInfo.token}` },
           }
         );
+        window.location.reload();
         toast.success('Blogpost created successfully');
         dispatch({ type: 'CREATE_SUCCESS' });
         navigate(`/admin/blog/${data.product._id}`);

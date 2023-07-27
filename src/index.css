@@ -277,6 +277,9 @@ p {
   color: rgb(25, 25, 25);
 }
 
+.rounded-none {
+  border-radius: 0;
+}
 .rating span {
   color: #cc96ff;
 }
