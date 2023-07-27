@@ -79,7 +79,7 @@ export default function TrendingSlider() {
                     >
                       <div className="text-truncate text-left">
                         <Link
-                          to={`/blog/${blog.slug}`}
+                          to={`/article/${blog.slug}`}
                           className="text-black text-uppercase"
                         >
                           {blog.name}
