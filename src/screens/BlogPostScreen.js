@@ -308,7 +308,7 @@ function ProductScreen() {
                 ) : (
                   <MessageBox>
                     Please{' '}
-                    <Link to={`/signin?redirect=/blog/${blog.slug}`}>
+                    <Link to={`/signin?redirect=/article/${blog.slug}`}>
                       Sign In
                     </Link>{' '}
                     to write a comment
