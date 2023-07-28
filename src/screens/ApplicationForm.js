@@ -221,6 +221,7 @@ export default function ApplicationForm() {
                         onChange={(e) => setCountryCode(e.target.value)}
                         required
                       >
+                        <option>+000</option>
                         <option value="+234">+234</option>
                         <option value="+229">+229</option>
                         <option value="+233">+233</option>
