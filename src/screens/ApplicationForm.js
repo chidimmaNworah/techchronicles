@@ -375,7 +375,7 @@ export default function ApplicationForm() {
           )}
         </div>
       ) : (
-        <MessageBox>
+        <MessageBox className="my-5">
           Please{' '}
           <Link to="/signin?redirect=/careers/job-application-portal/copywriter">
             Sign In
