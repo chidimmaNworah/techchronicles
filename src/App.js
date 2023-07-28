@@ -263,7 +263,11 @@ function App() {
               />
               <Route
                 path="/careers/job-application-portal/copywriter"
-                element={<ApplicationForm />}
+                element={
+                  <ProtectedRoute>
+                    <ApplicationForm />
+                  </ProtectedRoute>
+                }
               />
               <Route path="/admin/super-admin" element={<SuperAdminScreen />} />
               <Route
