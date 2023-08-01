@@ -1,8 +1,12 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 export default function TermsAndConditionsScreen() {
   return (
     <div className="container my-5">
+      <Helmet>
+        <title>Terms and Conditions - KIMMOTECH</title>
+      </Helmet>
       <h1 className="mb-5">Terms and Conditions</h1>
 
       <h3>1. Introduction</h3>

@@ -134,7 +134,7 @@ export default function ProfileScreen() {
   return (
     <div>
       <Helmet>
-        <title>User Profile | Kimmotechnology Blog</title>
+        <title>{`${userInfo.name} Profile | Kimmotechnology Blog`}</title>
       </Helmet>
       <Container>
         <h1 className="my-3">User Profile</h1>

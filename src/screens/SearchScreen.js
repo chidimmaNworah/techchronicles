@@ -91,7 +91,7 @@ export default function SearchScreen() {
   return (
     <div>
       <Helmet>
-        <title>Kimmotech Blog Articles</title>
+        <title>Articles - KIMMOTECH</title>
       </Helmet>
       <Row>
         <Col className="large__navbar-menu">

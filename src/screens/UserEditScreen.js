@@ -93,7 +93,7 @@ export default function UserEditScreen() {
   return (
     <Container className="small-container">
       <Helmet>
-        <title>Edit User ${userId}</title>
+        <title>{`Edit User ${userId}`}</title>
       </Helmet>
       <h1>Edit User {userId}</h1>
 

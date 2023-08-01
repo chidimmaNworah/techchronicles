@@ -1,9 +1,13 @@
 import React from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Helmet } from 'react-helmet-async';
 
 const AboutPage = () => {
   return (
     <Container className="py-5">
+      <Helmet>
+        <title>About Kimmotechnology</title>
+      </Helmet>
       <h1 className="text-center mb-4">About Kimmotech Blog</h1>
       <Row>
         <Col md={12}>

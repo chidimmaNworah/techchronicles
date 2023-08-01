@@ -1,8 +1,12 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 export default function PrivacyPolicyScreen() {
   return (
     <div className="container my-5 privacy-text">
+      <Helmet>
+        <title>Privacy Policy - KIMMOTECH</title>
+      </Helmet>
       <h1 className="mb-5">Privacy Policy</h1>
       Last Updated: 29/05/2023
       <p>

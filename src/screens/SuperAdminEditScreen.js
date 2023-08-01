@@ -156,7 +156,7 @@ export default function SuperAdminEditScreen() {
         type: 'UPDATE_SUCCESS',
       });
       toast.success('Blog post updated successfully');
-      navigate('/admin/blogs');
+      navigate('/admin/super-admin');
     } catch (err) {
       toast.error(getError(err));
       dispatch({ type: 'UPDATE_FAIL' });
@@ -215,7 +215,7 @@ export default function SuperAdminEditScreen() {
   return (
     <Container className="small-container">
       <Helmet>
-        <title>Edit Blog Post ${productId}</title>
+        <title>{`Edit Blog Post ${productId}`}</title>
       </Helmet>
       <h1>Edit Blog Post {productId}</h1>
 
