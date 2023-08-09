@@ -187,7 +187,13 @@ export default function ProductListScreen() {
                   </td>
                   <td>{product.name}</td>
                   <td>{product.category}</td>
-                  <td>{product.smallPost}</td>
+                  <td>
+                    {product.smallPost} <br />{' '}
+                    <span className="ml-3">
+                      <i className="far fa-eye mr-2"></i>
+                      {product.views}
+                    </span>
+                  </td>
                   <td>
                     <Button
                       type="button"

@@ -189,9 +189,9 @@ function ProductScreen() {
                       {moment(blog.createdAt).format('MMMM Do YYYY, h:mm:ss a')}
                     </a>
                   </div>
-                  <h1 className="mb-3 text-secondary text-uppercase font-weight-bold">
+                  <h2 className="mb-3 text-secondary text-uppercase font-weight-semibold">
                     {blog.name}
-                  </h1>
+                  </h2>
                   <div
                     className="responsive-photo"
                     dangerouslySetInnerHTML={{ __html: blog.post }}
