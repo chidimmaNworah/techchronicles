@@ -46,7 +46,7 @@ export default function Footer() {
             Newark, Delaware 19702
           </p>
           <p className="font-weight-medium text-white">
-            <i className="fa fa-phone-alt mr-2"></i>+1 (832) 690-0563
+            <i className="fa fa-phone-alt mr-2"></i>+1 (740) 377-8825
           </p>
           <p className="font-weight-medium text-white">
             <i className="fa fa-envelope mr-2"></i>mail@kimmotechnology.com
