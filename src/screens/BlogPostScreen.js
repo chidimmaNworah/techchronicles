@@ -150,7 +150,7 @@ function ProductScreen() {
         <meta property="og:url" content={`/article/${blog.slug}`} />
 
         {/* Twitter Helmet Meta Tags */}
-        <meta name="twitter:card" content="summary_large_image" />
+        {/* <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={blog.name} />
         <meta name="twitter:description" content={blog.smallPost} />
         <meta name="twitter:image" content={blog.image} />
@@ -159,7 +159,7 @@ function ProductScreen() {
 
         <meta property="og:title" content={blog.name} />
         <meta property="og:description" content={blog.smallPost} />
-        <meta property="og:image" content={blog.image} />
+        <meta property="og:image" content={blog.image} /> */}
       </Helmet>
 
       <div className="container-fluid">
