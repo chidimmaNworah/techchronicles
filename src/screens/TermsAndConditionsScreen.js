@@ -5,9 +5,7 @@ export default function TermsAndConditionsScreen() {
   return (
     <div className="container my-5">
       <Helmet>
-        <head>
-          <title>Terms and Conditions - KIMMOTECH</title>
-        </head>
+        <title>Terms and Conditions - KIMMOTECH</title>
       </Helmet>
       <h1 className="mb-5">Terms and Conditions</h1>
 

@@ -45,9 +45,7 @@ export default function ForgotPassScreen() {
   return (
     <Container className="small-container">
       <Helmet>
-        <head>
-          <title>Forgot Password</title>
-        </head>
+        <title>Forgot Password</title>
       </Helmet>
       <h3 className="my-3">Enter Your Email to Reset Password</h3>
       <Form onSubmit={submitHandler}>

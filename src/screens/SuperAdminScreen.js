@@ -143,7 +143,7 @@ export default function SuperAdminScreen() {
   return (
     <div>
       <Helmet>
-        <head>Super Admin Screen</head>
+        <title>Super Admin Screen</title>
       </Helmet>
       <Row>
         <Col>

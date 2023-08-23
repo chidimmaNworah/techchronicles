@@ -52,22 +52,20 @@ function HomeScreen() {
   return (
     <>
       <Helmet>
-        <head>
-          <title>Kimmotechnology - Blog</title>
+        <title>Kimmotechnology - Blog</title>
 
-          {/* Open Graph Helmet Meta Tags */}
-          <meta property="og:type" content="website" />
-          <meta property="og:title" content="KIMMOTECHNOLOGY" />
-          <meta
-            property="og:description"
-            content="Explore the forefront of technology at KIMMOTECH. Stay updated with the latest tech news, innovations, and cutting-edge developments. Unleash your curiosity and fuel your passion for the future of technology. Join us on a thrilling journey of knowledge and inspiration. Embrace the tech revolution with us today."
-          />
-          <meta
-            property="og:image"
-            content="https://res.cloudinary.com/kimmoramicky/image/upload/v1682442915/techchronicles/Kimmotech_site_mockup_dr1tkk.png"
-          />
-          <meta property="og:url" content="https://www.kimmotech.blog/" />
-        </head>
+        {/* Open Graph Helmet Meta Tags */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="KIMMOTECHNOLOGY" />
+        <meta
+          property="og:description"
+          content="Explore the forefront of technology at KIMMOTECH. Stay updated with the latest tech news, innovations, and cutting-edge developments. Unleash your curiosity and fuel your passion for the future of technology. Join us on a thrilling journey of knowledge and inspiration. Embrace the tech revolution with us today."
+        />
+        <meta
+          property="og:image"
+          content="https://res.cloudinary.com/kimmoramicky/image/upload/v1682442915/techchronicles/Kimmotech_site_mockup_dr1tkk.png"
+        />
+        <meta property="og:url" content="https://www.kimmotech.blog/" />
       </Helmet>
 
       <div className="header-container">

@@ -61,9 +61,7 @@ export default function ChangePassScreen() {
   return (
     <Container className="small-container">
       <Helmet>
-        <head>
-          <title>Change Password</title>
-        </head>
+        <title>Change Password</title>
       </Helmet>
 
       <h1 className="my-3">Enter New Password</h1>

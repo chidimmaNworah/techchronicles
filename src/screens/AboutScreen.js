@@ -6,9 +6,7 @@ const AboutPage = () => {
   return (
     <Container className="py-5">
       <Helmet>
-        <head>
-          <title>About Kimmotechnology</title>
-        </head>
+        <title>About Kimmotechnology</title>
       </Helmet>
       <h1 className="text-center mb-4">About Kimmotech Blog</h1>
       <Row>
