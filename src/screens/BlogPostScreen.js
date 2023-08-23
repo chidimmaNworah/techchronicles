@@ -135,10 +135,8 @@ function ProductScreen() {
     }
   };
 
-  return error ? (
-    <MessageBox variant="danger">{error}</MessageBox>
-  ) : (
-    <div>
+  return (
+    <>
       <Helmet>
         <title>{`KIMMOTECH - ${blog.name}`}</title>
 
@@ -410,7 +408,7 @@ function ProductScreen() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 export default ProductScreen;
