@@ -143,7 +143,9 @@ export default function ApplicationForm() {
   return (
     <div>
       <Helmet>
-        <title>Careers screen - Kimmotechnology</title>
+        <head>
+          <title>Careers screen - Kimmotechnology</title>
+        </head>
       </Helmet>
       <Container className="small-container">
         {userInfo ? (

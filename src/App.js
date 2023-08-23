@@ -7,17 +7,14 @@ import { useContext, useEffect, useState } from 'react';
 import { Store } from './Store.js';
 import {
   HomeScreen,
-  MapScreen,
   UserEditScreen,
   UserListScreen,
-  OrderListScreen,
   BlogEditScreen,
   BlogListScreen,
   DashboardScreen,
   SearchScreen,
   BlogPostScreen,
   ProfileScreen,
-  OrderScreen,
   SigninScreen,
   SignupScreen,
   ContactScreen,
@@ -287,23 +284,6 @@ function App() {
                   </ProtectedRoute>
                 }
               />
-              <Route
-                path="/map"
-                element={
-                  <ProtectedRoute>
-                    <MapScreen />
-                  </ProtectedRoute>
-                }
-              />
-
-              <Route
-                path="/order/:id"
-                element={
-                  <ProtectedRoute>
-                    <OrderScreen />
-                  </ProtectedRoute>
-                }
-              />
               <Route path="/contact" element={<ContactScreen />} />
               <Route path="/about" element={<AboutScreen />} />
               <Route path="/advertise-with-us" element={<Advertise />} />
@@ -327,16 +307,6 @@ function App() {
                   </AdminRoute>
                 }
               />
-
-              <Route
-                path="/admin/orders"
-                element={
-                  <AdminRoute>
-                    <OrderListScreen />
-                  </AdminRoute>
-                }
-              />
-
               <Route
                 path="/admin/users"
                 element={

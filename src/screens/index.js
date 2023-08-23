@@ -1,8 +1,5 @@
 export { default as DashboardScreen } from './DashboardScreen';
 export { default as HomeScreen } from './HomeScreen';
-export { default as MapScreen } from './MapScreen';
-export { default as OrderListScreen } from './OrderListScreen';
-export { default as OrderScreen } from './OrderScreen';
 export { default as ContactScreen } from './ContactScreen';
 export { default as BlogEditScreen } from './BlogEditScreen';
 export { default as BlogListScreen } from './BlogListScreen';

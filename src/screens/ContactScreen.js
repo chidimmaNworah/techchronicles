@@ -53,7 +53,9 @@ export default function ContactScreen() {
   return (
     <div className="contact">
       <Helmet>
-        <title>Contact - KIMMOTECH</title>
+        <head>
+          <title>Contact - KIMMOTECH</title>
+        </head>
       </Helmet>
 
       <div className="container-fluid mt-5 pt-3">

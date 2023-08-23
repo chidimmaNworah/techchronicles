@@ -5,7 +5,9 @@ export default function PrivacyPolicyScreen() {
   return (
     <div className="container my-5 privacy-text">
       <Helmet>
-        <title>Privacy Policy - KIMMOTECH</title>
+        <head>
+          <title>Privacy Policy - KIMMOTECH</title>
+        </head>
       </Helmet>
       <h1 className="mb-5">Privacy Policy</h1>
       Last Updated: 29/05/2023

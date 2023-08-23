@@ -9,6 +9,7 @@ import { Store } from '../Store';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { getError, API_URL } from '../utils';
+import { Helmet } from 'react-helmet-async';
 axios.defaults.withCredentials = true;
 
 const reducer = (state, action) => {
@@ -141,6 +142,9 @@ export default function SuperAdminScreen() {
 
   return (
     <div>
+      <Helmet>
+        <head>Super Admin Screen</head>
+      </Helmet>
       <Row>
         <Col>
           <h1>{userInfo.name} Blog Posts</h1>

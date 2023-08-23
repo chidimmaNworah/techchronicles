@@ -215,7 +215,9 @@ export default function SuperAdminEditScreen() {
   return (
     <Container className="small-container">
       <Helmet>
-        <title>{`Edit Blog Post ${productId}`}</title>
+        <head>
+          <title>{`Edit Blog Post ${productId}`}</title>
+        </head>
       </Helmet>
       <h1>Edit Blog Post {productId}</h1>
 

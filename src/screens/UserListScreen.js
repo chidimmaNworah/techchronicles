@@ -91,7 +91,9 @@ export default function UserListScreen() {
   return (
     <div>
       <Helmet>
-        <title>Users</title>
+        <head>
+          <title>Users</title>
+        </head>
       </Helmet>
       <h1>Users</h1>
 

@@ -140,26 +140,24 @@ function ProductScreen() {
   ) : (
     <div>
       <Helmet>
-        <title>{`KIMMOTECH - ${blog.name}`}</title>
+        <head>
+          <title>{`KIMMOTECH - ${blog.name}`}</title>
 
-        {/* Open Graph Helmet Meta Tags */}
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content={blog.name} />
-        <meta property="og:description" content={blog.smallPost} />
-        <meta property="og:image" content={blog.image} />
-        <meta property="og:url" content={`/article/${blog.slug}`} />
+          {/* Open Graph Helmet Meta Tags */}
+          <meta property="og:type" content="article" />
+          <meta property="og:title" content={blog.name} />
+          <meta property="og:description" content={blog.smallPost} />
+          <meta property="og:image" content={blog.image} />
+          <meta property="og:url" content={`/article/${blog.slug}`} />
 
-        {/* Twitter Helmet Meta Tags */}
-        {/* <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={blog.name} />
-        <meta name="twitter:description" content={blog.smallPost} />
-        <meta name="twitter:image" content={blog.image} />
-        <meta name="twitter:site" content="@kimmotechnology" />
-        <meta name="twitter:url" content={`/article/${blog.slug}`} />
-
-        <meta property="og:title" content={blog.name} />
-        <meta property="og:description" content={blog.smallPost} />
-        <meta property="og:image" content={blog.image} /> */}
+          {/* Twitter Helmet Meta Tags */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content={blog.name} />
+          <meta name="twitter:description" content={blog.smallPost} />
+          <meta name="twitter:image" content={blog.image} />
+          <meta name="twitter:site" content="@kimmotechnology" />
+          <meta name="twitter:url" content={`/article/${blog.slug}`} />
+        </head>
       </Helmet>
 
       <div className="container-fluid">

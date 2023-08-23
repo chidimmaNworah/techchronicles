@@ -144,7 +144,9 @@ export default function ProductListScreen() {
   return (
     <div>
       <Helmet>
-        <title>{`${userInfo.name} Blog Posts`}</title>
+        <head>
+          <title>{`${userInfo.name} Blog Posts`}</title>
+        </head>
       </Helmet>
       <Row>
         <Col>

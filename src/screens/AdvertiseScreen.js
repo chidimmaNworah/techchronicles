@@ -53,7 +53,9 @@ export default function Advertise() {
   return (
     <div className="contact">
       <Helmet>
-        <title>Advertise with Kimmotech</title>
+        <head>
+          <title>Advertise with Kimmotech</title>
+        </head>
       </Helmet>
 
       <div className="container-fluid mt-5 pt-3">

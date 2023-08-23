@@ -51,7 +51,9 @@ export default function VerifyEmailScreen() {
   return (
     <Container className="small-container">
       <Helmet>
-        <title>Kimmotechnology Blog Email Verification</title>
+        <head>
+          <title>Kimmotechnology Blog Email Verification</title>
+        </head>
       </Helmet>
       {validUrl ? (
         <div className="d-flex justify-content-center flex-column text-center">
